@@ -1,4 +1,5 @@
 class Admins::CustomersController < ApplicationController
+  layout 'admins/header'
   def index
   end
 

@@ -1,3 +1,4 @@
+<div class="container">
 <h2>投稿詳細</h2>
 <div class="row">
     <div class="col-xs-5">
@@ -17,6 +18,38 @@
 
       <h4>ジャンル</h4>
       <div class="item-genre">
-        <%= @post.genre_id %>
+        <%= @post.genre.name %>
       </div>
-      <%= link_to "投稿を編集する", edit_post_path class: "btn btn-primary"%>
+      <% if @customer == current_customer %>
+      <%= link_to "投稿を編集する", edit_post_path, class: "btn btn-primary"%>
+      <%= link_to "投稿を削除する", post_path, method: :delete, class: "btn btn-danger" %>
+      <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table">
+        <% @post.comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= link_to customer_path(@customer) do %>
+		          <%= comment.customer.name %>
+		        <% end %>
+		      </td>
+			    <td>
+			      <%= comment.comment %>
+			    </td>
+            <% if comment.customer == current_customer %>
+          <td>
+            <%= link_to "コメントを削除する", post_comment_path(comment.post, comment), method: :delete, local: true, class: "btn-sm btn-danger" %>
+          </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+      <!--コメントは、bookに結びついたpost_commentにあるため、2つ用意する必要がある-->
+      <%= form_with model:[@post, @comment], local: true do |f| %>
+        <%= f.text_area :comment, size:"50x2" %>
+        <%= f.submit "コメントをする", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>

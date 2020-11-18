@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GoToHawaii</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <title>Go To Hawaii</title>
+  </head>
+  <body>
+      <header>
+        <nav class="navbar navbar-default" style="height:60px;">
+          <div class="container-fluid" style="height:60px;">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+            <div class="header-nav-div">
+              <% if admin_signed_in? %>
+                <li class="header-nav">
+                  <%= link_to "会員一覧", admins_customers_path, class: "btn-square-so-pop" %>
+                </li>
+                <li class="header-nav">
+                  <%= link_to "カテゴリー一覧", admins_genres_path, class: "btn-square-so-pop" %>
+                </li>
+                <li class="header-nav">
+                  <%= link_to "投稿一覧", posts_path, class: "btn-square-so-pop" %>
+                </li>
+                <li class="header-nav">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn-square-so-pop" %>
+                </li>
+              <% else %>
+                <li class="header-nav">
+                  <%= link_to "About", about_path, class: "btn-square-so-pop" %>
+                </li>
+                <li class="header-nav">
+                  <%= link_to "ハワイを知ろう！", "", class: "btn-square-so-pop" %>
+                </li>
+                <li class="header-nav">
+                  <%= link_to "New Photo", new_post_path, class: "btn-square-so-pop" %>
+                </li>
+                <li class="header-nav">
+                  <%= link_to "管理者ログイン", new_customer_session_path, class: "btn-square-so-pop" %>
+                </li>
+              <% end %>
+            </div>
+          </div>
+        </nav>
+      </header>
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+    </body>
+  </html>
