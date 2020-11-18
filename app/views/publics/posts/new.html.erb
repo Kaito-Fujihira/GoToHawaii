@@ -1,59 +1,47 @@
-<h2>ハワイへの魅力を投稿しよう！</h2>
-<%= form_with model: @post, url: , local: true do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-    <div class="col-xs-5" >
-      <div class="item_image">
-		    <%= attachment_image_tag @item, :image, class: "img", fallback: "no-image.png", size:"300x300" %>
+<h2>ハワイの魅力を投稿しよう！</h2>
+<%= form_with model: @post, local: true do |f| %>
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="post_image">
+		    <%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"300x300" %>
 				<%= f.attachment_field :image %>
-			</div>
-			<!-- 画像プレビュー -->
-			<script>
-			   $(function(){
-			     //inputのidから情報を取得
-		       	$('#item_image').on('change', function (e) {
-		       	  // ココから既存の画像のurlの取得
-		       		var reader = new FileReader();
-		    		reader.onload = function (e) {
-		    			$(".image").attr('src', e.target.result);
-		    		}
-		    		// ココまで
-		    		reader.readAsDataURL(e.target.files[0]);
-		    		// 取得したurlにアップロード画像のurlを取得
-	          });
-	        });
-		    </script>
+  			</div>
+  			<script>
+  			   $(function(){
+  			     //inputのidから情報を取得
+  		       	$('#post_image').on('change', function (e) {
+  		       	  // ココから既存の画像のurlの取得
+  		       		var reader = new FileReader();
+  		    		reader.onload = function (e) {
+  		    			$(".image").attr('src', e.target.result);
+  		    		}
+  		    		// ココまで
+  		    		reader.readAsDataURL(e.target.files[0]);
+  		    		// 取得したurlにアップロード画像のurlを取得
+  	          });
+  	        });
+  		    </script>
+        </div>
+
+        <div class="col-xs-7">
+          <dt>タイトル</dt>
+          <dd>
+            <%= f.text_field :title, class: "form-control" %>
+          </dd>
+
+          <dt>説明</dt>
+          <dd>
+            <%= f.text_area :explanation, class: "form-control" %>
+          </dd>
+
+          <ht>ジャンル</dt>
+          <dd>
+            <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}) %>
+          </dd>
+
+          <dd>
+            <%= f.submit "新規投稿する", class: "btn btn-primary" %>
+          </dd>
+        </div>
+        <% end %>
       </div>
-
-      <div class="col-xs-7">
-        <h4>商品名</h4>
-        <div class="item-form">
-          <%= f.text_field :name, class:"form-control" %>
-        </div>
-
-        <h4>商品説明</h4>
-        <div class="item-explanation">
-          <%= f.text_area :explanation, class:"form-control"  %>
-        </div>
-
-        <h4>ジャンル</h4>
-        <div class="item-genre">
-          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}) %>
-        </div>
-
-        <h4>税抜価格</h4>
-        <div class="item-price-container">
-          <div><%= f.text_field :price, class:"form-control" %></div>
-          <div class="item-price">円</div>
-        </div>
-
-        <h4>販売ステータス</h4>
-        <div class="item-status">
-          <%= f.select :is_status, [['販売中','販売中'],['販売中止', '販売中止']], {prompt: "選択してください"} %>
-        </div>
-
-        <div style="padding-top:10px;">
-          <%= f.submit "新規登録", class: "btn btn-primary" %>
-        </div>
-      </div>
-      <% end %>
-    </div>

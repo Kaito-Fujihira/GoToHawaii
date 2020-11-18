@@ -1,2 +1,22 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h2>投稿詳細</h2>
+<div class="row">
+    <div class="col-xs-5">
+		<%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"300x300" %>
+    </div>
+
+    <div class="col-xs-7">
+      <h4>タイトル</h4>
+      <div class="item-form">
+        <%= @post.title %>
+      </div>
+
+      <h4>説明</h4>
+      <div class="item-explanation">
+        <%= @post.explanation %>
+      </div>
+
+      <h4>ジャンル</h4>
+      <div class="item-genre">
+        <%= @post.genre_id %>
+      </div>
+      <%= link_to "投稿を編集する", edit_post_path class: "btn btn-primary"%>
