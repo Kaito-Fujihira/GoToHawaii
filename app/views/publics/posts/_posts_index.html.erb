@@ -1,0 +1,12 @@
+<% posts.each do |post| %>
+  <div class="post-all">
+    <%= link_to post_path(post.id) do %>
+    <div>
+      <%= attachment_image_tag post, :post, size: "120x120", format: 'jpeg', fallback: "no-image.png" %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+<div>
+  <!--%= paginate(@items) %>-->
+</div>
