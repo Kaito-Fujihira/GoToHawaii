@@ -1,24 +1,33 @@
 <div class="container">
-<h1>マイページ</h1>
-<h1>さんの会員情報</h1>
-    <table class="table">
-    <tr><!--%= attachment_image_tag(customer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>--></tr>
+	<h1><%= @customer.name %>さんの会員情報</h1>
+	<div class="row">
+		<div class="col-xs-3">
+	    <table class="table">
+	    	<tr><!--%= attachment_image_tag(customer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>--></tr>
+				<tr>
+					<th>name</th>
+					<th><%= @customer.name %></th>
+				</tr>
 
-	<tr>
-		<th>name</th>
-		<th><%= @customer.name %></th>
-	</tr>
+				<tr>
+					<th>お住いの地域</th>
+					<th><%= @customer.country %></th>
+				</tr>
 
-	<tr>
-		<th>お住いの地域</th>
-		<th><%= @customer.country %></th>
-	</tr>
+				<tr>
+					<th>ハワイへの渡航歴</th>
+					<th><%= @customer.visit_time %></th>
+				</tr>
+			</table>
+			<%= link_to "マイページを編集する", edit_customer_path(current_customer.id), class: "btn btn-primary"%>
+			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn-square-so-pop" %>
+		</div>
 
-	<tr>
-		<th>ハワイへの渡航歴</th>
-		<th><%= @customer.visit_time %></th>
-	</tr>
-</table>
-<%= link_to "マイページを編集する", edit_customer_path(current_customer.id), class: "btn btn-primary"%>
-<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn-square-so-pop" %>
-</div>
+		<div class="col-xs-9">
+			<div class="posts-index-all">
+	  		<% @posts.each do |post| %>
+	    		<%= attachment_image_tag post, :image, class: "img", fallback: "no-image.png", size:"300x300" %>
+	    	<% end %>
+			</div>
+		</div>
+	</div>

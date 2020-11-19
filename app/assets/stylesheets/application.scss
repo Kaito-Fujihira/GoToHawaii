@@ -22,3 +22,8 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.posts-index-all {
+  display: flex;
+  flex-wrap: wrap;
+}

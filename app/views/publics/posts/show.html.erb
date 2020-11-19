@@ -24,6 +24,9 @@
       <%= link_to "投稿を編集する", edit_post_path, class: "btn btn-primary"%>
       <%= link_to "投稿を削除する", post_path, method: :delete, class: "btn btn-danger" %>
       <% end %>
+      <div class="favorite-btn">
+        <%= render "publics/favorites/favorite-btn", post: @post %>
+      </div>
     </div>
   </div>
   <div class="post_comment">
