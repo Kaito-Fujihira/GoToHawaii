@@ -4,7 +4,6 @@ class Publics::CustomersController < ApplicationController
   def show
     @posts = Post.all
     @customer = Customer.find(params[:id])
-    @customer = current_customer
   end
 
   def edit
@@ -18,6 +17,16 @@ class Publics::CustomersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def followings
+    customer = Customer.find(params[:id])
+    @customer = customer.followings
+  end
+
+  def followers
+    customer = User.find(params[:id])
+    @customer = customer.followers
   end
 
   private

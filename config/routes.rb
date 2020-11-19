@@ -10,9 +10,8 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about', as: 'about'
     resources :customers, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
-    member do
-      get :followings, :followers
-    end
+      get 'followings' => 'relationships#followings', as: 'followings'
+  	  get 'followers' => 'relationships#followers', as: 'followers'
     end
     resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
