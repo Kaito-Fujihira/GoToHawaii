@@ -1,0 +1,30 @@
+<div id="post_comment<%= @post.id %>">
+<h3>コメント一覧</h3>
+<div class="comments-count">コメント数　<strong><%= post.comments.count %></strong>件</div>
+<div class="row">
+      <table class="table">
+        <% post.comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= link_to customer_path(customer) do %>
+		          <%= comment.customer.name %>
+		        <% end %>
+		      </td>
+			    <td id="#comment_comment">
+			      <%= comment.comment %>
+			    </td>
+            <% if comment.customer == current_customer %>
+          <td>
+            <%= link_to "コメントを削除する", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn-sm btn-danger" %>
+          </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+      <!--コメントは、bookに結びついたpost_commentにあるため、2つ用意する必要がある-->
+      <%= form_with model:[post, comment], remote: true do |f| %>
+        <%= f.text_area :comment, size:"50x2" %>
+        <%= f.submit "コメントをする", class: "btn btn-primary comment" %>
+      <% end %>
+    </div>
+  </div>

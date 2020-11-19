@@ -1,2 +1,4 @@
-<h1>Comments#create</h1>
-<p>Find me in app/views/comments/create.html.erb</p>
+$(".comments-count").html("コメント数: <%= @post.comments.count %>");
+$("#post_comment<%= @post.id %>").html("<%= j(render 'comments/comment', post: @post, customer: @customer, comment: @comment) %>");
+$("#comment_comment").val(""); <!--コメント入力後のコメント入力欄を空にしている-->
+$(".btn btn-primary comment").prop('disabled', false);<!--railsのデフォルトはtrueなので、使用禁止をfalseにすると2回目の投稿が出来る。-->
