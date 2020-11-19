@@ -11,10 +11,10 @@ class Publics::PostsController < ApplicationController
   end
 
   def show
-    @customer = current_customer
     @post = Post.find(params[:id])
     @genres= Genre.all
     @comment = Comment.new
+    @customer = @post.customer
   end
 
   def create

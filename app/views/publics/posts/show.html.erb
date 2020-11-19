@@ -2,7 +2,7 @@
 <h2>投稿詳細</h2>
 <div class="row">
     <div class="col-xs-6">
-		<%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"500x500" %>
+		<%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"300x300" %>
     </div>
 
     <div class="col-xs-6">
@@ -26,5 +26,12 @@
       <% end %>
     </div>
   </div>
+  <div class="post_comment">
   <%= render "publics/comments/comment", customer: @customer, post: @post, comment: @comment %>
+  </div>
+  <!--コメントは、bookに結びついたpost_commentにあるため、2つ用意する必要がある-->
+      <%= form_with model:[@post, @comment] do |f| %>
+        <%= f.text_area :comment, size:"50x2" %>
+        <%= f.submit "コメントをする", class: "btn btn-primary comment" %>
+      <% end %>
 </div>
