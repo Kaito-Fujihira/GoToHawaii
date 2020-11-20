@@ -1,0 +1,4 @@
+$(".followers-count").html("<%= link_to @customer.followers.count, customer_followers_path(@customer) %>");
+$(".follow-btn").html("<%= j(render 'publics/customers/follow-form-btn', customer: @customer) %>");
+$("#follow_<%= @customer.id %>").html("<%= j(render 'publics/customers/follow-form-btn', customer: @customer) %>");
+

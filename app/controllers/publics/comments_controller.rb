@@ -1,4 +1,5 @@
 class Publics::CommentsController < ApplicationController
+  before_action :authenticate_customer!
 
   def create
     @post = Post.find(params[:post_id])

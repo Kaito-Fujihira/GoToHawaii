@@ -11,51 +11,34 @@
   <title>Go To Hawaii</title>
   </head>
   <body>
-      <header>
-        <nav class="navbar navbar-default" style="height:60px;">
-          <div class="container-fluid" style="height:60px;">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-            <div class="header-nav-div">
-              <% if customer_signed_in? %>
-                <li class="header-nav">
-                  <%= link_to "About", about_path, class: "btn-square-so-pop" %>
-                </li>
-                <li class="header-nav">
-                  <%= link_to "ハワイを知ろう！", "", class: "btn-square-so-pop" %>
-                </li>
-                <li class="header-nav">
-                  <%= link_to "New Photo", new_post_path, class: "btn-square-so-pop" %>
-                </li>
-                <li class="header-nav">
-                  <%= link_to "マイページ", customer_path(current_customer), class: "btn-square-so-pop" %>
-                </li>
-              <% else %>
-                <li class="header-nav">
-                  <%= link_to "About", about_path, class: "btn-square-so-pop" %>
-                </li>
-                <li class="header-nav">
-                  <%= link_to "ハワイを知ろう！", "", class: "btn-square-so-pop" %>
-                </li>
-                <li class="header-nav">
-                  <%= link_to "New Photo", new_post_path, class: "btn-square-so-pop" %>
-                </li>
-                <li class="header-nav">
-                  <%= link_to "ログイン/新規登録", new_customer_session_path, class: "btn-square-so-pop" %>
-                </li>
-              <% end %>
-            </div>
-          </div>
-        </nav>
-      </header>
-        <div class="container-lg">
-          <%= yield %>
-        </div>
-      </div>
-    </body>
-  </html>
+  <header>
+    <div class="container">
+      <nav>
+        <% if customer_signed_in? %>
+          <%= link_to "About", about_path, class: "header-tab" %>
+          <%= link_to "ハワイを知ろう！", "", class: "header-tab" %>
+          <%= link_to root_path do %>
+            <%= image_tag "logo.jpg", class: "header-logo" %>
+          <% end %>
+          <%= link_to "New Photo", new_post_path, class: "header-tab" %>
+          <%= link_to "マイページ", customer_path(current_customer), class: "header-tab" %>
+        <% else %>
+          <%= link_to "About", about_path, class: "btn btn-primary" %>
+          <%= link_to "ハワイを知ろう！", "", class: "btn btn-primary" %>
+          <%= link_to root_path do %>
+            <%= image_tag "logo.jpg", class: "header-logo" %>
+          <% end %>
+          <%= link_to "New Photo", new_post_path, class: "btn btn-primary" %>
+          <%= link_to "ログイン/新規登録", new_customer_session_path, class: "btn btn-primary" %>
+        <% end %>
+      </nav>
+    </div>
+  </header>
+  <div class="background-img">
+  <div class="container-lg">
+    <%= yield %>
+  </div>
+  </div>
+</div>
+</body>
+</html>

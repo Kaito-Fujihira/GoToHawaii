@@ -1,4 +1,6 @@
 class Publics::RelationshipsController < ApplicationController
+  layout 'publics/header'
+
   def create
     customer = Customer.find(params[:customer_id])
     current_customer.follow(customer.id)

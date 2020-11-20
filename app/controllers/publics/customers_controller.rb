@@ -2,8 +2,8 @@ class Publics::CustomersController < ApplicationController
   before_action :authenticate_customer!
   layout 'publics/header'
   def show
-    @posts = Post.all
     @customer = Customer.find(params[:id])
+    @posts = @customer.posts
   end
 
   def edit

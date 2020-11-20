@@ -18,14 +18,20 @@
 				</tr>
 				<tr>
     			<th>フォロー</th>
-    			<th><%= link_to @customer.followings.count, customer_followings_path(@customer) %></th>
+    			<th>
+    				<%= link_to @customer.followings.count, customer_followings_path(@customer) %>
+    			</th>
   			</tr>
   			<tr>
    				<th>フォロワー</th>
-    			<th><%= link_to @customer.followers.count, customer_followers_path(@customer) %></th>
+    			<th class="followers-count">
+    				<%= link_to @customer.followers.count, customer_followers_path(@customer) %>
+    			</th>
   			</tr>
 			</table>
-			<%= render 'publics/customers/follow_form', customer: @customer %>
+			<div class="follow-btn">
+				<%= render 'publics/customers/follow_form', customer: @customer %>
+			</div>
 			<br>
 			<%= link_to "マイページを編集する", edit_customer_path(current_customer.id), class: "btn btn-primary"%>
 			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn-square-so-pop" %>

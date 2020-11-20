@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Publics::PasswordsController < Devise::PasswordsController
+  layout 'publics/header'
   # GET /resource/password/new
   # def new
   #   super
