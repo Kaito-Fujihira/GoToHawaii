@@ -59,20 +59,80 @@ header {
 
 ///////////////////////body/////////////////
 
+//全ページ共通
+
 .background-img{
   background-image: linear-gradient( 130deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(913976.png);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
+
 //customer-top
+h1 {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 60px;
+}
+
 .container {
   .pick-up-hawaii-main{
     width: 100%;
-    height: 700px;
+    height: 600px;
+  }
+  .share-your-pic-main{
+    width: 100%;
+    height: 600px;
   }
 }
+
+.swiper-slide {
+  cursor: pointer;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+}
+
+.swiper-container {
+  height: 300px;
+  margin: 80px auto 0 auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+}
+
+.swiper-slide {
+  position: relative;
+}
+.swiper-slide img {
+  border: 5px solid #0ce0ab;
+  border-radius: 50%;
+}
+
+.swiper-slide p {
+  position: absolute;
+  color: black;
+  font-size: 40px;
+  background-color: #ffffffa8;
+  font-family: 'Dancing Script', cursive;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
 .posts-index-all {
   display: flex;
   flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .sample03 .swiper-button-prev,
+  .sample03 .swiper-button-next {
+    display: block;
+  }
 }

@@ -12,23 +12,28 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(function(){
-  var header = $("header"),
-      yOffset = 0,
-      triggerPoint = 150;
-  $(window).scroll(function(){
-    yOffset = $(window).scrollTop();
-
-    if(yOffset >= triggerPoint){
-      header.addClass("minimized");
-    }else{
-      header.removeClass("minimized");
+window.addEventListener('DOMContentLoaded', function() {
+  var swiper03 = new Swiper('.swiper .swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    loop: true,
+    slidesPerView: 3,
+    autoPlay: true,
+    autoPlayDuration: 1000,
+    centeredSlides : true,
+    slideToClickedSlide: true,
+    spaceBetween: 10,
+    breakpoints: {
+      543: {
+        slidesPerView: 3
+      }
     }
-
   });
-});
+}, false);
+

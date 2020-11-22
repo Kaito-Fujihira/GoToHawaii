@@ -1,11 +1,34 @@
 <video src="Go to Hawaii.mp4" width="100%" height="100%" autoplay muted loop playsinline></video>
+
 <div class="container">
     <div class="pick-up-hawaii-main">
         <h1>Pick Up Hawaii</h1>
+        <div class="swiper">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <%= link_to root_path do %>
+                        <%= image_tag "frangipani.jpg", class: "swiper-images", size:"250x250" %>
+                        <p>Culture</p>
+                        <% end %>
+                    </div>
+                    <div class="swiper-slide"><%= image_tag "pineapples.jpg", size:"250x250" %><p>Shopping</p></div>
+                    <div class="swiper-slide"><%= image_tag "waikiki.jpg", class: "swiper-images", size:"250x250" %><p>Beachs</p></div>
+                    <div class="swiper-slide"><%= image_tag "toast.jpg", class: "swiper-images", size:"250x250" %><p>Gourmet</p></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
     </div>
+
     <div class="container">
-        <div class="post-picture">
-            <%= render 'publics/posts/posts_index', posts: @posts %>
+        <div class="share-your-pic-main">
+        <h1>Share Your Pic On Here!!</h1>
+            <div class="post-picture">
+                <%= render 'publics/posts/posts_index', posts: @posts %>
+            </div>
         </div>
     </div>
 

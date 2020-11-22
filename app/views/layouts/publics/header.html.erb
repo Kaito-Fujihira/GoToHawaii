@@ -5,40 +5,44 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="swiper.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e35fc03a93.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <title>Go To Hawaii</title>
-  </head>
-  <body>
-  <header>
-    <div class="container">
-      <nav>
-        <% if customer_signed_in? %>
-          <%= link_to "About", about_path, class: "header-tab" %>
-          <%= link_to "ハワイを知ろう！", "", class: "header-tab" %>
-          <%= link_to root_path do %>
-            <%= image_tag "logo.jpg", class: "header-logo" %>
+    <%= javascript_include_tag 'application' %>
+    <title>Go To Hawaii</title>
+    </head>
+    <body>
+    <header>
+      <div class="container">
+        <nav>
+          <% if customer_signed_in? %>
+            <%= link_to "About", about_path, class: "header-tab" %>
+            <%= link_to "ハワイを知ろう！", "", class: "header-tab" %>
+            <%= link_to root_path do %>
+              <%= image_tag "logo.jpg", class: "header-logo" %>
+            <% end %>
+            <%= link_to "New Photo", new_post_path, class: "header-tab" %>
+            <%= link_to "マイページ", customer_path(current_customer), class: "header-tab" %>
+          <% else %>
+            <%= link_to "About", about_path, class: "btn btn-primary" %>
+            <%= link_to "ハワイを知ろう！", "", class: "btn btn-primary" %>
+            <%= link_to root_path do %>
+              <%= image_tag "logo.jpg", class: "header-logo" %>
+            <% end %>
+            <%= link_to "New Photo", new_post_path, class: "btn btn-primary" %>
+            <%= link_to "ログイン/新規登録", new_customer_session_path, class: "btn btn-primary" %>
           <% end %>
-          <%= link_to "New Photo", new_post_path, class: "header-tab" %>
-          <%= link_to "マイページ", customer_path(current_customer), class: "header-tab" %>
-        <% else %>
-          <%= link_to "About", about_path, class: "btn btn-primary" %>
-          <%= link_to "ハワイを知ろう！", "", class: "btn btn-primary" %>
-          <%= link_to root_path do %>
-            <%= image_tag "logo.jpg", class: "header-logo" %>
-          <% end %>
-          <%= link_to "New Photo", new_post_path, class: "btn btn-primary" %>
-          <%= link_to "ログイン/新規登録", new_customer_session_path, class: "btn btn-primary" %>
-        <% end %>
-      </nav>
+        </nav>
+      </div>
+    </header>
+    <div class="background-img">
+      <div class="container-lg">
+        <%= yield %>
+      </div>
     </div>
-  </header>
-  <div class="background-img">
-  <div class="container-lg">
-    <%= yield %>
-  </div>
-  </div>
-</div>
-</body>
+    <script src="swiper.min.js"></script>
+  </body>
 </html>
