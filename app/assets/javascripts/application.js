@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+//画像スライダー
 window.addEventListener('DOMContentLoaded', function() {
   var swiper03 = new Swiper('.swiper .swiper-container', {
     pagination: '.swiper-pagination',
@@ -37,3 +38,26 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 }, false);
 
+//クリッカブルマップ
+$(function(){
+  $('img[usemap]').rwdImageMaps();
+});
+
+$(function(){
+  $('area').hover(
+   function() { $(this).focus().css('outline','10px solid #fff'); },
+   function() { $(this).blur().css('outline','none'); }
+  )
+});
+
+//ページ内リンクで特定の場所までスムーススクロールさせる
+$(function(){
+  $('a[href^="#"]').click(function() {
+    var speed = 950;
+    var href= $(this).attr("href");
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    var position = target.offset().top;
+    $('body,html').animate({scrollTop:position}, speed, 'swing');
+    return false;
+  });
+});

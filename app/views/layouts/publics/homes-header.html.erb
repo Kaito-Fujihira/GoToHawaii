@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="swiper.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e35fc03a93.js" crossorigin="anonymous"></script>
@@ -20,12 +19,12 @@
       <div class="container">
         <nav>
           <% if customer_signed_in? %>
-              <%= link_to "About", about_path, class: "header-tab" %>
-            <%= link_to "Pick Up Category", "", class: "header-tab" %>
+              <%= link_to "About", "#about", class: "header-tab" %>
+            <%= link_to "Pick Up Category", "#pick-up-category", class: "header-tab" %>
             <%= link_to root_path do %>
               <%= image_tag "logo.jpg", class: "header-logo" %>
             <% end %>
-            <%= link_to "Post Your Pic", new_post_path, class: "header-tab" %>
+            <%= link_to "Share Your Pic", "#share-your-pic-main", class: "header-tab" %>
             <%= link_to "My Page", customer_path(current_customer), class: "header-tab" %>
           <% else %>
             <%= link_to "About", about_path, class: "header-tab" %>
@@ -33,7 +32,7 @@
             <%= link_to root_path do %>
               <%= image_tag "logo.jpg", class: "header-tab" %>
             <% end %>
-            <%= link_to "Share Your Pic!!", new_post_path, class: "header-tab" %>
+            <%= link_to "Share Your Pic!!", "#share-your-pic-main", class: "header-tab" %>
             <%= link_to "Log in/Sign up", new_customer_session_path, class: "header-tab" %>
           <% end %>
         </nav>
@@ -45,10 +44,12 @@
       </div>
     </div>
     <footer>
+      <footer>
       <div class="footer-name">ⒸGo To Hawaii</div>
     </footer>
+    </footer>
     <script src="swiper.min.js"></script>
-    <script type="text/javascript" src="javascripts/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="javascripts/jquery.rwdImageMaps.min.js"></script>
   </body>
 </html>
