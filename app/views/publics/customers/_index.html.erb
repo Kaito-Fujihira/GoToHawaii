@@ -1,5 +1,5 @@
 <% if @customers.exists? %>
-<table class='table'>
+<table class='table table-bordered'>
   <thead>
     <tr>
       <th>プロフィール写真</th>
@@ -15,7 +15,7 @@
         <td>フォロー数: <%= customer.followings.count %></td>
         <td>フォロワー数: <%= customer.followers.count %></td>
         <td id="follow_<%= customer.id %>">
-          <%= render 'publics/customers/follow_form', customer: customer %>
+          <%= render 'publics/relationships/follow_form', customer: customer %>
         </td>
         <td><%= link_to '詳細をみる', customer_path(customer), class: "customer_#{customer.id}" %></td>
       </tr>

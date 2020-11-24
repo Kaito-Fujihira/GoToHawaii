@@ -1,5 +1,6 @@
 <div class="container">
-	<h1><%= @customer.name %>さんの会員情報</h1>
+	<div class="customer-show">
+	<h2><%= @customer.name %>さんの会員情報</h2>
 	<div class="row">
 		<div class="col-xs-3">
 	    <table class="table">
@@ -30,18 +31,30 @@
   			</tr>
 			</table>
 			<div class="follow-btn">
-				<%= render 'publics/customers/follow_form', customer: @customer %>
+				<%= render 'publics/relationships/follow_form', customer: @customer %>
 			</div>
 			<br>
 			<%= link_to "マイページを編集する", edit_customer_path(current_customer.id), class: "btn btn-primary"%>
 			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn-square-so-pop" %>
 		</div>
 
+		<% if @posts.exists? %>
 		<div class="col-xs-9">
+			<h3><%= @customer.name %>さんが投稿した写真</h3>
 			<div class="posts-index-all">
 	  		<% @posts.each do |post| %>
-	    		<%= attachment_image_tag post, :image, class: "img", fallback: "no-image.png", size:"300x300" %>
+	    		<%= attachment_image_tag post, :image, class: "img", fallback: "no-image.png", size:"200x200" %>
 	    	<% end %>
 			</div>
+			<div class="paginate">
+				<%= paginate @posts %>
+			</div>
 		</div>
+		<% else %>
+		<div class="col-xs-9">
+			<h3><%= @customer.name %>さんが投稿した写真</h3>
+			<p>投稿した写真はまだありません...</p>
+		</div>
+		<% end %>
 	</div>
+</div

@@ -3,7 +3,7 @@ class Publics::CustomersController < ApplicationController
   layout 'publics/header'
   def show
     @customer = Customer.find(params[:id])
-    @posts = @customer.posts
+    @posts = @customer.posts.page(params[:page]).per(12).reverse_order
   end
 
   def edit
@@ -17,16 +17,6 @@ class Publics::CustomersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def followings
-    customer = Customer.find(params[:id])
-    @customer = customer.followings
-  end
-
-  def followers
-    customer = User.find(params[:id])
-    @customer = customer.followers
   end
 
   private

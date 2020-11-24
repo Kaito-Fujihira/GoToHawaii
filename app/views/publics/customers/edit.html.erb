@@ -1,37 +1,43 @@
+<div class="container">
+<div class="edit-customer">
 <h2>マイページ編集</h2>
-  <%= form_with model: @customer, class: 'form', local: true do |f| %>
+<div class="edit-customer-form">
+  <%= form_with model: @customer, local: true do |f| %>
 
-  <div class="registations-customer">
-      <dt>お名前</dt>
-      <dd>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-      </dd>
+  <table class="table">
+    <tr>
+      <th>お名前</th>
+      <th><%= f.text_field :name, autofocus: true, autocomplete: "name" %></th>
+    </tr>
 
-      <dt>メールアドレス</dt>
-      <dd>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %>
-      </dd>
-      
-      <dt>お住いの地域</dt>
-      <dd>
+    <tr>
+      <th>メールアドレス</th>
+      <th><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %></th>
+    </tr>
+
+    <tr>
+      <th>お住いの地域</th>
+      <th>
         <%= f.radio_button :country, "日本", checked: true %>  日本  <%= f.radio_button :country, "ハワイ" %>  ハワイ
         <%= f.radio_button :country, "アメリカ本土" %>  アメリカ本土　<%= f.radio_button :country, "その他の国" %>  その他の国
-      </dd>
+      </th>
+    </tr>
 
-      <dt>生年月日</dt>
-        <%= f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 0), default: Date.new(1989, 1, 1) %>
-      <dd>
+    <tr>
+      <th>生年月日</th>
+      <th><%= f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 0), default: Date.new(1989, 1, 1) %></th>
+    </tr>
 
-      </dd>
-
-      <dt>ハワイへの渡航歴</dt>
-      <dd>
+    <tr>
+      <th>ハワイへの渡航歴</th>
+      <th>
         <%= f.radio_button :visit_time, "なし", checked: true %>  なし  <%= f.radio_button :visit_time, "１～３回" %>  １～３回
         <%= f.radio_button :visit_time, "４～６回" %>  ４～６回　<%= f.radio_button :visit_time, "６回以上" %>  ６回以上
-      </dd>
-
-      <dd>
-        <%= f.submit "編集する", class: "btn btn-primary" %>
-      </dd>
-  </div>
+      </th>
+    </tr>
+  </table>
+  <%= f.submit "編集する", class: "btn btn-primary" %>
   <% end %>
+  </div>
+  </div>
+</div>

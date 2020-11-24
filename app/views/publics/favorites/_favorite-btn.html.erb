@@ -1,3 +1,4 @@
+<div class="favorite-btn-container">
 <% if post.favorited_by?(current_customer) %>
 	<li style="list-style-type: none">
 		<%= link_to post_favorites_path(post), method: :delete, remote: true do %>
@@ -11,3 +12,4 @@
  		<% end %>
 	</li>
 <% end %>
+</div>

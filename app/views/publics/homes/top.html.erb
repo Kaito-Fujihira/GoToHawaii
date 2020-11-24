@@ -1,30 +1,8 @@
 <video src="Go to Hawaii.mp4" width="100%" height="100%" autoplay muted loop playsinline></video>
 
-<%= render "publics/homes/about", customer: @customer %>
+<%= render "publics/categorys/about", customer: @customer %>
 
-<div class="container">
-    <div class="pick-up-category">
-        <h1 id="pick-up-category">Pick Up Category</h1>
-        <div class="swiper">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <%= link_to root_path do %>
-                        <%= image_tag "frangipani.jpg", class: "swiper-images", size:"250x250" %>
-                        <p>Culture</p>
-                        <% end %>
-                    </div>
-                    <div class="swiper-slide"><%= image_tag "pineapples.jpg", size:"250x250" %><p>Shopping</p></div>
-                    <div class="swiper-slide"><%= image_tag "waikiki.jpg", class: "swiper-images", size:"250x250" %><p>Beachs</p></div>
-                    <div class="swiper-slide"><%= image_tag "toast.jpg", class: "swiper-images", size:"250x250" %><p>Gourmet</p></div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </div>
-
+<%= render "publics/categorys/category" %>
     <div class="container">
         <div class="share-your-pic-main">
         <h1 id="share-your-pic-main">Share Your Pic On Here!!</h1>

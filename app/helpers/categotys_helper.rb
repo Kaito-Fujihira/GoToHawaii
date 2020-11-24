@@ -1,0 +1,2 @@
+module CategotysHelper
+end

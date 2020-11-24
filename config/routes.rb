@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categotys/question'
+  get 'categotys/sns'
   get 'homes/top'
   devise_for :customers, controllers: {
     registrations: 'publics/registrations',
@@ -7,7 +9,9 @@ Rails.application.routes.draw do
 
   scope module: :publics do
     root 'homes#top'
-    get 'about' => 'homes#about', as: 'about'
+    get 'about' => 'categorys#about', as: 'about'
+    get 'question' => 'categorys#question', as: 'question'
+    get 'sns' => 'categorys#sns', as: 'sns'
     resources :customers, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'

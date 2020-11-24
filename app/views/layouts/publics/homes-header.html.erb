@@ -5,7 +5,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="swiper.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -16,7 +15,6 @@
     </head>
     <body>
     <header>
-      <div class="container">
         <nav>
           <% if customer_signed_in? %>
               <%= link_to "About", "#about", class: "header-tab" %>
@@ -35,8 +33,7 @@
             <%= link_to "Share Your Pic!!", "#share-your-pic-main", class: "header-tab" %>
             <%= link_to "Log in/Sign up", new_customer_session_path, class: "header-tab" %>
           <% end %>
-        </nav>
-        <% if customer_signed_in? %>
+          <% if customer_signed_in? %>
           <div class="seach-tag">
             <%= form_with url: search_path, method: :get, local: true do |f| %>
             <%= f.text_field :search %>
@@ -45,7 +42,7 @@
             <%= f.submit "検索" %>
             <% end %>
         <% end %>
-      </div>
+        </nav>
     </header>
     <div class="background-img">
       <div class="container-lg">
@@ -57,8 +54,5 @@
       <div class="footer-name">ⒸGo To Hawaii</div>
     </footer>
     </footer>
-    <script src="swiper.min.js"></script>
-    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/jquery.rwdImageMaps.min.js"></script>
   </body>
 </html>
