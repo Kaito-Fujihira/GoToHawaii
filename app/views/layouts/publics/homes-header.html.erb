@@ -36,6 +36,15 @@
             <%= link_to "Log in/Sign up", new_customer_session_path, class: "header-tab" %>
           <% end %>
         </nav>
+        <% if customer_signed_in? %>
+          <div class="seach-tag">
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
+            <%= f.text_field :search %>
+            <%= select_tag(:option, options_for_select([["会員検索", "1"],["投稿検索","2"]]))%>
+            <%= select_tag(:choice, options_for_select([["部分一致", "1" ],["後方一致", "2" ],["前方一致", "3" ],["完全一致", "4" ]])) %>
+            <%= f.submit "検索" %>
+            <% end %>
+        <% end %>
       </div>
     </header>
     <div class="background-img">

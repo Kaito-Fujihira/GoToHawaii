@@ -1,0 +1,38 @@
+<% if @customer_or_post == "1"%>
+<div class="container">
+  <h2>会員情報の検索</h2>
+  <table class="table table-bordered">
+    <thead>
+		  <tr>
+			  <th></th>
+			  <th>お名前</th>
+				<th>お住いの地域</th>
+		  	<th>ハワイへの渡航歴</th>
+		  	<th colspan="3"></th>
+			</tr>
+		</thead>
+    <% @customers.each do |customer| %>
+    <tbody>
+      <tr>
+        <td><!--%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no-image-mini.jpg") %>--></td>
+        <td><%= customer.name %></td>
+        <td><%= customer.country %></td>
+        <td><%= customer.visit_time %></td>
+        <td><%= link_to "詳細へ", customer_path(customer), class: "btn btn-primary" %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</div>
+
+
+<% elsif @customer_or_post == "2" %>
+<div class="container">
+  <h2>投稿情報の検索結果</h2>
+    <%= render 'publics/posts/index', posts: @posts, post: @post %>
+</div>
+<% else %>
+  <div class="container">
+    <h2>検索結果はありませんでした...</h2>
+  </div>
+<% end %>

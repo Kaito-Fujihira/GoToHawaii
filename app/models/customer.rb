@@ -26,6 +26,22 @@ class Customer < ApplicationRecord
     relationships.find_by(followed_id: customer_id).destroy #find_byによって1レコードを特定し、destroyメソッドで削除している。
   end
 
+  def Customer.search(search, customer_or_post, how_search)
+    if customer_or_post == "1"
+      if how_search == "1"
+        Customer.where(['name LIKE ?', "%#{search}%"])
+      elsif how_search == "2"
+        Customer.where(['name LIKE ?', "%#{search}"])
+      elsif how_search == "3"
+        Customer.where(['name LIKE ?', "#{search}%"])
+      elsif how_search == "4"
+        Customer.where(['name LIKE ?', "#{search}"])
+      else
+        Customers.all
+      end
+    end
+  end
+
   enum country: {
     日本: 0,
     ハワイ:1,

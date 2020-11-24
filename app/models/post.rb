@@ -8,5 +8,21 @@ class Post < ApplicationRecord
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?
   end
+  
+  def Post.search(search, customer_or_post, how_search)
+    if customer_or_post == "2"
+    	if how_search == "1"
+      	Post.where(['title LIKE ?', "%#{search}%"])
+    	elsif how_search == "2"
+      	Post.where(['title LIKE ?', "%#{search}"])
+    	elsif how_search == "3"
+      	Post.where(['title LIKE ?', "#{search}%"])
+    	elsif how_search == "4"
+      	Post.where(['title LIKE ?', "#{search}"])
+    	else
+  			Posts.all
+  		end
+    end
+  end
 
 end

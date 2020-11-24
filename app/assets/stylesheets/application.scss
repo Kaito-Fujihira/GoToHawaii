@@ -25,9 +25,7 @@
 
 /////////////////////header////////////////
 header {
-  .container {
     text-align: center;
-  }
 }
 
 .header-logo {
@@ -50,19 +48,30 @@ header {
 
 .header-tab:hover {
   text-decoration: none;
-      color: #fff;
-      background-color: #00d0ff;
-    }
+  color: #fff;
+  background-color: #00d0ff;
+}
 
-    .header-tab:active {
-      color: green;
-    }
+.header-tab:active {
+  color: green;
+}
+
+.seach-tag {
+  float: right;
+  position: absolute;
+  bottom: 25px;
+  right: 110px;
+}
+
+nav {
+  position: relative;
+}
 
 ///////////////////////body/////////////////
 
 //会員側//
 
-//全ページ共通
+//body全ページ共通
 
 .background-img{
   background-image: linear-gradient( 130deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(913976.png);
