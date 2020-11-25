@@ -43,7 +43,9 @@
 			<h3><%= @customer.name %>さんが投稿した写真</h3>
 			<div class="posts-index-all">
 	  		<% @posts.each do |post| %>
+	  			<%= link_to post_path(post) do %>
 	    		<%= attachment_image_tag post, :image, class: "img", fallback: "no-image.png", size:"200x200" %>
+	    		<% end %>
 	    	<% end %>
 			</div>
 			<div class="paginate">
@@ -53,7 +55,7 @@
 		<% else %>
 		<div class="col-xs-9">
 			<h3><%= @customer.name %>さんが投稿した写真</h3>
-			<p>投稿した写真はまだありません...</p>
+			<p style="font-size:25px;">投稿した写真はまだありません...</p>
 		</div>
 		<% end %>
 	</div>

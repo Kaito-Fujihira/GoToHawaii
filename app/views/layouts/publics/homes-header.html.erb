@@ -19,7 +19,7 @@
           <% if customer_signed_in? %>
               <%= link_to "About", "#about", class: "header-tab" %>
             <%= link_to "Pick Up Category", "#pick-up-category", class: "header-tab" %>
-            <%= link_to root_path do %>
+            <%= link_to root_path, style: "text-decoration:none" do %>
               <%= image_tag "logo.jpg", class: "header-logo" %>
             <% end %>
             <%= link_to "Share Your Pic", "#share-your-pic-main", class: "header-tab" %>
@@ -27,7 +27,7 @@
           <% else %>
             <%= link_to "About", about_path, class: "header-tab" %>
             <%= link_to "Pick Up Category", "", class: "header-tab" %>
-            <%= link_to root_path do %>
+            <%= link_to root_path, style: "text-decoration:none" do %>
               <%= image_tag "logo.jpg", class: "header-tab" %>
             <% end %>
             <%= link_to "Share Your Pic!!", "#share-your-pic-main", class: "header-tab" %>
@@ -49,6 +49,11 @@
         <%= yield %>
       </div>
     </div>
+    <span id="back">
+      <%= link_to "#" do %>
+        <i class="fas fa-arrow-circle-up"></i>
+      <% end %>
+    </span>
     <footer>
       <footer>
       <div class="footer-name">ⒸGo To Hawaii</div>
