@@ -25,12 +25,12 @@
             <%= link_to "Share Your Pic", "#share-your-pic-main", class: "header-tab" %>
             <%= link_to "My Page", customer_path(current_customer), class: "header-tab" %>
           <% else %>
-            <%= link_to "About", about_path, class: "header-tab" %>
-            <%= link_to "Pick Up Category", "", class: "header-tab" %>
+            <%= link_to "About", "#about", class: "header-tab" %>
+            <%= link_to "Pick Up Category", "#pick-up-category", class: "header-tab" %>
             <%= link_to root_path, style: "text-decoration:none" do %>
-              <%= image_tag "logo.jpg", class: "header-tab" %>
+              <%= image_tag "logo.jpg", class: "header-logo" %>
             <% end %>
-            <%= link_to "Share Your Pic!!", "#share-your-pic-main", class: "header-tab" %>
+            <%= link_to "Share Your Pic", "#share-your-pic-main", class: "header-tab" %>
             <%= link_to "Log in/Sign up", new_customer_session_path, class: "header-tab" %>
           <% end %>
           <% if customer_signed_in? %>

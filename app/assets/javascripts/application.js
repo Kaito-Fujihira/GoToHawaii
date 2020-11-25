@@ -75,4 +75,4 @@ $(function(){
       $(this).find("span").text("ー");
     };
   });
-})
+});

@@ -1,19 +1,24 @@
-<div class="posts-container">
-  <div class="posts-index">
-    <% posts.each do |post| %>
-    <div class="post">
-      <div>
-      <%= link_to post_path(post) do %>
-        <%= attachment_image_tag post, :image, class: "img", fallback: "no-image.png", size:"300x300" %>
+<div class="container">
+  <div class="share-your-pic-main">
+    <h1 id="share-your-pic-main">Share Your Pic On Here!!</h1>
+    <div class="posts-index">
+      <% posts.each do |post| %>
+      <div class="post ">
+        <div>
+        <%= link_to post_path(post) do %>
+          <%= attachment_image_tag post, :image, class: "img", fallback: "no-image.png", size:"300x300" %>
+        <% end %>
+        </div>
+      <div class="post-title">
+        <%= post.title %>
+      </div>
+      <% if customer_signed_in? %>
+      <div id="post_<%= post.id %>">
+        <%= render "publics/favorites/favorite-btn", post: post %>
+      </div>
       <% end %>
       </div>
-    <div class="post-title">
-      <%= post.title %>
+      <% end %>
     </div>
-    <div id="post_<%= post.id %>">
-      <%= render "publics/favorites/favorite-btn", post: post %>
-    </div>
-    </div>
-    <% end %>
   </div>
 </div>

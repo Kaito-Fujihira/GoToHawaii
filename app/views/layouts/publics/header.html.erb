@@ -18,8 +18,8 @@
         <nav>
           <% if customer_signed_in? %>
               <%= link_to "About", about_path, class: "header-tab" %>
-            <%= link_to "Pick Up Category", "", class: "header-tab" %>
-            <%= link_to root_path do %>
+            <%= link_to "Pick Up Category", category_path, class: "header-tab" %>
+            <%= link_to root_path, style: "text-decoration:none" do %>
               <%= image_tag "logo.jpg", class: "header-logo" %>
             <% end %>
             <%= link_to "Post Your Pic", new_post_path, class: "header-tab" %>
@@ -27,10 +27,10 @@
           <% else %>
             <%= link_to "About", about_path, class: "header-tab" %>
             <%= link_to "Pick Up Category", "", class: "header-tab" %>
-            <%= link_to root_path do %>
-              <%= image_tag "logo.jpg", class: "header-tab" %>
+            <%= link_to root_path, style: "text-decoration:none" do %>
+              <%= image_tag "logo.jpg", class: "header-logo" %>
             <% end %>
-            <%= link_to "Share Your Pic!!", new_post_path, class: "header-tab" %>
+            <%= link_to "Share Your Pic", new_post_path, class: "header-tab" %>
             <%= link_to "Log in/Sign up", new_customer_session_path, class: "header-tab" %>
           <% end %>
           <% if customer_signed_in? %>

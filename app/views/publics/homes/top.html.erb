@@ -3,13 +3,8 @@
 <%= render "publics/categorys/about", customer: @customer %>
 
 <%= render "publics/categorys/category" %>
-    <div class="container">
-        <div class="share-your-pic-main">
-        <h1 id="share-your-pic-main">Share Your Pic On Here!!</h1>
-            <div class="post-picture">
-                <%= render 'publics/posts/index', posts: @posts, post: @post%>
-            </div>
-            <%= link_to "もっと見る", posts_path, class: "all-posts-btn" %>
-        </div>
-    </div>
 
+<%= render 'publics/posts/index', posts: @posts, post: @post%>
+<% if customer_signed_in? %>
+<%= link_to "投稿をもっと見る⇒", posts_path, class: "to_posts-btn" %>
+<% end %>

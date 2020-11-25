@@ -1,9 +1,11 @@
 class Publics::CategorysController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!, only: [:category, :question, :sns]
   layout 'publics/header'
 
   def about
-    @customer = current_customer
+  end
+
+  def index
   end
 
   def question
