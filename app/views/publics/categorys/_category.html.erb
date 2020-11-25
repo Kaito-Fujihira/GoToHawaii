@@ -6,11 +6,14 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <%= link_to question_path do %>
-                        <%= image_tag "frangipani.jpg", class: "swiper-images", size:"250x250" %>
-                        <p>Q & A</p>
+                        <%= image_tag "frangipani.jpg", class: "swiper-images", size:"250x250" %><p>Q & A</p>
                         <% end %>
                     </div>
-                    <div class="swiper-slide"><%= image_tag "pineapples.jpg", size:"250x250" %><p>Shopping</p></div>
+                    <div class="swiper-slide">
+                        <%= link_to sns_path do %>
+                        <%= image_tag "pineapples.jpg", size:"250x250" %><p>SNS</p>
+                        <% end %>
+                    </div>
                     <div class="swiper-slide"><%= image_tag "waikiki.jpg", class: "swiper-images", size:"250x250" %><p>Beachs</p></div>
                     <div class="swiper-slide"><%= image_tag "toast.jpg", class: "swiper-images", size:"250x250" %><p>Gourmet</p></div>
                 </div>

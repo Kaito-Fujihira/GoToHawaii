@@ -1,3 +1,105 @@
 // Place all the styles related to the categotys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//category/sns
+.sns-image {
+  width: 45%;
+  height: 200px;
+  margin: 60px 0 58px 0;
+}
+
+.sns-icon {
+  width: 100%;
+}
+
+.sns-icon-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .twitter {
+    display: inline-block;
+    font-size: 28px;
+    padding: 2px 10px;
+    margin: 10px;
+    color: #fff;
+    background: #07d0fd;
+    border: 1px solid #07d0fd;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: all .3s;
+  }
+  .facebook {
+    display: inline-block;
+    font-size: 28px;
+    padding: 2px 10px;
+    margin: 10px;
+    color: #fff;
+    background: #3b5998;
+    border: 1px solid #3b5998;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: all .3s;
+  }
+  .instagram {
+    display: inline-block;
+    font-size: 28px;
+    padding: 2px 10px;
+    margin: 10px;
+    color: #fff;
+    background: radial-gradient(#ffdb2cd9 18%, rgba(47, 35, 243, 44%) 44%, rgba(234, 24, 131, 79%) 80%);
+    border: 1px solid #fd07e4;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: all .3s;
+  }
+  .youtube {
+    display: inline-block;
+    font-size: 28px;
+    padding: 2px 10px;
+    margin: 10px;
+    color: #fff;
+    background: #fc0d1c;
+    border: 1px solid #fc0d1c;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: all .3s;
+  }
+  .github {
+    display: inline-block;
+    font-size: 28px;
+    padding: 2px 10px;
+    margin: 10px;
+    color: #fff;
+    background: #323638;
+    border: 1px solid #323638;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: all .3s;
+  }
+  span {
+    font-size: 30px;
+    margin-left: 7px;
+  }
+}
+
+.twitter:hover {
+  opacity: 0.6;
+}
+
+.facebook:hover {
+  opacity: 0.8;
+}
+
+.instagram:hover {
+  opacity: 0.8;
+}
+
+.youtube:hover {
+  opacity: 0.6;
+}
+
+.github:hover {
+  opacity: 0.8;
+}
