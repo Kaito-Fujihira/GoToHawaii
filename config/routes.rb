@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'category' => 'categorys#index', as: 'category'
     get 'question' => 'categorys#question', as: 'question'
     get 'sns' => 'categorys#sns', as: 'sns'
+    get 'youtube' => 'categorys#youtube', as: 'youtube'
     resources :customers, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'

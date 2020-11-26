@@ -103,3 +103,18 @@
 .github:hover {
   opacity: 0.8;
 }
+
+//youtubes
+.youtube-videos {
+  text-align: center;
+}
+.youtube-list {
+  margin: 30px;
+  display: inline-block;
+  flex-wrap: wrap;
+  p {
+    padding: 6px 0 20px 0;
+    font-size: 18px;
+    border-bottom: 1px solid;
+  }
+}

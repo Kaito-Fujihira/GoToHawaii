@@ -1,5 +1,5 @@
 class Publics::CategorysController < ApplicationController
-  before_action :authenticate_customer!, only: [:category, :question, :sns]
+  before_action :authenticate_customer!, only: [:category, :question, :sns, :youtube]
   layout 'publics/header'
 
   def about
@@ -13,4 +13,8 @@ class Publics::CategorysController < ApplicationController
 
   def sns
   end
+
+  def youtube
+  end
+
 end

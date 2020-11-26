@@ -14,7 +14,11 @@
                         <%= image_tag "pineapples.jpg", size:"250x250" %><p>SNS</p>
                         <% end %>
                     </div>
-                    <div class="swiper-slide"><%= image_tag "waikiki.jpg", class: "swiper-images", size:"250x250" %><p>Beachs</p></div>
+                    <div class="swiper-slide">
+                        <%= link_to youtube_path do %>
+                        <%= image_tag "waikiki.jpg", class: "swiper-images", size:"250x250" %><p>Youtube</p>
+                        <% end %>
+                        </div>
                     <div class="swiper-slide"><%= image_tag "toast.jpg", class: "swiper-images", size:"250x250" %><p>Gourmet</p></div>
                 </div>
                 <div class="swiper-button-prev"></div>
