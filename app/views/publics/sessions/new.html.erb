@@ -1,6 +1,8 @@
+<div class="container">
+<div class="sessions-customer">
 <h2>ログイン</h2>
-<!--%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
-<%= form_with model: @customer, url: new_customer_session_path, local: true do |f| %>
+<div class="sessions-customer-form">
+<%= form_with model: @customer, url: new_customer_session_path, class: "form", local: true do |f| %>
   <dt>メールアドレス</dt>
   <dd>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %>
@@ -11,16 +13,13 @@
     <%= f.password_field :password, autocomplete: "new-password", class: "registations-under" %>
   </dd>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-primary" %>
+  <div class="login-btn">
+    <%= f.submit "ログイン", class: "btn btn-success btn-lg" %>
   </div>
+
+  <%= render "publics/shared/links" %>
 <% end %>
 
-<%= render "publics/shared/links" %>
+</div>
+</div>
+</div>

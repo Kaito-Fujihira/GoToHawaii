@@ -1,54 +1,45 @@
-<!--%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>-->
-  <h2>新規会員登録</h2>
-  <%= form_with model: @customer, url: customer_registration_path, id: 'new_user', class: 'form', local: true do |f| %>
+<div class="container">
+  <div class="registrations-customer">
+    <h2>新規会員登録</h2>
+    <div class="registrations-customer-form">
+      <%= form_with model: @customer, url: customer_registration_path, class: 'form', local: true do |f| %>
 
-  <div class="registations-customer">
-      <dt>お名前</dt>
-      <dd>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-      </dd>
+        <dt>お名前</dt>
+        <dd><%= f.text_field :name, autofocus: true, autocomplete: "name" %></dd>
 
-      <dt>メールアドレス</dt>
-      <dd>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %>
-      </dd>
+        <dt>メールアドレス</dt>
+        <dd><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %></dd>
 
-      <dt>お住いの地域</dt>
-      <dd>
-        <%= f.radio_button :country, "日本", checked: true %>  日本  <%= f.radio_button :country, "ハワイ" %>  ハワイ
-        <%= f.radio_button :country, "アメリカ本土" %>  アメリカ本土　<%= f.radio_button :country, "その他の国" %>  その他の国
-      </dd>
+        <dt>お住いの地域</dt>
+        <dd>
+          <%= f.radio_button :country, "日本", checked: true %>  日本  <%= f.radio_button :country, "ハワイ" %>  ハワイ
+          <%= f.radio_button :country, "アメリカ本土" %>  アメリカ本土　<%= f.radio_button :country, "その他の国" %>  その他の国
+        </dd>
 
-      <dt>生年月日</dt>
-        <%= f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 0), default: Date.new(1989, 1, 1) %>
-      <dd>
-      </dd>
+        <dt>生年月日</dt>
+        <dd><%= f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 0), default: Date.new(1989, 1, 1) %></dd>
 
-      <dt>ハワイへの渡航歴</dt>
-      <dd>
-        <%= f.radio_button :visit_time, "なし", checked: true %>  なし  <%= f.radio_button :visit_time, "１～３回" %>  １～３回
-        <%= f.radio_button :visit_time, "４～６回" %>  ４～６回　<%= f.radio_button :visit_time, "６回以上" %>  ６回以上
-      </dd>
+        <dt>ハワイへの渡航歴</dt>
+        <dd>
+          <%= f.radio_button :visit_time, "なし", checked: true %>  なし  <%= f.radio_button :visit_time, "１～３回" %>  １～３回
+          <%= f.radio_button :visit_time, "４～６回" %>  ４～６回　<%= f.radio_button :visit_time, "６回以上" %>  ６回以上
+        </dd>
 
-      <dt>パスワード(6文字以上)</dt>
-      <dd>
-        <%= f.password_field :password, autocomplete: "new-password", class: "registations-under" %>
-      </dd>
+        <dt>パスワード(6文字以上)</dt>
+        <dd><%= f.password_field :password, autocomplete: "new-password", class: "registations-under" %></dd>
 
-      <dt>パスワード(確認用)</dt>
-      <dd>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "registations-under" %>
-      </dd>
+        <dt>パスワード(確認用)</dt>
+        <dd><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "registations-under" %></dd>
 
-      <dd>
-        <%= f.submit "新規登録", class: "btn btn-success btn-lg" %>
-      </dd>
-  </div>
-  <% end %>
+        <div class="customer-signup-btn">
+          <%= f.submit "新規登録する", class: "btn btn-success btn-lg" %>
+        </div>
 
-    <h2 style="font-size:20px;">既に登録済みの方</h2>
+        <div class="registrations-info">既に登録済みの方</div>
     <div>
       <%= link_to "こちら", new_customer_session_path, class: "btn btn-info" %>からログインしてください。
     </div>
-
-<%= render "publics/shared/links" %>
+      <% end %>
+    </div>
+  </div>
+</div>
