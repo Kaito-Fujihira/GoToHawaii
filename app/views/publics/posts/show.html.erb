@@ -1,25 +1,23 @@
 <div class="container">
 <h2>投稿詳細</h2>
 <div class="row">
-    <div class="col-xs-6">
-		<%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"300x300" %>
+    <div class="col-xs-7">
+		<%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"500x500" %>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-xs-5">
+      <h4>投稿者<h4>
+      <p><%= link_to @customer.name, customer_path(@post.customer) %>　さん</p>
+
       <h4>タイトル</h4>
-      <div class="item-form">
-        <%= @post.title %>
-      </div>
+      <p><%= @post.title %></p>
 
       <h4>説明</h4>
-      <div class="item-explanation">
-        <%= @post.explanation %>
-      </div>
+      <p><%= @post.explanation %></p>
 
       <h4>ジャンル</h4>
-      <div class="item-genre">
-        <%= @post.genre.name %>
-      </div>
+      <p><%= @post.genre.name %></p>
+
       <% if @customer == current_customer %>
       <%= link_to "投稿を編集する", edit_post_path, class: "btn btn-primary"%>
       <%= link_to "投稿を削除する", post_path, method: :delete, class: "btn btn-danger" %>
@@ -32,9 +30,8 @@
   <div class="post_comment">
   <%= render "publics/comments/comment", customer: @customer, post: @post, comment: @comment %>
   </div>
-  <!--コメントは、bookに結びついたpost_commentにあるため、2つ用意する必要がある-->
-      <%= form_with model:[@post, @comment] do |f| %>
-        <%= f.text_area :comment, size:"50x2" %>
-        <%= f.submit "コメントをする", class: "btn btn-primary comment" %>
-      <% end %>
+  <%= form_with model:[@post, @comment] do |f| %>
+    <%= f.text_area :comment, size:"50x2" %>
+    <%= f.submit "コメントをする", class: "btn btn-primary comment" %>
+  <% end %>
 </div>

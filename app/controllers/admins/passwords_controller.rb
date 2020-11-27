@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Admins::PasswordsController < Devise::PasswordsController
+  before_action :authenticate_admin!
+  layout 'admins/header'
+
   # GET /resource/password/new
   # def new
   #   super

@@ -1,3 +1,40 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//homes/top/Share-YourPic
+.posts-index {
+  padding: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.post-title {
+  font-size: 30px;
+  max-width: 300px;
+  white-space: nowrap; //改行を半角スペースに置き換える//
+  overflow: hidden; //はみだした部分を削除 //
+  text-overflow: ellipsis; //末尾に「…」を付加//
+}
+
+.to_posts-btn {
+  padding: 10px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #333;
+  background-color: #fff;
+  float: right;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.post {
+  margin-bottom: 10px;
+  border-bottom: 1px solid;
+}
+
+.img {
+  border: 3px outset #ccc;
+}

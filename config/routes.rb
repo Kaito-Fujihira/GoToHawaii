@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'categotys/question'
-  get 'categotys/sns'
-  get 'homes/top'
+
   devise_for :customers, controllers: {
     registrations: 'publics/registrations',
     sessions: 'publics/sessions'
@@ -28,11 +26,13 @@ Rails.application.routes.draw do
 
 
   devise_for :admins, controllers: {
+    registrations: 'admins/registrations',
     sessions: 'admins/sessions'
   }
 
   namespace :admins do
     get 'top' => 'homes#top', as: 'top'
+    resources :admins, only: [:edit, :update, :destroy]
     resources :customers, only: [:index, :edit, :update, :destroy]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end

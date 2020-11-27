@@ -19,6 +19,11 @@
 @import "swiper.min";
 @import "comments";
 @import "categotys";
+@import "customers";
+@import "favorites";
+@import "posts";
+@import "homes";
+@import "customers";
 
 * {
   padding: 0;
@@ -74,7 +79,7 @@ nav {
 
 ///////////////////////body/////////////////
 
-//会員側//
+//////会員側//////
 
 //body全ページ共通
 
@@ -96,7 +101,13 @@ th {
   box-shadow: 0 7px 15px rgba(0, 0, 0, 0.32);
 }
 
-//homes/top全体
+td {
+  padding: 25px;
+  margin: 2em 0;
+  background-color: #fff;
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.32);
+}
+
 h1 {
   text-align: center;
   font-family: 'Lobster', cursive;
@@ -146,188 +157,13 @@ h2 {
   }
 }
 
-#back {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-}
-#back i {
-  width: 60px;
-  font-size: 60px;
-  color: #333;
-}
+///////管理者側////////
 
-//homes/top/pick-up-category
-.swiper-slide {
-  cursor: pointer;
-}
-
-.swiper .swiper-button-prev,
-.swiper .swiper-button-next {
-}
-
-.swiper-container {
-  height: 300px;
-  margin: 80px auto 0 auto;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+.admin-session {
   text-align: center;
 }
 
-.swiper-slide {
-  position: relative;
-}
-.swiper-slide img {
-  border: 5px solid #0ce0ab;
-  border-radius: 50%;
-}
-
-.swiper-slide p {
-  color: black;
-  font-size: 40px;
-  background-color: #ffffffa8;
-  font-family: 'Dancing Script', cursive;
-  position: absolute;
-  left: 50%;
-  top: 42%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
-//homes/top/about
-.about {
-  width: 100%;
-  height: 1000px;
-  margin: 100px 0;
-  text-align: center;
-  position: relative;
-  img {
-    margin-top: 50px;
-    border: 1px solid;
-    border-radius: 5%;
-  }
-}
-
-.KAUAI {
-  color: #fff;
-  font-size: 30px;
-  position: absolute;
-  left: 57%;
-  top: -60%;
-}
-
-.OAHU {
-  color: #fff;
-  font-size: 30px;
-  position: absolute;
-  left: 55%;
-  top: -43%;
-}
-
-.MOLOKAI {
-  color: #fff;
-  font-size: 30px;
-  position: absolute;
-  left: 102%;
-  top: -37%;
-}
-
-.MAUI {
-  width: 105px;
-  color: #fff;
-  font-size: 30px;
-  position: absolute;
-  left: 115%;
-  top: -24%;
-}
-
-.LANAI {
-  color: #fff;
-  font-size: 30px;
-  position: absolute;
-  left: 78%;
-  top: -26%;
-}
-
-.HAWAII {
-  width: 135px;
-  color: #fff;
-  font-size: 30px;
-  position: absolute;
-  left: 134%;
-  top: 0%;
-}
-
-.about-background {
-  background-color: #d5ffeda3;
-  width: 650px;
-  height: 420px;
-  position: absolute;
-  left: 0%;
-  top: 55%;
-}
-
-.about-title {
-  margin-top: 20px;
-  font-size: 50px;
-}
-
-.about-message {
-  margin-top: 20px;
-  font-size: 23px;
-  text-align: left;
-}
-
-.about-registrations {
-  margin-top: 20px;
-  font-size: 30px;
-}
-
-
-//homes/top/Share-YourPic
-.posts-index {
-  padding: 20px;
-  margin-top: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.post-title {
-  font-size: 30px;
-  max-width: 300px;
-  white-space: nowrap; //改行を半角スペースに置き換える//
-  overflow: hidden; //はみだした部分を削除 //
-  text-overflow: ellipsis; //末尾に「…」を付加//
-}
-
-.to_posts-btn {
-  padding: 10px;
-  margin-bottom: 30px;
-  font-size: 30px;
-  color: #333;
-  background-color: #fff;
-  float: right;
-  border: 1px solid;
-  border-radius: 5px;
-}
-
-//いいねボタン
-.favorite-btn {
-  width: 50px;
-  height: 50px;
-}
-
-.favorite-btn-container > li {
-  margin-bottom: 20px;
-  border-bottom: 2px solid;
-  //display: inline-block;
-}
-
-//registrations-customer
-.registrations-customer-form {
+.admin-sessions-form {
   margin: 80px 0;
   padding: 0 280px;
   form {
@@ -337,27 +173,22 @@ h2 {
     background: #fff;
     dt {
       font-size: 25px;
-      margin-top: 15px;
     }
     dd {
-      margin: 5px 0 30px 0;
+      margin: 10px 0;
+    }
+    .admin-login-btn {
+      margin: 20px 0;
     }
   }
 }
 
-.customer-signup-btn {
-  margin-bottom: 50px;
+//edit-admin
+.edit-admin {
+  text-align: center;
 }
 
-.registrations-info {
-  margin-bottom: 12px;
-  padding: 15px 0 0px 0;
-  font-size: 20px;
-  border-top: 1px dashed;
-}
-
-//sessions-customer
-.sessions-customer-form {
+.edit-admin-form {
   margin: 80px 0;
   padding: 0 280px;
   form {
@@ -376,53 +207,10 @@ h2 {
     }
   }
 }
-.customer-login-btn {
+.edit-admin-btn {
   margin: 20px 0 10px 0;
   padding: 10px 35px;
   font-size: 25px;
-}
-
-//customer-edit
-.edit-customer-form {
-  padding: 80px 0;
-  display: flex;
-  justify-content: center;
-}
-
-//category/question(Q&A)
-.question-all {
-  background-color: #fff;
-  border: 3px solid black;
-  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.32);
-  padding: 15px 25px;
-}
-
-.question-list-item {
-  list-style: none;
-  margin: 10px;
-  border-bottom: 2px solid #ccc;
-  position: relative;
-  cursor: pointer;
-  text-align: left;
-  h3 {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  span {
-  position: absolute;
-  top: -3px;
-  right: 5px;
-  color: #333;
-  font-size: 25px;
-  font-weight: 700;
-  }
-}
-
-.answer {
-  font-size: 15px;
-  padding: 5px 0px;
-  margin-bottom: 15px;
-  display: none;
 }
 
 //////////////////////////footer/////////////////////////////
@@ -438,11 +226,4 @@ footer {
 .footer-name {
   font-size: 25px;
   line-height: 200px;
-}
-
-@media (min-width: 768px) {
-  .sample03 .swiper-button-prev,
-  .sample03 .swiper-button-next {
-    display: block;
-  }
 }

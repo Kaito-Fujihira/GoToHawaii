@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="edit-admin">
+    <h2>管理者編集(メールアドレス)</h2>
+    <div class="edit-admin-form">
+    <%= form_with model: @admin, url: admins_admin_path(@admin), method: :patch, class: "form", local: true do |f| %>
+
+      <dt>メールアドレス</dt>
+      <dd><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %></dd>
+
+      <div class="edit-admin-btn">
+        <%= f.submit "編集する", class: "btn btn-success btn-lg" %>
+      </div>
+
+      <dd><%= link_to "パスワードの変更はこちらから", edit_admin_registration_path(current_admin), class: "btn btn-success btn-lg" %></dd>
+
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,72 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//registrations-customer
+.registrations-customer-form {
+  margin: 80px 0;
+  padding: 0 280px;
+  form {
+    padding: 55px 15px;
+    border: 1px solid;
+    border-radius: 15px;
+    background: #fff;
+    dt {
+      font-size: 25px;
+      margin-top: 15px;
+    }
+    dd {
+      margin: 5px 0 30px 0;
+    }
+  }
+}
+
+.customer-signup-btn {
+  margin-bottom: 50px;
+}
+
+.registrations-info {
+  margin-bottom: 12px;
+  padding: 15px 0 0px 0;
+  font-size: 20px;
+  border-top: 1px dashed;
+}
+
+//sessions-customer
+.sessions-customer-form {
+  margin: 80px 0;
+  padding: 0 280px;
+  form {
+    padding: 55px 15px;
+    border: 1px solid;
+    border-radius: 15px;
+    background: #fff;
+    dt {
+      font-size: 25px;
+    }
+    dd {
+      margin: 10px 0;
+    }
+    .login-btn {
+      margin: 20px 0;
+    }
+  }
+}
+.customer-login-btn {
+  margin: 20px 0 10px 0;
+  padding: 10px 35px;
+  font-size: 25px;
+}
+
+//customer-edit
+.edit-customer-form {
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.user-icon {
+  display: inline-block;
+  font-size: 30px;
+  margin-left: 10px;
+}
