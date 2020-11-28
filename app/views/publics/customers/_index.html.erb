@@ -15,7 +15,7 @@
       <tr>
         <td><!--%= attachment_image_tag(customer, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>--></td>
         <td><%= customer.name %></td>
-        <td><%= customer.followings.count %></td>
+        <td id="followings_<%= customer.id %>"><%= customer.followings.count %></td>
         <td id="followers_<%= customer.id %>"><%= customer.followers.count %></td>
         <td id="follow_<%= customer.id %>">
           <%= render 'publics/relationships/follow_form', customer: customer %>

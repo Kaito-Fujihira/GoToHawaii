@@ -1,4 +1,5 @@
-$(".followers-count").html("<%= @customer.followings.count %>");
+$("#followings_<%= current_customer.id %>").html("<%= current_customer.followings.count %>");
+$("#followers_<%= @customer.id %>").html("<%= @customer.followers.count %>");
 
 $(".followers-count").html("<%= @customer.followers.count %>");
 

@@ -15,6 +15,7 @@
     </head>
     <body>
     <header>
+      <div class="admins-header">
         <nav>
           <% if admin_signed_in? %>
             <%= link_to root_path, style: "text-decoration:none" do %>
@@ -29,9 +30,11 @@
             <%= link_to root_path, style: "text-decoration:none" do %>
               <%= image_tag "logo.jpg", class: "header-logo" %>
             <% end %>
-            <%= link_to "Log in", new_admin_session_path, class: "header-tab" %>
+            <%= link_to "管理者側ログイン", new_admin_session_path, class: "header-tab" %>
+            <%= link_to "会員側ログイン", new_customer_session_path, class: "header-tab" %>
           <% end %>
         </nav>
+      </div>
     </header>
     <div class="background-img">
       <div class="container-lg">

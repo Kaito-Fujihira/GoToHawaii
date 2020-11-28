@@ -1,6 +1,6 @@
+$("#followings_<%= current_customer.id %>").html("<%= current_customer.followings.count %>");
 $("#followers_<%= @customer.id %>").html("<%= @customer.followers.count %>");
 
-$(".followings-count").html("<%= @customer.followings.count %>");
 $(".followers-count").html("<%= @customer.followers.count %>");
 
 $(".follow-btn").html("<%= j(render 'publics/relationships/follow_form', customer: @customer) %>");

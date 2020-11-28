@@ -7,23 +7,23 @@
 	    	<tr><!--%= attachment_image_tag(customer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>--></tr>
 				<tr>
 					<th>お名前</th>
-					<th><%= @customer.name %></th>
+					<td><%= @customer.name %></td>
 				</tr>
 				<tr>
 					<th>お住いの地域</th>
-					<th><%= @customer.country %></th>
+					<td><%= @customer.country %></td>
 				</tr>
 				<tr>
 					<th>ハワイへの渡航歴</th>
-					<th><%= @customer.visit_time %></th>
+					<td><%= @customer.visit_time %></td>
 				</tr>
 				<tr>
     				<th><%= link_to "フォロー", customer_followings_path(@customer) %></th>
-    				<th class="followings-count"><%= @customer.followings.count %></th>
+    				<td><%= @customer.followings.count %></td>
   				</tr>
   				<tr>
    					<th><%= link_to "フォロワー", customer_followers_path(@customer) %></th>
-    				<th class="followers-count"><%= @customer.followers.count %></th>
+    				<td class="followers-count"><%= @customer.followers.count %></td>
   			</tr>
 			</table>
 			<div class="follow-btn">

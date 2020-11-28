@@ -5,9 +5,6 @@
   <%= form_with model: @admin, url: admin_registration_path, class: "form", local: true do |f| %>
   <%= render "admins/shared/error_messages", resource: resource %>
 
-    <dt><%= f.label :email %></dt>
-    <dd><%= f.email_field :email, autofocus: true, autocomplete: "email" %></dd>
-
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
