@@ -1,3 +1,27 @@
 // Place all the styles related to the genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//管理者側
+
+//genre/index
+.genre-index {
+  text-align: center;
+  width: 55%;
+  font-size: 20px;
+  dd {
+    margin: 10px 0;
+  }
+}
+
+.genre-table > table > tbody > tr > td {
+  text-align: center;
+}
+
+.edit-genre {
+  text-align: center;
+  font-size: 25px;
+  dd {
+    margin: 10px 0;
+  }
+}
