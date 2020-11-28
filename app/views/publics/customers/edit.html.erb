@@ -1,43 +1,37 @@
 <div class="container">
-<div class="edit-customer">
-<h2>マイページ編集</h2>
-<div class="edit-customer-form">
-  <%= form_with model: @customer, local: true do |f| %>
+  <div class="edit-customer">
+    <h2>マイページ編集</h2>
+    <div class="edit-customer-form">
+      <%= form_with model: @customer, class: "form", local: true do |f| %>
 
-  <table class="table">
-    <tr>
-      <th>お名前</th>
-      <th><%= f.text_field :name, autofocus: true, autocomplete: "name" %></th>
-    </tr>
+        <div id="edit-profile_image">
+        <%= attachment_image_tag(@customer, :profile_image_id, :fill, 50, 50, size:"200x200", fallback: "no-image.png") %>
+        <%= f.attachment_field :profile_image %>
+        </div>
 
-    <tr>
-      <th>メールアドレス</th>
-      <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-    </tr>
+        <dt>お名前</dt>
+        <dd><%= f.text_field :name, autofocus: true, autocomplete: "name" %></dd>
 
-    <tr>
-      <th>お住いの地域</th>
-      <th>
-        <%= f.radio_button :country, "日本", checked: true %>  日本  <%= f.radio_button :country, "ハワイ" %>  ハワイ
-        <%= f.radio_button :country, "アメリカ本土" %>  アメリカ本土　<%= f.radio_button :country, "その他の国" %>  その他の国
-      </th>
-    </tr>
+        <dt>メールアドレス</dt>
+        <dd><%= f.email_field :email, autofocus: true, autocomplete: "email" %></dd>
 
-    <tr>
-      <th>生年月日</th>
-      <th><%= f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 0), default: Date.new(1989, 1, 1) %></th>
-    </tr>
+        <dt>お住いの地域</dt>
+        <dd>
+          <%= f.radio_button :country, "日本", checked: true %>  日本  <%= f.radio_button :country, "ハワイ" %>  ハワイ
+          <%= f.radio_button :country, "アメリカ本土" %>  アメリカ本土　<%= f.radio_button :country, "その他の国" %>  その他の国
+        </dd>
 
-    <tr>
-      <th>ハワイへの渡航歴</th>
-      <th>
-        <%= f.radio_button :visit_time, "なし", checked: true %>  なし  <%= f.radio_button :visit_time, "１～３回" %>  １～３回
-        <%= f.radio_button :visit_time, "４～６回" %>  ４～６回　<%= f.radio_button :visit_time, "６回以上" %>  ６回以上
-      </th>
-    </tr>
-  </table>
-  <%= f.submit "編集する", class: "btn btn-success" %>
-  <% end %>
-  </div>
+        <dt>生年月日</dt>
+        <dd><%= f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 0), default: Date.new(1989, 1, 1) %></dd>
+
+        <dt>ハワイへの渡航歴</dt>
+        <dd>
+          <%= f.radio_button :visit_time, "なし", checked: true %>  なし  <%= f.radio_button :visit_time, "１～３回" %>  １～３回
+          <%= f.radio_button :visit_time, "４～６回" %>  ４～６回　<%= f.radio_button :visit_time, "６回以上" %>  ６回以上
+        </dd>
+
+        <%= f.submit "編集する", class: "btn btn-success btn-lg" %>
+      <% end %>
+    </div>
   </div>
 </div>

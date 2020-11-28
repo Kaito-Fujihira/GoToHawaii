@@ -1,5 +1,6 @@
 class Publics::PostsController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_correct_customer, only: [:edit, :update, :destroy]
   layout 'publics/header'
 
   def new
@@ -51,5 +52,12 @@ class Publics::PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :explanation, :image, :genre_id, :customer_id)
+  end
+
+  def ensure_correct_customer
+     post = Post.find(params[:id])
+     if current_customer != post.customer_id
+       redirect_to post_path(post)
+     end
   end
 end

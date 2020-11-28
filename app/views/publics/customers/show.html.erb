@@ -3,35 +3,39 @@
 	<h2><%= @customer.name %>さんの会員情報</h2>
 	<div class="row">
 		<div class="col-xs-3">
-	    <table class="table">
-	    	<tr><!--%= attachment_image_tag(customer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>--></tr>
-				<tr>
-					<th>お名前</th>
-					<td><%= @customer.name %></td>
-				</tr>
-				<tr>
-					<th>お住いの地域</th>
-					<td><%= @customer.country %></td>
-				</tr>
-				<tr>
-					<th>ハワイへの渡航歴</th>
-					<td><%= @customer.visit_time %></td>
-				</tr>
-				<tr>
-    				<th><%= link_to "フォロー", customer_followings_path(@customer) %></th>
-    				<td><%= @customer.followings.count %></td>
-  				</tr>
-  				<tr>
-   					<th><%= link_to "フォロワー", customer_followers_path(@customer) %></th>
-    				<td class="followers-count"><%= @customer.followers.count %></td>
-  			</tr>
+		    <table class="table">
+		    	<div class="show-profile_image">
+		    	<%= attachment_image_tag(@customer, :profile_image, :fill, 100, 100, size:"150x150", fallback: "no-image.png") %>
+		    	</div>
+					<tr>
+						<th>お名前</th>
+						<td><%= @customer.name %></td>
+					</tr>
+					<tr>
+						<th>お住いの地域</th>
+						<td><%= @customer.country %></td>
+					</tr>
+					<tr>
+						<th>ハワイへの渡航歴</th>
+						<td><%= @customer.visit_time %></td>
+					</tr>
+					<tr>
+	    				<th><%= link_to "フォロー", customer_followings_path(@customer) %></th>
+	    				<td><%= @customer.followings.count %></td>
+	  				</tr>
+	  				<tr>
+	   					<th><%= link_to "フォロワー", customer_followers_path(@customer) %></th>
+	    				<td class="followers-count"><%= @customer.followers.count %></td>
+	  			</tr>
 			</table>
 			<div class="follow-btn">
 				<%= render 'publics/relationships/follow_form', customer: @customer %>
 			</div>
 			<br>
-			<%= link_to "マイページを編集する", edit_customer_path(current_customer.id), class: "btn btn-primary"%>
-			<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn-square-so-pop" %>
+			<% if current_customer == @customer %>
+				<%= link_to "マイページを編集する", edit_customer_path(current_customer.id), class: "btn btn-success"%>
+				<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-danger" %>
+			<% end %>
 		</div>
 
 		<% if @posts.exists? %>

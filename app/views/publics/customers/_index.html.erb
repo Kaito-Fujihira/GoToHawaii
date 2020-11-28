@@ -1,5 +1,6 @@
 <% if customers.exists? %>
-<table class='table table-bordered'>
+<div class="follow-index">
+<table class='table'>
   <thead>
     <tr>
       <th>プロフィール写真</th>
@@ -13,18 +14,19 @@
   <tbody>
     <% customers.each do |customer| %>
       <tr>
-        <td><!--%= attachment_image_tag(customer, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>--></td>
+        <td><%= attachment_image_tag(customer, :profile_image, :fill, 50, 50, size:"50x50", fallback: "no-image.png") %></td>
         <td><%= customer.name %></td>
         <td id="followings_<%= customer.id %>"><%= customer.followings.count %></td>
         <td id="followers_<%= customer.id %>"><%= customer.followers.count %></td>
         <td id="follow_<%= customer.id %>">
           <%= render 'publics/relationships/follow_form', customer: customer %>
         </td>
-        <td><%= link_to '詳細をみる', customer_path(customer), class: "customer_#{customer.id}" %></td>
+        <td><%= link_to '詳細をみる', customer_path(customer), class: "btn btn-success" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 <% else %>
 <table class='table'>
   <thead>

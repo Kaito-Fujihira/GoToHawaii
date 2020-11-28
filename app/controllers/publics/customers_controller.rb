@@ -1,5 +1,7 @@
 class Publics::CustomersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_correct_customer, only: [:edit, :update]
+
   layout 'publics/header'
   def show
     @customer = Customer.find(params[:id])
@@ -13,7 +15,7 @@ class Publics::CustomersController < ApplicationController
   def update
     @customer = Customer.find(current_customer.id)
     if @customer.update(customer_params)
-      redirect_to customer_path(@customer)
+      redirect_to customer_path(@customer), notice: "ユーザー情報を更新しました。"
     else
       render :edit
     end
@@ -21,6 +23,14 @@ class Publics::CustomersController < ApplicationController
 
   private
   def customer_params
-    params.require(:customer).permit(:name, :emali, :birthday, :country, :visit_time)
+    params.require(:customer).permit(:name, :emali, :profile_image, :birthday, :country, :visit_time)
   end
+
+  def ensure_correct_customer
+     customer = Customer.find(params[:id])
+     if current_customer != customer
+       redirect_to customer_path(current_customer.id)
+     end
+  end
+
 end
