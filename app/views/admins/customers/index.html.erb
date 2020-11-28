@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="admins-customer">
+    <h2>会員一覧</h2>
+    <div class="admins-customer-list">
+      <table>
+        <thead>
+          <tr>
+            <th>プロフィール写真</th>
+            <th>お名前</th>
+            <th>メールアドレス</th>
+            <th>お住いの地域</th>
+            <th>ハワイへの渡航歴</th>
+            <th>フォロー数</th>
+            <th>フォロワー数</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+          <tr>
+            <td></td>
+            <td><%= customer.name %></td>
+            <td><%= customer.email %></td>
+            <td><%= customer.country %></td>
+            <td><%= customer.visit_time %></td>
+            <td><%= customer.followings.count %></td>
+            <td><%= customer.followers.count%></td>
+            <td><%= link_to "削除", admins_customer_path(customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -3,14 +3,13 @@ class Admins::CustomersController < ApplicationController
   layout 'admins/header'
 
   def index
-  end
-
-  def edit
-  end
-
-  def update
+    @customers = Customer.all
   end
 
   def destroy
+    customer = Customer.find(params[:id])
+    customer.destroy
+    @customers = Customer.all
+    render :index
   end
 end

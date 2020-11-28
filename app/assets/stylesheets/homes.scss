@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+////会員側////
+
 //homes/top 上まで戻るボタン
 #back {
   position: fixed;
@@ -12,4 +14,21 @@
   width: 60px;
   font-size: 60px;
   color: #333;
+}
+
+////管理者側////
+
+//admins/top
+.admin-top {
+  text-align: center;
+  h3 {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  p {
+      margin: 35px 0;
+      font-size: 30px;
+      border-bottom: 2px solid;
+      display: inline-block;
+    }
 }
