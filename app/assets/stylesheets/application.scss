@@ -213,6 +213,21 @@ h2 {
   font-size: 25px;
 }
 
+//admins/top
+.admin-top {
+  text-align: center;
+  h3 {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  p {
+      margin: 35px 0;
+      font-size: 30px;
+      border-bottom: 2px solid;
+      display: inline-block;
+    }
+}
+
 //////////////////////////footer/////////////////////////////
 footer {
   width: 100%;
