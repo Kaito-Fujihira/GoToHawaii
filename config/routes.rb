@@ -34,6 +34,10 @@ Rails.application.routes.draw do
     sessions: 'admins/sessions'
   }
 
+  devise_scope :admin do
+    post 'admins/guest_sign_in' => 'admins/sessions#new_guest'
+  end
+
   namespace :admins do
     get 'top' => 'homes#top', as: 'top'
     resources :admins, only: [:edit, :update, :destroy]

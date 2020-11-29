@@ -2,7 +2,14 @@
 
 class Admins::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_admin!
+  before_action :check_guest, only: :destroy
   layout 'admins/header'
+
+  def check_guest
+    if resource.email == 'admin@example.com'
+      redirect_to admins_top_path, alert: 'ゲストユーザーは削除できません。'
+    end
+  end
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]

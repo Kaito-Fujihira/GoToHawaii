@@ -12,10 +12,12 @@
       <dd><%= f.password_field :password, autocomplete: "current-password" %></dd>
 
       <div class="admin-login-btn">
-        <%= f.submit "ログイン", class: "btn btn-primary" %>
+        <%= f.submit "ログイン", class: "btn btn-success btn-lg" %>
       </div>
 
       <%= render "admins/shared/links" %>
+
+      <%= link_to "企業様ログイン(閲覧用)", admins_guest_sign_in_path, method: :post, class: "btn btn-warning btn-lg" %>
       <% end %>
 
     </div>
