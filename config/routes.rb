@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     sessions: 'publics/sessions'
   }
 
+  devise_scope :customer do
+    post 'customers/guest_sign_in' => 'publics/sessions#new_guest'
+  end
+
   scope module: :publics do
     root 'homes#top'
     get 'about' => 'categorys#about', as: 'about'

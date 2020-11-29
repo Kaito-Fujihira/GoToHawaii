@@ -5,8 +5,8 @@
       <%= form_with model: @customer, class: "form", local: true do |f| %>
 
         <div id="edit-profile_image">
-        <%= attachment_image_tag(@customer, :profile_image_id, :fill, 50, 50, size:"200x200", fallback: "no-image.png") %>
-        <%= f.attachment_field :profile_image %>
+          <%= attachment_image_tag(@customer, :profile_image, :fill, 100, 100, size:"150x150", fallback: "no-image.png") %>
+          <%= f.attachment_field :profile_image %>
         </div>
 
         <dt>お名前</dt>
@@ -30,7 +30,8 @@
           <%= f.radio_button :visit_time, "４～６回" %>  ４～６回　<%= f.radio_button :visit_time, "６回以上" %>  ６回以上
         </dd>
 
-        <%= f.submit "編集する", class: "btn btn-success btn-lg" %>
+        <dd><%= f.submit "編集する", class: "btn btn-success btn-lg" %></dd>
+        <%= link_to "パスワード変更はこちら", edit_customer_registration_path, class: "btn btn-success" %>
       <% end %>
     </div>
   </div>

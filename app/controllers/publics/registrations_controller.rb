@@ -4,6 +4,13 @@ class Publics::RegistrationsController < Devise::RegistrationsController
   layout 'publics/header'
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :check_guest, only: :destroy
+
+  def check_guest
+    if resource.email == 'guest@guest.com'
+      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+    end
+  end
 
   # GET /resource/sign_up
   # def new

@@ -14,7 +14,7 @@
   <tbody>
     <% customers.each do |customer| %>
       <tr>
-        <td><%= attachment_image_tag(customer, :profile_image, :fill, 50, 50, size:"50x50", fallback: "no-image.png") %></td>
+        <td><%= attachment_image_tag(customer, :profile_image, :fill, 100, 100, size:"50x50", fallback: "no-image.png") %></td>
         <td><%= customer.name %></td>
         <td id="followings_<%= customer.id %>"><%= customer.followings.count %></td>
         <td id="followers_<%= customer.id %>"><%= customer.followers.count %></td>

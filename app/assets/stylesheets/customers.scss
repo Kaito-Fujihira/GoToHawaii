@@ -81,6 +81,29 @@
   }
 }
 
+//edit-registrations
+
+.edit-registrations-customers {
+  text-align: center;
+}
+
+.edit-registrations-customers-form {
+  margin: 80px 0;
+  padding: 0 280px;
+  form {
+    padding: 55px 15px;
+    border: 1px solid;
+    border-radius: 15px;
+    background: #fff;
+    dt {
+      font-size: 25px;
+    }
+    dd {
+      margin: 10px 0;
+    }
+  }
+}
+
 .user-icon {
   display: inline-block;
   font-size: 30px;

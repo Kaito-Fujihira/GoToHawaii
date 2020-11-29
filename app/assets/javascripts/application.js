@@ -91,7 +91,7 @@ $(function(){
  	$('#edit-profile_image').on('change', function (e) {
  		var reader = new FileReader();
 		reader.onload = function (e) {
-		  $(".profile_image_id").attr('src', e.target.result);
+		  $(".profile_image").attr('src', e.target.result);
 		}
   	reader.readAsDataURL(e.target.files[0]);
   });

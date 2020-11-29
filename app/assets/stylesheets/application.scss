@@ -126,6 +126,15 @@ h2 {
   font-weight: bold;
 }
 
+a {
+  color: #00d006;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #007704;
+}
+
 .container {
   .pick-up-category{
     width: 100%;
@@ -205,9 +214,6 @@ h2 {
     dd {
       margin: 10px 0;
     }
-    .login-btn {
-      margin: 20px 0;
-    }
   }
 }
 .edit-admin-btn {
@@ -228,5 +234,5 @@ footer {
 
 .footer-name {
   font-size: 25px;
-  line-height: 200px;
+  //line-height: 200px;
 }
