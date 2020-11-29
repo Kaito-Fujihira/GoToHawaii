@@ -55,8 +55,16 @@
       <% end %>
     </span>
     <footer>
-      <%= link_to "管理者様はこちらから", new_admin_session_path %>
-      <div class="footer-name">ⒸGo To Hawaii</div>
+      <div class="footer-nav">
+      <div class="footer-links">
+        <p><%= link_to "管理者様はこちらから", new_admin_session_path %><br></p>
+        <p><%= link_to "企業様ログイン(閲覧用)", customers_guest_sign_in_path, method: :post %></p>
+      </div>
+      <div class="footer-name">
+        <%= image_tag "logo.jpg" %><br>
+        ⒸGo To Hawaii
+      </div>
+      <div class="footer-sns">
       <div class="sns-icon-list">
         <%= link_to "https://twitter.com/" do %>
         <div class="twitter">
@@ -84,6 +92,8 @@
         </div>
         <% end %>
         </div>
+      </div>
+      </div>
     </footer>
   </body>
 </html>
