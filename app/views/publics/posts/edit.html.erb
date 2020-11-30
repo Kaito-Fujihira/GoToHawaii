@@ -6,44 +6,21 @@
       <div class="post_image">
 		    <%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"400x300" %>
 				<%= f.attachment_field :image %>
-  			</div>
-  			<script>
-  			   $(function(){
-  			     //inputのidから情報を取得
-  		       	$('#post_image').on('change', function (e) {
-  		       	  // ココから既存の画像のurlの取得
-  		       		var reader = new FileReader();
-  		    		reader.onload = function (e) {
-  		    			$(".image").attr('src', e.target.result);
-  		    		}
-  		    		// ココまで
-  		    		reader.readAsDataURL(e.target.files[0]);
-  		    		// 取得したurlにアップロード画像のurlを取得
-  	          });
-  	        });
-  		    </script>
-        </div>
+  		</div>
+    </div>
 
-        <div class="col-xs-7">
-          <dt>タイトル</dt>
-          <dd>
-            <%= f.text_field :title, class: "form-control" %>
-          </dd>
+    <div class="col-xs-7">
+      <dt>タイトル</dt>
+      <dd><%= f.text_field :title, class: "form-control" %></dd>
 
-          <dt>説明</dt>
-          <dd>
-            <%= f.text_area :explanation, class: "form-control" %>
-          </dd>
+      <dt>説明</dt>
+      <dd><%= f.text_area :explanation, class: "form-control" %></dd>
 
-          <ht>ジャンル</dt>
-          <dd>
-            <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}) %>
-          </dd>
+      <ht>ジャンル</dt>
+      <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}) %></dd>
 
-          <dd>
-            <%= f.submit "変更を保存", class: "btn btn-primary" %>
-          </dd>
-        </div>
-        <% end %>
-      </div>
+      <dd><%= f.submit "変更を保存", class: "btn btn-primary" %></dd>
+    </div>
+  <% end %>
+  </div>
 </div>

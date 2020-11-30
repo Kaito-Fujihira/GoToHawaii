@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="admins-posts-index">
+    <h2>投稿一覧</h2>
+    <div class="admins-posts">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>投稿写真</th>
+            <th>タイトル</th>
+            <th>説明</th>
+            <th>ジャンル</th>
+            <th>投稿日時</th>
+            <th>投稿者</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+          <tr>
+            <td><%= attachment_image_tag(post, :image, size:"100x100", fallback: "no-image.png") %></td>
+            <td><%= post.title %></td>
+            <td><%= post.explanation %></td>
+            <td><%= post.genre.name %></td>
+            <td><%= post.created_at.strftime('%Y/%m/%d %T') %></td>
+            <td><%= post.customer.name %></td>
+            <td><%= link_to "編集", edit_admins_post_path(post), class: "btn btn-success" %><br>
+                <%= link_to "削除", admins_post_path(post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="paginate">
+        <%= paginate @posts %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,7 @@
             <%= link_to "Top", admins_top_path, class: "header-tab" %>
             <%= link_to "Genre", admins_genres_path, class: "header-tab" %>
             <%= link_to "Customers", admins_customers_path, class: "header-tab" %>
+            <%= link_to "Posts", admins_posts_path, class: "header-tab" %>
             <%= link_to "My Page", edit_admins_admin_path(current_admin), class: "header-tab" %>
             <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "header-tab" %>
           <% else %>
@@ -41,8 +42,5 @@
         <%= yield %>
       </div>
     </div>
-    <footer>
-      <div class="footer-name">ⒸGo To Hawaii</div>
-    </footer>
   </body>
 </html>

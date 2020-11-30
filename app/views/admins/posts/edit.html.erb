@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="edit-admins-post">
+    <h2>マイページ編集</h2>
+    <div class="edit-admins-post-form">
+      <%= form_with model: @post, url: admins_post_path, class: "form", local: true do |f| %>
+
+        <dt>投稿写真</dt>
+        <div id="post_image">
+          <%= attachment_image_tag(@post, :image, size:"300x250", fallback: "no-image.png") %>
+          <%= f.attachment_field :image %>
+        </div>
+
+        <dt>タイトル</dt>
+        <dd><%= f.text_field :title, autofocus: true, autocomplete: "title" %></dd>
+
+        <dt>説明</dt>
+        <dd><%= f.text_area :explanation, autofocus: true, autocomplete: "explanation", size:"70" %></dd>
+
+        <dt>ジャンル</dt>
+        <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}) %></dd>
+
+        <dd><%= f.submit "編集する", class: "btn btn-success btn-lg" %></dd>
+      <% end %>
+    </div>
+  </div>
+</div>

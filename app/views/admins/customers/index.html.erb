@@ -18,7 +18,7 @@
         <tbody>
           <% @customers.each do |customer| %>
           <tr>
-            <td></td>
+            <td><%= attachment_image_tag(customer, :profile_image, :fill, 100, 100, size:"50x50", fallback: "no-image.png") %></td>
             <td><%= customer.name %></td>
             <td><%= customer.email %></td>
             <td><%= customer.country %></td>
@@ -30,6 +30,9 @@
           <% end %>
         </tbody>
       </table>
+      <div class="paginate">
+        <%= paginate @customers %>
+      </div>
     </div>
   </div>
 </div>

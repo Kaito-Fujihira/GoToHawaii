@@ -3,13 +3,13 @@ class Admins::CustomersController < ApplicationController
   layout 'admins/header'
 
   def index
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(10).reverse_order
   end
 
   def destroy
     customer = Customer.find(params[:id])
     customer.destroy
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(10).reverse_order
     render :index
   end
 end
