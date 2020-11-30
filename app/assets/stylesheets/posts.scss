@@ -38,3 +38,39 @@
 .img {
   border: 3px outset #ccc;
 }
+
+//posts/show
+.post-show-info {
+  position: relative;
+  text-align: center;
+  padding: 55px 15px;
+  border: 1px solid;
+  border-radius: 15px;
+  background: #fff;
+
+  dt {
+    font-size: 25px;
+  }
+  dd {
+    margin: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid;
+  }
+  .admin-login-btn {
+    margin: 20px 0;
+  }
+}
+
+.post-show-info:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #333;
+}
+
+.posts-show-comment {
+  width: 80%;
+}

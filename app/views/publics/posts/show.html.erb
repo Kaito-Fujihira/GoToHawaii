@@ -1,37 +1,64 @@
 <div class="container">
 <h2>投稿詳細</h2>
-<div class="row">
+  <div class="row">
     <div class="col-xs-7">
-		<%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"500x500" %>
+		  <%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"600x500" %>
     </div>
 
     <div class="col-xs-5">
-      <h4>投稿者<h4>
-      <p><%= link_to @customer.name, customer_path(@post.customer) %>　さん</p>
+      <div class="post-show-info">
+      <dt>投稿者</dt>
+      <dd><%= link_to @customer.name, customer_path(@post.customer) %>　さん</dd>
 
-      <h4>タイトル</h4>
-      <p><%= @post.title %></p>
+      <dt>タイトル</dt>
+      <dd><%= @post.title %></dd>
 
-      <h4>説明</h4>
-      <p><%= @post.explanation %></p>
+      <dt>説明</dt>
+      <dd><%= @post.explanation %></dd>
 
-      <h4>ジャンル</h4>
-      <p><%= @post.genre.name %></p>
+      <dt>ジャンル</dt>
+      <dd><%= @post.genre.name %></dd>
+
+      <div class="favorite-btn">
+        <div class="post-show-favorite">
+        <% if @post.favorited_by?(current_customer) %>
+	        <li>
+	          <%= link_to post_favorites_path(@post), method: :delete, remote: true do %>
+	            <%= image_tag "shaka.jpg", class: "shaka-btn" %>
+            <% end %>
+  	        <div class="favorite-count">
+  		        <%= @post.favorites.count %>
+  	        </div>
+	        </li>
+        <% else %>
+	        <li>
+  	        <%= link_to post_favorites_path(@post), method: :post, remote: true do %>
+  	          <%= image_tag "shaka-black.jpg", class: "shaka-btn" %>
+ 		        <% end %>
+ 		        <div class="favorite-count">
+ 		          <%= @post.favorites.count %>
+ 		        </div>
+	        </li>
+        <% end %>
+        </div>
+      </div>
 
       <% if @customer == current_customer %>
-      <%= link_to "投稿を編集する", edit_post_path, class: "btn btn-primary"%>
+      <%= link_to "投稿を編集する", edit_post_path, class: "btn btn-success" %>
       <%= link_to "投稿を削除する", post_path, method: :delete, class: "btn btn-danger" %>
       <% end %>
-      <div class="favorite-btn">
-        <%= render "publics/favorites/favorite-btn", post: @post %>
-      </div>
+
+    </div>
     </div>
   </div>
-  <div class="post_comment">
-  <%= render "publics/comments/comment", customer: @customer, post: @post, comment: @comment %>
+
+  <div class="posts-show-comment">
+    <div class="post_comment">
+      <%= render "publics/comments/comment", customer: @customer, post: @post, comment: @comment %>
+    </div>
+    <%= form_with model:[@post, @comment] do |f| %>
+      <%= f.text_area :comment, size:"50x2" %>
+      <%= f.submit "コメントをする", class: "btn btn-primary comment" %>
+    <% end %>
   </div>
-  <%= form_with model:[@post, @comment] do |f| %>
-    <%= f.text_area :comment, size:"50x2" %>
-    <%= f.submit "コメントをする", class: "btn btn-primary comment" %>
-  <% end %>
 </div>

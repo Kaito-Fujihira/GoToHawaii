@@ -4,6 +4,7 @@
     <div class="edit-customer-form">
       <%= form_with model: @customer, class: "form", local: true do |f| %>
 
+        <dt>プロフィール写真</dt>
         <div id="edit-profile_image">
           <%= attachment_image_tag(@customer, :profile_image, :fill, 100, 100, size:"150x150", fallback: "no-image.png") %>
           <%= f.attachment_field :profile_image %>

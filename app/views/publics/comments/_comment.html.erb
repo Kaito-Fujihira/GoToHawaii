@@ -1,23 +1,23 @@
-<h3>コメント一覧</h3>
+<h2>コメント一覧</h2>
 <div class="comments-count">コメント数　<strong><%= post.comments.count %></strong>件</div>
-<div class="row">
-      <table class="table">
-        <% post.comments.each do |comment| %>
-        <tr>
-          <td>
-            <%= link_to customer_path(customer) do %>
-		          <%= comment.customer.name %>
-		        <% end %>
-		      </td>
-			    <td id="#comment_comment">
-			      <%= comment.comment %>
-			    </td>
-            <% if comment.customer == current_customer %>
-          <td>
-            <%= link_to "コメントを削除する", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn-sm btn-danger" %>
-          </td>
-            <% end %>
-          </tr>
+  <div class="row">
+    <table class="table">
+    <% post.comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= link_to customer_path(customer) do %>
+	          <%= comment.customer.name %>
+	        <% end %>
+	      </td>
+		    <td id="#comment_comment">
+		      <%= comment.comment %>
+		    </td>
+          <% if comment.customer == current_customer %>
+        <td>
+          <%= link_to "コメントを削除", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn-sm btn-danger" %>
+        </td>
         <% end %>
-      </table>
-    </div>
+      </tr>
+    <% end %>
+    </table>
+  </div>

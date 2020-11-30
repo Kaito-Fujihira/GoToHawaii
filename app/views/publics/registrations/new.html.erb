@@ -38,6 +38,8 @@
         <div class="registrations-info">既に登録済みの方</div>
     <div>
       <%= link_to "こちら", new_customer_session_path, class: "btn btn-info" %>からログインしてください。
+      <%= link_to "facebook", customer_facebook_omniauth_authorize_path %>
+      <%= link_to "google", customer_google_oauth2_omniauth_authorize_path %>
     </div>
       <% end %>
     </div>

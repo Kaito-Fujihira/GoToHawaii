@@ -1,3 +1,16 @@
 // Place all the styles related to the searchs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+///会員側searchs/search
+.searchs-index > .table > thead > tr {
+  > th:nth-child(1){
+    width: 15%;
+  }
+  > th:nth-child(2) {
+    width: 30%;
+  }
+  > th:nth-child(3) {
+    width: 23%;
+  }
+}
