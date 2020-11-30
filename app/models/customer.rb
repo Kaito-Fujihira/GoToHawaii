@@ -5,6 +5,10 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable,
          omniauth_providers: %i[facebook google_oauth2]
 
+  validates :name, presence: true
+  validates :email, presence: true
+
+
   attachment :profile_image
 
   has_many :comments, dependent: :destroy

@@ -5,10 +5,16 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   attachment :image
 
+  validates :title, presence: true
+  validates :title, length: { maximum: 50 }
+  validates :explanation, presence: true
+  validates :explanation, length: { maximum: 300 }
+  validates :image, presence: true
+
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?
   end
-  
+
   def Post.search(search, customer_or_post, how_search)
     if customer_or_post == "2"
     	if how_search == "1"

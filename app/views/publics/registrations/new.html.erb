@@ -35,11 +35,16 @@
           <%= f.submit "新規登録する", class: "btn btn-success btn-lg" %>
         </div>
 
+        <div class="sns-login">
+          <%= link_to "", customer_facebook_omniauth_authorize_path, class: "fab fa-facebook-square" %>
+          <!--<i class="fab fa-facebook-square"></i>-->
+          <%= link_to "", customer_google_oauth2_omniauth_authorize_path, class: "fab fa-google" %><br>
+          <!--<i class="fab fa-google"></i>-->
+        </div>
+
         <div class="registrations-info">既に登録済みの方</div>
     <div>
       <%= link_to "こちら", new_customer_session_path, class: "btn btn-info" %>からログインしてください。
-      <%= link_to "facebook", customer_facebook_omniauth_authorize_path %>
-      <%= link_to "google", customer_google_oauth2_omniauth_authorize_path %>
     </div>
       <% end %>
     </div>

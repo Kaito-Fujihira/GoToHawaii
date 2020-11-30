@@ -11,10 +11,10 @@
 
     <div class="col-xs-7">
       <dt>タイトル</dt>
-      <dd><%= f.text_field :title, class: "form-control" %></dd>
+      <dd><%= f.text_field :title, class: "form-control", placeholder: "50文字以内" %></dd>
 
       <dt>説明</dt>
-      <dd><%= f.text_area :explanation, class: "form-control" %></dd>
+      <dd><%= f.text_area :explanation, class: "form-control", placeholder: "300文字以内" %></dd>
 
       <ht>ジャンル</dt>
       <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}) %></dd>
