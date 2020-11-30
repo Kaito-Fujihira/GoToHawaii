@@ -1,8 +1,8 @@
 class Publics::CustomersController < ApplicationController
   before_action :authenticate_customer!
   before_action :ensure_correct_customer, only: [:edit, :update]
-
   layout 'publics/header'
+
   def show
     @customer = Customer.find(params[:id])
     @posts = @customer.posts.page(params[:page]).per(12).reverse_order

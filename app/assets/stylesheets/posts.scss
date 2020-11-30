@@ -82,6 +82,10 @@
 ////管理者側////
 
 //posts/index
+.admins-posts-index {
+  margin-bottom: 40px;
+}
+
 .admins-posts > .table > thead > tr {
   >th:nth-child(2) {
     width: 10%;

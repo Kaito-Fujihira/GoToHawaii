@@ -10,7 +10,7 @@
 	        <% end %>
 	      </td>
 		    <td id="comment_comment">
-		      <%= comment.comment %>
+		      <%= Rinku.auto_link(comment.comment, :all, 'target="_blank"').html_safe %>
 		    </td>
           <% if comment.customer == current_customer %>
         <td>

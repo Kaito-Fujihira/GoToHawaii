@@ -3,7 +3,15 @@ class Admins::PostsController < ApplicationController
   layout 'admins/header'
 
   def index
-    @posts = Post.all.page(params[:page]).per(10).reverse_order
+    if @posts = params[:created_at]
+      today_posts = Date.today.beginning_of_day..Date.today.end_of_day
+		  post = Post.where(created_at: today_posts)
+		  posts = post.all
+    else
+      posts = Post.all
+    end
+    @posts = posts.page(params[:page]).per(10).reverse_order
+
   end
 
   def edit

@@ -118,9 +118,51 @@
   margin-left: 10px;
 }
 
+//new-password
+.customer-password-new {
+  text-align: center;
+}
+
+.password-new-form {
+  margin: 80px 0;
+  padding: 0 280px;
+  form {
+    padding: 55px 15px;
+    border: 1px solid;
+    border-radius: 15px;
+    background: #fff;
+    dt {
+      font-size: 25px;
+    }
+    dd {
+      margin: 10px 0;
+    }
+  }
+}
+
+.user-icon {
+  display: inline-block;
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+
+//SNS認証ボタン
+a.fab.fa-facebook-square {
+    color: #3b5998;
+}
+
+a.fab.fa-google {
+    color: #e94235;
+}
+
 //管理者側//
 
 //admins/customers
+.admins-customer {
+    margin-bottom: 40px;
+}
+
 .admins-customer-list {
   > table {
     width: 100%;

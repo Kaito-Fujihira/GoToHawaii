@@ -14,7 +14,7 @@
       <dd><%= @post.title %></dd>
 
       <dt>説明</dt>
-      <dd><%= @post.explanation %></dd>
+      <dd><%= Rinku.auto_link(@post.explanation, :all, 'target="_blank"').html_safe %></dd>
 
       <dt>ジャンル</dt>
       <dd><%= @post.genre.name %></dd>

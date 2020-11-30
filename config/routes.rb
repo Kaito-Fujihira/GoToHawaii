@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-
-  get 'posts/index'
-  get 'posts/edit'
-  get 'posts/update'
-  get 'posts/destroy'
   devise_for :customers, controllers: {
     registrations: 'publics/registrations',
     sessions: 'publics/sessions',
-    omniauth_callbacks: 'publics/omniauth_callbacks'
+    omniauth_callbacks: 'publics/omniauth_callbacks',
+    passwords: 'publics/passwords'
   }
 
   devise_scope :customer do

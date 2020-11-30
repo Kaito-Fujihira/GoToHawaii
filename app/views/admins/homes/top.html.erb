@@ -3,7 +3,7 @@
     <h2>管理者画面</h2>
     <div class="admin-top">
       <h3>Welcome 管理者様！</h3>
-      <p>本日の投稿件数は　<%= @posts.count %>件です。</p>
+      <p>本日の投稿件数は　<%=link_to @posts.count, admins_posts_path(created_at: @posts) %>件です。</p>
       </div>
   </div>
 </div>
