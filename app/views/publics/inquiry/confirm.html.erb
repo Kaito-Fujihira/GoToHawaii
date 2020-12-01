@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="inquiry-confirm">
+    <h2>お問い合わせ(確認)</h2>
+    <div class="inquiry-confirm-form">
+
+      <%= form_with model: @inquiry, url: thanks_path, method: :post, class: "form", local: true do |f| %>
+
+        <dt>名前</dt>
+        <dd><%= f.hidden_field :name %>
+            <%= @inquiry.name %></dd>
+
+        <dt>メールアドレス</dt>
+        <dd><%= f.hidden_field :email %>
+            <%= @inquiry.email %></dd>
+
+        <dt>お問い合わせ内容</dt>
+        <dd><%= f.hidden_field :message %>
+            <%= simple_format(@inquiry.message) %></dd>
+
+        <dd><%= f.submit '送信', :class => 'btn btn-success btn-lg' %></dd>
+
+      <% end %>
+    </div>
+  </div>
+</div>

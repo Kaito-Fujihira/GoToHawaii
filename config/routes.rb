@@ -17,7 +17,10 @@ Rails.application.routes.draw do
     get 'question' => 'categorys#question', as: 'question'
     get 'sns' => 'categorys#sns', as: 'sns'
     get 'youtube' => 'categorys#youtube', as: 'youtube'
-    patch "/customers/withdraw" => "customers#withdraw", as: 'withdraw'
+    patch "/customers/withdraw" => "customers#withdraw", as: 'withdraw' #退会ステータス用
+    get 'inquiry' => 'inquiry#index', as: 'inquiry'
+    post 'confirm' => 'inquiry#confirm', as: 'confirm'
+    post 'thanks'  => 'inquiry#thanks', as: 'thanks'
     resources :customers, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'

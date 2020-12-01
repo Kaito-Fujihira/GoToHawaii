@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="inquiry-index">
+    <h2>お問い合わせフォーム</h2>
+      <% if @inquiry.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <strong>入力内容にエラーがあります</strong>
+          <ul>
+            <% @inquiry.errors.each do |attr, msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <div class="inquiry-index-form">
+    <%= form_with model: @inquiry, url: confirm_path, method: :post, class: "form", local: true do |f| %>
+
+          <dt>名前<span class="text-danger">（必須）</span></dt>
+          <dd><%= f.text_field :name %></dd>
+
+          <dt>メールアドレス<span class="text-danger">（必須）</span></dt>
+          <dd><%= f.text_field :email %></dd>
+
+          <dt>お問い合わせ内容</dt>
+          <dd><%= f.text_area :message %></dd>
+
+          <dd><%= f.submit '確認', class: 'btn btn-success btn-lg' %></dd>
+    <% end %>
+    </div>
+  </div>
+</div>
