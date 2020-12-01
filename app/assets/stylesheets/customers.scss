@@ -149,11 +149,18 @@
 
 //SNS認証ボタン
 a.fab.fa-facebook-square {
-    color: #3b5998;
+  color: #3b5998;
+  text-decoration: none;
 }
 
 a.fab.fa-google {
-    color: #e94235;
+  color: #e94235;
+  text-decoration: none;
+}
+
+//ゲストログインボタン
+.guest-btn {
+  margin-top: 20px;
 }
 
 //管理者側//

@@ -70,13 +70,24 @@
   border-right: 15px solid #333;
 }
 
-.posts-show-comment {
-  width: 80%;
-  word-break: normal;
+//posts/new
+.new-posts {
+  margin-bottom: 20px;
 }
 
-#comment_comment  {
-  width: 55%;
+.new-posts-btn {
+  margin: 20px;
+  text-align: center;
+}
+
+//posts/edit
+.edit-posts {
+  margin-bottom: 20px;
+}
+
+.edit-posts-btn {
+  margin: 20px;
+  text-align: center;
 }
 
 ////管理者側////

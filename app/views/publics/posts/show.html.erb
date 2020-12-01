@@ -1,5 +1,5 @@
 <div class="container">
-<h2>投稿詳細</h2>
+  <h2>投稿詳細</h2>
   <div class="row">
     <div class="col-xs-7">
 		  <%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"600x500" %>
@@ -57,8 +57,8 @@
       <%= render "publics/comments/comment", customer: @customer, post: @post, comment: @comment %>
     </div>
     <%= form_with model:[@post, @comment] do |f| %>
-      <%= f.text_area :comment, size:"50x2", placeholder: "200文字以内" %>
-      <%= f.submit "コメントをする", class: "btn btn-primary comment" %>
+      <%= f.text_area :comment, size:"50x2", placeholder: "200文字以内", class: "" %>
+      <%= f.submit "コメントをする", class: "btn btn-info" %>
     <% end %>
   </div>
 </div>
