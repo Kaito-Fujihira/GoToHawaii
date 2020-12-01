@@ -2,7 +2,7 @@
   <div class="admins-customer">
     <h2>会員編集</h2>
     <div class="admins-customer-form">
-      <%= form_with model: @customer, url: customer_registration_path, class: 'form', local: true do |f| %>
+      <%= form_with model: @customer, url: admins_customer_path, class: 'form', local: true do |f| %>
 
         <dt>お名前</dt>
         <dd><%= f.text_field :name, autofocus: true, autocomplete: "name" %></dd>
@@ -24,6 +24,9 @@
           <%= f.radio_button :visit_time, "なし", checked: true %>  なし  <%= f.radio_button :visit_time, "１～３回" %>  １～３回
           <%= f.radio_button :visit_time, "４～６回" %>  ４～６回　<%= f.radio_button :visit_time, "６回以上" %>  ６回以上
         </dd>
+
+        <dt>会員ステータス</dt>
+        <dd><%= f.radio_button :is_deleted, "有効" %>　有効　<%= f.radio_button :is_deleted, "退会済み" %>　退会済み</dd>
 
         <div class="customer-signup-btn">
           <%= f.submit "変更する", class: "btn btn-success btn-lg" %>

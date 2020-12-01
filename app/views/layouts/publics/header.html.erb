@@ -17,7 +17,7 @@
     <header>
         <nav>
           <% if customer_signed_in? %>
-              <%= link_to "About", about_path, class: "header-tab" %>
+            <%= link_to "About", about_path, class: "header-tab" %>
             <%= link_to "Pick Up Category", category_path, class: "header-tab" %>
             <%= link_to root_path, style: "text-decoration:none" do %>
               <%= image_tag "logo.jpg", class: "header-logo" %>

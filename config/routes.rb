@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :publics do
+    get 'reference_links' => 'homes#reference_links', as: 'reference_links'
     root 'homes#top'
     get 'about' => 'categorys#about', as: 'about'
     get 'category' => 'categorys#index', as: 'category'

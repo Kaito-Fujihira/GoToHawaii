@@ -32,3 +32,22 @@
       display: inline-block;
     }
 }
+
+//reference_links
+.reference_links-list {
+  background: #fff;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 60px 0;
+  p {
+    font-size: 25px;
+  }
+  a {
+    font-size: 20px;
+  }
+}
+
+.reference_link {
+  margin-bottom: 20px;
+}
