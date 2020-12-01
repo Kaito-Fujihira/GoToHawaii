@@ -9,7 +9,7 @@ class Publics::CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def update
@@ -19,6 +19,13 @@ class Publics::CustomersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def withdraw #退会用アクション
+    @customer = current_customer
+    @customer.update(is_deleted: '退会済み')
+    reset_session
+    redirect_to root_path
   end
 
   private

@@ -32,7 +32,8 @@
         </dd>
 
         <dd><%= f.submit "編集する", class: "btn btn-success btn-lg" %></dd>
-        <%= link_to "パスワード変更はこちら", edit_customer_registration_path, class: "btn btn-success" %>
+        <dd><%= link_to "パスワード変更はこちら", edit_customer_registration_path, class: "btn btn-info" %></dd>
+        <%= link_to "退会する", withdraw_path(@customer), method: :patch, data: { confirm: '本当に退会しますか？' }, class: "btn btn-danger btn-sm" %>
       <% end %>
     </div>
   </div>

@@ -104,6 +104,11 @@ class Customer < ApplicationRecord
     end
     return { customer: customer,sns: sns}
   end
+  
+  #deletedがfalse(有効)の場合はログイン可能
+  def active_for_authentication?
+  super && (self.is_deleted == '有効' )
+  end
 
   enum country: {
     日本: 0,
@@ -118,4 +123,10 @@ class Customer < ApplicationRecord
     ４～６回: 2,
     ６回以上: 3
   }
+
+  enum is_deleted: {
+    有効: false,
+    退会済み: true
+  }
+
 end

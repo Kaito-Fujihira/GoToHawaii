@@ -5,10 +5,10 @@
       <%= form_with model: @customer, url: customer_registration_path, class: 'form', local: true do |f| %>
 
         <dt>お名前</dt>
-        <dd><%= f.text_field :name, autofocus: true, autocomplete: "name" %></dd>
+        <dd><%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ハワイ太郎" %></dd>
 
         <dt>メールアドレス</dt>
-        <dd><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %></dd>
+        <dd><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under", placeholder: "hawaii@gmail.com" %></dd>
 
         <dt>お住いの地域</dt>
         <dd>

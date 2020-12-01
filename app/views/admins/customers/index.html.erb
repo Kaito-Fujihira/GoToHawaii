@@ -12,6 +12,7 @@
             <th>ハワイへの渡航歴</th>
             <th>フォロー数</th>
             <th>フォロワー数</th>
+            <th>登録ステータス</th>
             <th></th>
           </tr>
         </thead>
@@ -25,6 +26,7 @@
             <td><%= customer.visit_time %></td>
             <td><%= customer.followings.count %></td>
             <td><%= customer.followers.count%></td>
+            <td><%= customer.is_deleted %></td>
             <td><%= link_to "削除", admins_customer_path(customer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %></td>
           </tr>
           <% end %>
