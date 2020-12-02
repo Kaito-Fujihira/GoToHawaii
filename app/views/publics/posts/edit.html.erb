@@ -11,6 +11,7 @@
       </div>
 
       <div class="col-xs-7">
+        <%= render "layouts/errors", obj: @post %>
         <dt>タイトル</dt>
         <dd><%= f.text_field :title, class: "form-control" %></dd>
 

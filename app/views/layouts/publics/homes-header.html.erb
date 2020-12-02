@@ -63,7 +63,14 @@
     </header>
     <div class="background-img">
       <div class="container-lg">
+        <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "flash flash__#{key}") %><% end %>
         <%= yield %>
+        <div id="is-loading">
+        <div id="loading">
+        <%=image_tag "waikiki.jpg", alt: "loadingなう" %>
+        </div>
+        </div>
       </div>
     </div>
     <span id="back">

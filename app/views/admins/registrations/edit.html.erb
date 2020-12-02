@@ -3,11 +3,7 @@
   <h2>管理者編集(パスワード)</h2>
   <div class="edit-admin-form">
   <%= form_with model: @admin, url: admin_registration_path, class: "form", local: true do |f| %>
-  <%= render "admins/shared/error_messages", resource: resource %>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <%= render "layouts/errors", obj: @admin %>
 
     <dt>現在のパスワード</dt>
     <dd><%= f.password_field :current_password, autocomplete: "current-password" %></dd>

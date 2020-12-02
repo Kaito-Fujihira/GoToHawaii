@@ -45,7 +45,7 @@
 
       <% if @customer == current_customer %>
       <%= link_to "投稿を編集する", edit_post_path, class: "btn btn-success" %>
-      <%= link_to "投稿を削除する", post_path, method: :delete, class: "btn btn-danger" %>
+      <%= link_to "投稿を削除する", post_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
       <% end %>
 
     </div>
@@ -56,8 +56,11 @@
     <div class="post_comment">
       <%= render "publics/comments/comment", customer: @customer, post: @post, comment: @comment %>
     </div>
+    <div class="error-comment">
+      <%= render "layouts/errors", obj: @customer %>
+    </div>
     <%= form_with model:[@post, @comment] do |f| %>
-      <%= f.text_area :comment, size:"50x2", placeholder: "200文字以内", class: "" %>
+      <%= f.text_area :comment, size:"50x2", placeholder: "200文字以内" %>
       <%= f.submit "コメントをする", class: "btn btn-info" %>
     <% end %>
   </div>

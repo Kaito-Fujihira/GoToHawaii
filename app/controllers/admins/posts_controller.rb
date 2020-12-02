@@ -20,16 +20,19 @@ class Admins::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    @posts = Post.all.page(params[:page]).per(10).reverse_order
-    render :index
+    if @post.update(post_params)
+      @posts = Post.all.page(params[:page]).per(10).reverse_order
+      redirect_to admins_posts_path, notice: "投稿を変更しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     @posts = Post.all.page(params[:page]).per(10).reverse_order
-    render :index
+    render :index, notice: "投稿を削除しました。"
   end
 
   private

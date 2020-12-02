@@ -1,5 +1,5 @@
 <h2>コメント一覧<span>(コメント数　<%= post.comments.count %>件)</span></h2>
-    <% if @post.comments.exists? %>
+    <% if post.comments.exists? %>
     <div class="comment-index">
     <table class="table">
       <thead>
@@ -20,11 +20,11 @@
   		    <td id="comment_comment">
   		      <%= Rinku.auto_link(comment.comment, :all, 'target="_blank"').html_safe %>
   		    </td>
-            <% if comment.customer == current_customer %>
           <td>
-            <%= link_to "コメントを削除", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn-sm btn-danger" %>
+            <% if comment.customer == current_customer %>
+              <%= link_to "コメントを削除", post_comment_path(comment.post, comment), method: :delete, remote: true, class: "btn-sm btn-danger" %>
+            <% end %>
           </td>
-          <% end %>
         </tr>
         <% end %>
       </tbody>

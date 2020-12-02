@@ -3,6 +3,7 @@
     <h2>会員編集</h2>
     <div class="admins-customer-form">
       <%= form_with model: @customer, url: admins_customer_path, class: 'form', local: true do |f| %>
+      <%= render "layouts/errors", obj: @customer %>
 
         <dt>お名前</dt>
         <dd><%= f.text_field :name, autofocus: true, autocomplete: "name" %></dd>

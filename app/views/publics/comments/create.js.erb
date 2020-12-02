@@ -1,4 +1,4 @@
 $(".comments-count").html("コメント数: <%= @post.comments.count %>");
-$(".post_comment").html("<%= j(render 'publics/comments/comment', post: @post, customer: @post.customer, comment: @comment) %>");
+$(".error-comment").html("<%= j(render 'layouts/errors', obj: @comment) %>");
+$(".post_comment").html("<%= j(render 'publics/comments/comment', post: @post, customer: @comment.customer, comment: @comment) %>");
 $("textarea").val("");
-$(".btn btn-info").prop('disabled', false);<!--railsのデフォルトはtrueなので、使用禁止をfalseにすると2回目の投稿が出来る。-->

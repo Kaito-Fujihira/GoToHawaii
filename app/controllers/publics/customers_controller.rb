@@ -25,7 +25,7 @@ class Publics::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: '退会済み')
     reset_session
-    redirect_to root_path
+    redirect_to root_path, alert: "退会しました。"
   end
 
   private

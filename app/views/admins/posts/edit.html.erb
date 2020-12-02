@@ -3,6 +3,7 @@
     <h2>マイページ編集</h2>
     <div class="edit-admins-post-form">
       <%= form_with model: @post, url: admins_post_path, class: "form", local: true do |f| %>
+      <%= render "layouts/errors", obj: @post %>
 
         <dt>投稿写真</dt>
         <div id="post_image">

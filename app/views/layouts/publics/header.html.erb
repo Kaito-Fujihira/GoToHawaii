@@ -46,6 +46,8 @@
     </header>
     <div class="background-img">
       <div class="container-lg">
+        <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "flash flash__#{key}") %><% end %>
         <%= yield %>
       </div>
     </div>

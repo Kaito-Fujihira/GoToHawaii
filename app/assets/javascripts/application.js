@@ -89,6 +89,16 @@ $(function(){
 });
 
 $(function(){
+ 	$('.post_image').on('change', function (e) {
+ 		var reader = new FileReader();
+		reader.onload = function (e) {
+		  $(".image").attr('src', e.target.result);
+		}
+  	reader.readAsDataURL(e.target.files[0]);
+  });
+});
+
+$(function(){
  	$('#edit-profile_image').on('change', function (e) {
  		var reader = new FileReader();
 		reader.onload = function (e) {
@@ -98,7 +108,7 @@ $(function(){
   });
 });
 
-
+//ハンバーガー機能
 $(function() {
     $('.hamburger').click(function() {
         $(this).toggleClass('active');
@@ -110,3 +120,27 @@ $(function() {
         }
     });
 });
+
+
+ $(function() {
+ var h = $(window).height();
+  $('#loading__wrapper').css('display','none');
+  $('#is-loading ,#loading').height(h).css('display','block');
+ });
+
+ $(window).load(function () {
+  $('#is-loading').delay(900).fadeOut(800);
+  $('#loading').delay(600).fadeOut(300);
+  $('#loading__wrapper').css('display', 'block');
+ });
+
+
+ $(function(){
+  setTimeout('stopload()',10000);
+  });
+
+  function stopload(){
+   $('#loading__wrapper').css('display','block');
+   $('#is-loading').delay(900).fadeOut(800);
+   $('#loading').delay(600).fadeOut(300);
+ }

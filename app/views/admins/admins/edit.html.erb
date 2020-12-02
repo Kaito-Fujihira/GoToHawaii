@@ -3,7 +3,7 @@
     <h2>管理者編集(メールアドレス)</h2>
     <div class="edit-admin-form">
     <%= form_with model: @admin, url: admins_admin_path(@admin), method: :patch, class: "form", local: true do |f| %>
-
+    <%= render "layouts/errors", obj: @admin %>
       <dt>メールアドレス</dt>
       <dd><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %></dd>
 

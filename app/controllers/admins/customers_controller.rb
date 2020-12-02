@@ -12,16 +12,19 @@ class Admins::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    @customers = Customer.all.page(params[:page]).per(10).reverse_order
-    render :index
+    if @customer.update(customer_params)
+      @customers = Customer.all.page(params[:page]).per(10).reverse_order
+      redirect_to admins_customers_path, notice: "会員情報を変更しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
     customer = Customer.find(params[:id])
     customer.destroy
     @customers = Customer.all.page(params[:page]).per(10).reverse_order
-    render :index
+    render :index, notice: "会員を削除しました。"
   end
 
   private
