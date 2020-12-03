@@ -25,6 +25,9 @@
     </tbody>
     <% end %>
   </table>
+  <div class="paginate">
+    <%= paginate @customers %>
+  </div>
   </div>
 </div>
 <% else %>
@@ -51,7 +54,11 @@
 <% if @posts.exists? %>
 <div class="container">
   <h2>投稿情報の検索結果</h2>
+  </div>
     <%= render 'publics/posts/index', posts: @posts, post: @post %>
+    <div class="paginate">
+    <%= paginate @posts %>
+  </div>
 </div>
 <% else %>
   <div class="container">

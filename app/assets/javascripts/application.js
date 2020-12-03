@@ -44,7 +44,7 @@ $(function(){
 
 $(function(){
   $('area').hover(
-   function() { $(this).focus().css('outline','10px solid #fff'); },
+   function() { $(this).focus().css('outline','1px solid #fff'); },
    function() { $(this).blur().css('outline','none'); }
   )
 });
@@ -122,6 +122,7 @@ $(function() {
 });
 
 
+//ページ読み込みアニメーション
  $(function() {
  var h = $(window).height();
   $('#loading__wrapper').css('display','none');
@@ -144,3 +145,15 @@ $(function() {
    $('#is-loading').delay(900).fadeOut(800);
    $('#loading').delay(600).fadeOut(300);
  }
+
+ //Google Map
+ let map
+  let geocoder
+
+$(function initMap(){
+  geocoder = new google.maps.Geocoder()
+  let map = new google.maps.Map(document.getElementById('google_map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 8
+  });
+});
