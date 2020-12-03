@@ -285,10 +285,54 @@
 }
 
 //about/oahu/google-map
-#map {
-  width: 50%;
+.waikiki-beach {
+  background-image: url(waikiki-beach.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 400px;
 }
+
+.oahu-name {
+  padding: 10px;
+  font-size: 100px;
+  font-family: 'Playball', cursive;
+  color: #fff;
+  border-top: 7px solid;
+  border-bottom: 7px solid;
+}
+
+.oahu-maps {
+  height: 1000px;
+  width: 100%;
+  position: relative;
+  img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+#map {
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  top: 400px;
+  left: 100px;
+}
+
+.oahu-info {
+  width: 100%;
+  height: 600px;
+  background-color: #d5ffeda3;
+  font-size: 25px;
+}
+
+
+
 
 @media (min-width: 768px) {
   .sample03 .swiper-button-prev,

@@ -1,7 +1,19 @@
-<div class="oahu-image">
-  <div class="container">
-    <h2>Oahu</h2>
-    <div id='map'></div>
+  <div class="oahu-index">
+  <div class="waikiki-beach">
+    <div class="oahu-name">Oahu</div>
   </div>
-</div>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>"></script>
+    <div class="oahu-maps">
+    <%= image_tag "oahu.png", size:"800x650" %>
+    <div id='map'></div>
+    </div>
+    <%= link_to "ワイキキ", class: "address", value: "Honolulu HI" %>
+    <div class="container">
+     <div class="oahu-info">
+       <p>オアフ島は別名「ギャザリング・プレイス（集いの場所）」とも呼ばれ、その名の通りにぎやかな島。ハワイの島々の中では3番目の大きさで、多彩な民族からなる、ハワイの人口のほとんどが集まっています。ハワイ先住民の伝統と価値観に東西の文化が絶妙に融合し、古いものと新しいものが見事に溶け合った魅力がいっぱいの島です。
+ホノルルの都会的な町並みや世界屈指のリゾートを誇るワイキキ、こじんまりしたノースショアの町ハレイワ。歴史的建造物イオラニ宮殿(link is external)や日米の歴史を伝えるパールハーバー(link is external)の史跡。数々のビーチから臨む青く澄んだ海。島のシンボル的存在レアヒ（ダイヤモンド・ヘッド）(link is external)でハイキングや、ハワイで1番充実したショッピングエリアでのショッピング、ビーチでリラックスなど盛りだくさん。オアフ島では楽しみ方の幅が広がります。</p>
+     </div>
+     </div>
+  </div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap"></script>
