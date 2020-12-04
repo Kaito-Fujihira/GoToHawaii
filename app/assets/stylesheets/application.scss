@@ -253,6 +253,8 @@ a:hover {
   font-size: 25px;
 }
 
+
+
 //////////////////////////footer/////////////////////////////
 footer {
   width: 100%;
@@ -315,7 +317,7 @@ footer {
 }
 
 @media screen and (max-width: 1300px) {
-/*　ハンバーガーボタン　*/
+//　ハンバーガーボタン　
 .hamburger {
   display : block;
   position: fixed;
@@ -348,7 +350,7 @@ footer {
   top: 30px;
 }
 
-/* ナビ開いてる時のボタン */
+// ナビ開いてる時のボタン 
 .hamburger.active span:nth-child(1) {
   top : 16px;
   left: 6px;
@@ -406,7 +408,7 @@ nav.globalMenuSp ul li a {
   text-decoration :none;
 }
 
-/* このクラスを、jQueryで付与・削除する */
+// このクラスを、jQueryで付与・削除する
 nav.globalMenuSp.active {
   transform: translateY(0%);
 }
