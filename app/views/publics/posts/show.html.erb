@@ -43,6 +43,11 @@
         </div>
       </div>
 
+      <div class="show_address">
+      <%= @post.spot.address %>
+      <div id="show_map", style="height: 320px; width: 400px;"></div>
+      </div>
+
       <% if @customer == current_customer %>
       <%= link_to "投稿を編集する", edit_post_path, class: "btn btn-success" %>
       <%= link_to "投稿を削除する", post_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>

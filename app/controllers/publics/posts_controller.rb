@@ -5,6 +5,7 @@ class Publics::PostsController < ApplicationController
 
   def new
     @post = Post.new
+    # @post.spots.build
   end
 
   def index
@@ -16,6 +17,10 @@ class Publics::PostsController < ApplicationController
     @genres= Genre.all
     @comment = Comment.new
     @customer = @post.customer
+    @lat = @post.spots.latitude # 緯度
+    @lng = @post.spots.longitude # 経度
+    gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
+    gon.lng = @lng
   end
 
   def create
@@ -51,7 +56,7 @@ class Publics::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :explanation, :image, :genre_id, :customer_id)
+    params.require(:post).permit(:title, :explanation, :image, :genre_id, :customer_id, spot_attributes: [:address])
   end
 
   def ensure_correct_customer

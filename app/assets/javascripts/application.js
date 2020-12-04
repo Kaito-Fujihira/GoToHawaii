@@ -14,6 +14,8 @@
 //= require activestorage
 //= require jquery
 //= require bootstrap-sprockets
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 
 //画像スライダー
@@ -130,11 +132,10 @@ $(function() {
  });
 
  $(window).load(function () {
-  $('#is-loading').delay(900).fadeOut(800);
-  $('#loading').delay(600).fadeOut(300);
+  $('#is-loading').delay(1200).fadeOut(1100);
+  $('#loading').delay(900).fadeOut(900);
   $('#loading__wrapper').css('display', 'block');
  });
-
 
  $(function(){
   setTimeout('stopload()',10000);
@@ -142,8 +143,8 @@ $(function() {
 
   function stopload(){
    $('#loading__wrapper').css('display','block');
-   $('#is-loading').delay(900).fadeOut(800);
-   $('#loading').delay(600).fadeOut(300);
+   $('#is-loading').delay(1200).fadeOut(1100);
+   $('#loading').delay(900).fadeOut(900);
  }
 
 //Google Map
@@ -152,29 +153,42 @@ let geocoder
 
 $(function initMap(){
   geocoder = new google.maps.Geocoder()
-  let map = new google.maps.Map(document.getElementById('map'), {
+  if(document.getElementById('map')){
+  map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 21.48980368260301, lng: -157.98798511107822},
   zoom: 10
   });
+}else{ //'map'というidが無かった場合
+    map = new google.maps.Map(document.getElementById('show_map'), { //'show_map'というidを取得してマップを表示
+      center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
+      zoom: 15, //拡大率（1〜21まで設定可能）
+  });
+
+marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
+      position:  {lat: gon.lat, lng: gon.lng}, //マーカーを落とす位置を決める（値はDBに入っている）
+      map: map //マーカーを落とすマップを指定
+    });
+  }
 });
 
-$(function codeAddress(){
-  // 入力を取得
-  let inputAddress = document.getElementById('address').value;
+$(function codeAddress(){ //コールバック関数
+  let inputAddress = document.getElementById('address').value; //'address'というidの値（value）を取得
 
-  // geocodingしたあとmapを移動
-  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) { //ジオコードしたい住所を引数として渡す
     if (status == 'OK') {
-　　　　　　　　　　　　// map.setCenterで地図が移動
-      map.setCenter(results[0].geometry.location);
-
-　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
+      let lat = results[0].geometry.location.lat(); //ジオコードした結果の緯度
+      let lng = results[0].geometry.location.lng(); //ジオコードした結果の経度
+      let mark = {
+          lat: lat, //緯度
+          lng: lng  //経度
+      };
+      map.setCenter(results[0].geometry.location); //最も近い、判読可能な住所を取得したい場所の緯度・経度
+      let marker = new google.maps.Marker({
+          map: map, //マーカーを落とすマップを指定
+          position: results[0].geometry.location //マーカーを落とす位置を決める
       });
     } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+      alert('該当する結果がありませんでした');
     }
   });
-})
+});

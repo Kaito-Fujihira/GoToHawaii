@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   belongs_to :genre
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :spots, dependent: :destroy
+  accepts_nested_attributes_for :spots
   attachment :image
 
   validates :title, presence: true
