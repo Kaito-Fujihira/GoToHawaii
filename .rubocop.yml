@@ -1,0 +1,18 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+#ここにはrubocopでコード解析したくないファイルやフォルダを指定します
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/application.rb'
+    - 'config/initializers/*'
+    - 'config/spring.rb'
+    - 'config/database.yml'
+    - 'config/master.key'
+    - '.env'
+    - 'lib/tasks/*'
+    - 'vendor/**/*'
+    - 'path/ruby'
