@@ -2,37 +2,37 @@
   <div class="new-posts">
     <h2>ハワイの魅力を投稿しよう！</h2>
     <%= form_with model: @post, local: true do |f| %>
-    <div class="row">
-      <div class="col-xs-5">
-        <div id="post_image">
-  		    <%= attachment_image_tag @post, :image, class: "image", fallback: "no-image.png", size:"400x300" %>
-  				<%= f.attachment_field :image %>
-    		</div>
-      </div>
-
-      <div class="col-xs-7">
-        <%= render "layouts/errors", obj: @post %>
-        <dt>タイトル</dt>
-        <dd><%= f.text_field :title, class: "form-control", placeholder: "50文字以内" %></dd>
-
-        <dt>説明</dt>
-        <dd><%= f.text_area :explanation, class: "form-control", placeholder: "300文字以内" %></dd>
-
-        <dt>ジャンル</dt>
-        <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: "form-control") %></dd>
-
-      <spot>
-      <%= f.fields_for :spot do |s| %>
-      <%= s.label :address, "レビュー場所(Google Mapで検索)", class: 'spot__title' %>
-      <%= s.text_field :address, placeholder: "スポットを入力", id: "address", class: 'spot__text' %>
-      <% s.submit onclick: "codeAddress()", type: "button", value: "検索する" %>
-      <% end %>
-      <div id="map"></div>
-      </spot>
-
-        <div class="new-posts-btn"><%= f.submit "新規投稿する", class: "btn btn-success btn-lg" %></div>
+      <div class="row">
+        <div class="col-xs-5">
+          <div id="post_image">
+    		    <%= attachment_image_tag @post, :image, class: "image", fallback: "no-image.png", size:"400x300" %>
+    				<%= f.attachment_field :image %>
+      		</div>
+        </div>
+  
+        <div class="col-xs-7">
+          <%= render "layouts/errors", obj: @post %>
+          <dt>タイトル</dt>
+          <dd><%= f.text_field :title, class: "form-control", placeholder: "50文字以内" %></dd>
+  
+          <dt>説明</dt>
+          <dd><%= f.text_area :explanation, class: "form-control", placeholder: "300文字以内" %></dd>
+  
+          <dt>ジャンル</dt>
+          <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: "form-control") %></dd>
+  
+          <spot>
+          <%= f.fields_for :spot do |s| %>
+          <%= s.label :address, "レビュー場所(Google Mapで検索)", class: 'spot__title' %>
+          <%= s.text_field :address, placeholder: "スポットを入力", id: "address", class: 'spot__text' %>
+          <% s.submit onclick: "codeAddress()", type: "button", value: "検索する" %>
+          <% end %>
+          <div id="map"></div>
+          </spot>
+  
+          <div class="new-posts-btn"><%= f.submit "新規投稿する", class: "btn btn-success btn-lg" %></div>
+        </div>
       </div>
     <% end %>
-    </div>
   </div>
 </div>
