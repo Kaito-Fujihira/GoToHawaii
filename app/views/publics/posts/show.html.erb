@@ -42,11 +42,13 @@
         <% end %>
         </div>
       </div>
-
-      <div class="show_address">
-      <%= @post.spot.address %>
-      <div id="show_map", style="height: 320px; width: 400px;"></div>
-      </div>
+      
+      <% if @lat.present? %>
+        <div class="show_address">
+        <%= @post.spot.address %>
+        <div id="show_map", style="height: 320px; width: 400px;"></div>
+        </div>
+      <% end %>
 
       <% if @customer == current_customer %>
       <%= link_to "投稿を編集する", edit_post_path, class: "btn btn-success" %>

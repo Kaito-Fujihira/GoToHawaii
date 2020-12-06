@@ -52,7 +52,7 @@ class Customer < ApplicationRecord
   end
 
   def self.guest
-    find_or_create_by!(email: 'guest@guest.com') do |customer|
+    find_or_create_by!(name: "ゲストユーザー", email: "guest@guest.com") do |customer|
       customer.password = SecureRandom.urlsafe_base64
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end

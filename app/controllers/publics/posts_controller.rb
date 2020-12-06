@@ -5,7 +5,7 @@ class Publics::PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # @post.spots.build
+    @post.build_spot
   end
 
   def index
@@ -17,8 +17,8 @@ class Publics::PostsController < ApplicationController
     @genres= Genre.all
     @comment = Comment.new
     @customer = @post.customer
-    @lat = @post.spots.latitude # 緯度
-    @lng = @post.spots.longitude # 経度
+    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は
+    @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
     gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
     gon.lng = @lng
   end
