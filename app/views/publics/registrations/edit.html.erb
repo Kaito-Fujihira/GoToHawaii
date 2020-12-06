@@ -3,19 +3,16 @@
     <h2>パスワード変更</h2>
     <div class="edit-registrations-customers-form">
       <%= form_with model: @customer, url: customer_registration_path, class: "form", local: true do |f| %>
-        <!--%= render "customers/shared/error_messages", resource: resource %>-->
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-        <dt>現在のパスワード</dt>
+        <div class="mandatory">*は必須項目です</div>
+        
+        <dt>現在のパスワード<span class="text-danger">*</span></dt>
         <dd><%= f.password_field :current_password, autocomplete: "current-password" %></dd>
 
-        <dt>新しいパスワード(6文字以上)</dt>
+        <dt>新しいパスワード(6文字以上)<span class="text-danger">*</span></dt>
         <dd><%= f.password_field :password, autocomplete: "new-password" %></dd>
 
-        <dt>新しいパスワード(確認用)</dt>
+        <dt>新しいパスワード(確認用)<span class="text-danger">*</span></dt>
         <dd><%= f.password_field :password_confirmation, autocomplete: "new-password" %></dd>
 
         <div class="actions">

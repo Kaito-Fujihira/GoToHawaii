@@ -3,12 +3,15 @@
 <h2>ログイン</h2>
 <div class="sessions-customer-form">
 <%= form_with model: @customer, url: new_customer_session_path, class: "form", local: true do |f| %>
-  <dt>メールアドレス</dt>
+
+  <div class="mandatory">*は必須項目です</div>
+  
+  <dt>メールアドレス<span class="text-danger">*</span></dt>
   <dd>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %>
   </dd>
 
-  <dt>パスワード(6文字以上)</dt>
+  <dt>パスワード(6文字以上)<span class="text-danger">*</span></dt>
   <dd>
     <%= f.password_field :password, autocomplete: "new-password", class: "registations-under" %>
   </dd>

@@ -2,13 +2,14 @@
   <div class="admin-session">
     <h2>管理者ログイン</h2>
     <div class="admin-sessions-form">
-
       <%= form_with model: @admin, url: new_admin_session_path, class: "form", local: true do |f| %>
+      
+      <div class="mandatory">*は必須項目です</div>
 
-      <dt><%= f.label :"メールアドレス" %></dt>
+      <dt>メールアドレス<span class="text-danger">*</span></dt>
       <dd><%= f.email_field :email, autofocus: true, autocomplete: "email" %></dd>
 
-      <dt><%= f.label :"パスワード" %></dt>
+      <dt>パスワード<span class="text-danger">*</span></dt>
       <dd><%= f.password_field :password, autocomplete: "current-password" %></dd>
 
       <div class="admin-login-btn">
