@@ -140,8 +140,13 @@ input[type="file"] {
     padding-left: 130px;
 }
 
-//posts/new,show/google_map
+//posts/negoogle_map
 #map {
+  width: 500px;
+  height: 400px;
+}
+
+#edit_map {
   width: 500px;
   height: 400px;
 }

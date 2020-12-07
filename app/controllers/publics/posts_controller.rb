@@ -36,7 +36,12 @@ class Publics::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @genres= Genre.all
+    @genres = Genre.all
+    @post.build_spot
+    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は
+    @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
+    gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
+    gon.lng = @lng
   end
 
   def update

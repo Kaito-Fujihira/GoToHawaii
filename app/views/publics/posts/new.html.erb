@@ -4,7 +4,7 @@
     <%= form_with model: @post, local: true, multipart: true do |f| %>
       <div class="row">
         <div class="col-xs-5">
-          <div id="post_image">
+          <div class="preview_image">
     		    <%= attachment_image_tag @post, :image, class: "image", fallback: "no-image.png", size:"400x300" %>
     				<%= f.attachment_field :image %>
       		</div>
@@ -22,10 +22,10 @@
           <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: "form-control") %></dd>
   
           <spot>
-            <%= f.fields_for :spot do |s| %>
-            <%= s.label :address, "レビュー場所(Google Mapで検索)", class: "spot__title" %>
-            <%= s.text_field :address, placeholder: "スポットを入力", id: "address", class: "spot__text" %>
-            <%= s.submit "検索する", onclick: "codeAddress()", type: "button" %>
+            <%= f.fields_for :spot do |spot| %>
+            <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot__title" %>
+            <%= spot.text_field :address, placeholder: "スポットを入力", id: "address", class: "spot__text" %>
+            <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
             <% end %>
           </spot>
           <div id="map"></div>

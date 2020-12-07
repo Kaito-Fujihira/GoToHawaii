@@ -28,7 +28,7 @@
             <%= link_to "My Page", customer_path(current_customer), class: "header-tab" %>
           <% else %>
             <%= link_to "About", about_path, class: "header-tab" %>
-            <%= link_to "Pick Up Category", "", class: "header-tab" %>
+            <%= link_to "Pick Up Category", category_path, class: "header-tab" %>
             <%= link_to root_path, style: "text-decoration:none" do %>
               <%= image_tag "logo.jpg", class: "header-logo" %>
             <% end %>

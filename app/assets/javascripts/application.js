@@ -80,34 +80,22 @@ $(function(){
 });
 
 //画像プレビュー
-$(function(){
- 	$('#post_image').on('change', function (e) {
- 		var reader = new FileReader();
-		reader.onload = function (e) {
-		  $(".image").attr('src', e.target.result);
-		}
-  	reader.readAsDataURL(e.target.files[0]);
-  });
-});
 
-$(function(){
- 	$('.post_image').on('change', function (e) {
- 		var reader = new FileReader();
-		reader.onload = function (e) {
-		  $(".image").attr('src', e.target.result);
-		}
-  	reader.readAsDataURL(e.target.files[0]);
-  });
-});
 
-$(function(){
- 	$('#edit-profile_image').on('change', function (e) {
+$(function() {
+$('.preview_image').on('change', function (e) {
+ 	    var previewImage;
+ 	    if ($(".image")){
+ 	        previewImage = $(".image");
+ 	    }else{
+ 	        previewImage = $(".profile_image");
+ 	    }
  		var reader = new FileReader();
 		reader.onload = function (e) {
-		  $(".profile_image").attr('src', e.target.result);
+		  previewImage.attr('src', e.target.result);
 		}
-  	reader.readAsDataURL(e.target.files[0]);
-  });
+  	    reader.readAsDataURL(e.target.files[0]);
+    });
 });
 
 //ハンバーガー機能
@@ -157,6 +145,11 @@ $(function initMap(){
   map = new google.maps.Map(document.getElementById('map'), { //'map'というidを取得してマップを表示
   center: {lat: 21.48980368260301, lng: -157.98798511107822}, //最初に表示する場所
   zoom: 10 //拡大率（1〜21まで設定可能）
+  });
+}else if(document.getElementById('edit_map')){ //'edit_map'というidが無かった場合
+    map = new google.maps.Map(document.getElementById('edit_map'), { //'show_map'というidを取得してマップを表示
+      center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
+      zoom: 10,
   });
 }else{ //'map'というidが無かった場合
     map = new google.maps.Map(document.getElementById('show_map'), { //'show_map'というidを取得してマップを表示

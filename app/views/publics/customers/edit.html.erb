@@ -6,8 +6,8 @@
       <%= render "layouts/errors", obj: @customer %>
 
         <dt>プロフィール写真</dt>
-        <div id="post_image">
-          <%= attachment_image_tag(@customer, :profile_image, :fill, 100, 100, size:"150x150", fallback: "no-image.png") %>
+        <div class="preview_image">
+          <%= attachment_image_tag(@customer, :profile_image, size:"150x150", fallback: "no-image.png", class: "image") %>
           <%= f.attachment_field :profile_image, class: "add-img-btn"%>
         </div>
 
