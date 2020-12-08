@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   end
 
   scope module: :publics do
-    get 'reference_links' => 'homes#reference_links', as: 'reference_links'
     root 'homes#top'
     get 'about' => 'categorys#about', as: 'about'
     get 'category' => 'categorys#index', as: 'category'
@@ -19,8 +18,9 @@ Rails.application.routes.draw do
     get 'sns' => 'categorys#sns', as: 'sns'
     get 'youtube' => 'categorys#youtube', as: 'youtube'
     get 'oahu' => 'categorys#oahu', as: 'oahu'
+    get 'reference_links' => 'categorys#reference_links', as: 'reference_links' #参考資料
     patch "/customers/withdraw" => "customers#withdraw", as: 'withdraw' #退会ステータス用
-    get 'inquiry' => 'inquiry#index', as: 'inquiry'
+    get 'inquiry' => 'inquiry#index', as: 'inquiry' #お問い合わせ
     post 'confirm' => 'inquiry#confirm', as: 'confirm'
     post 'thanks'  => 'inquiry#thanks', as: 'thanks'
     resources :customers, only: [:show, :edit, :update] do

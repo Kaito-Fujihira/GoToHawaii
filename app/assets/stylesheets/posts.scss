@@ -70,6 +70,10 @@
   border-right: 15px solid #333;
 }
 
+.show-spot {
+  display: none;
+}
+
 //posts/new
 .new-posts {
   margin-bottom: 20px;
@@ -78,6 +82,10 @@
 .new-posts-btn {
   margin: 20px;
   text-align: center;
+}
+
+.preview_image > img {
+  border: 3px outset #ccc;
 }
 
 //posts/edit
@@ -90,6 +98,16 @@
   text-align: center;
 }
 
+//posts/negoogle_map
+#map {
+  width: 500px;
+  height: 400px;
+}
+
+#edit_map {
+  width: 500px;
+  height: 400px;
+}
 ////管理者側////
 
 //posts/index
@@ -138,15 +156,4 @@
 input[type="file"] {
     display: block;
     padding-left: 130px;
-}
-
-//posts/negoogle_map
-#map {
-  width: 500px;
-  height: 400px;
-}
-
-#edit_map {
-  width: 500px;
-  height: 400px;
 }

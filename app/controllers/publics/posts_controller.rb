@@ -37,8 +37,7 @@ class Publics::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @genres = Genre.all
-    @post.build_spot
-    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は
+    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は左
     @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
     gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
     gon.lng = @lng
@@ -46,6 +45,10 @@ class Publics::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は左
+    @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
+    gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
+    gon.lng = @lng
     if @post.update(post_params)
       redirect_to post_path(@post), notice: "投稿を変更しました。"
     else

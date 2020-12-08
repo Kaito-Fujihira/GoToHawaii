@@ -16,42 +16,6 @@
   color: #333;
 }
 
-////管理者側////
-
-//admins/top
-.admin-top {
-  text-align: center;
-  h3 {
-    font-size: 40px;
-    font-weight: 700;
-  }
-  p {
-      margin: 35px 0;
-      font-size: 30px;
-      border-bottom: 2px solid;
-      display: inline-block;
-    }
-}
-
-//reference_links
-.reference_links-list {
-  background: #fff;
-  text-align: center;
-  border: 1px solid;
-  border-radius: 5px;
-  margin: 60px 0;
-  p {
-    font-size: 25px;
-  }
-  a {
-    font-size: 20px;
-  }
-}
-
-.reference_link {
-  margin-bottom: 20px;
-}
-
 //homes/top ページローディング機能
 #is-loading {
  display: block;
@@ -77,4 +41,21 @@
  font-size: 40px;
  z-index: 9;
  font-family: 'Dancing Script', cursive;
+}
+
+////管理者側////
+
+//admins/top
+.admin-top {
+  text-align: center;
+  h3 {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  p {
+      margin: 35px 0;
+      font-size: 30px;
+      border-bottom: 2px solid;
+      display: inline-block;
+    }
 }

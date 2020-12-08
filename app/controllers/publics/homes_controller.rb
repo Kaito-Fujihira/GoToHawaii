@@ -7,7 +7,4 @@ class Publics::HomesController < ApplicationController
     @genres = Genre.all
   end
 
-  def reference_links
-  end
-
 end

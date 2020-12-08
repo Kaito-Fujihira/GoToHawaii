@@ -64,6 +64,9 @@
 //customer-show
 .show-profile_image{
   text-align: center;
+  img {
+    border: 3px outset #ccc;
+  }
 }
 
 //customer-edit

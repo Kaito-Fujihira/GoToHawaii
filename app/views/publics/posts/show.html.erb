@@ -1,3 +1,4 @@
+<% @page_title = "投稿詳細" %>
 <div class="container">
   <h2>投稿詳細</h2>
   <div class="row">
@@ -18,7 +19,9 @@
 
       <dt>ジャンル</dt>
       <dd><%= @post.genre.name %></dd>
-
+      
+      <dt>いいね</dt>
+      <dd>
       <div class="favorite-btn">
         <div class="post-show-favorite">
         <% if @post.favorited_by?(current_customer) %>
@@ -42,16 +45,16 @@
         <% end %>
         </div>
       </div>
+      </dd>
       
       <% if @lat.present? %>
-        <div class="show_address">
-        <%= @post.spot.address %>
+          <dt>位置情報名</dt>
+          <dd><%= @post.spot.address %></dd>
         <div id="show_map", style="height: 320px; width: 400px;"></div>
-        </div>
       <% end %>
 
       <% if @customer == current_customer %>
-      <%= link_to "投稿を編集する", edit_post_path, class: "btn btn-success" %>
+      <%= link_to "投稿を編集する", edit_post_path(@post), class: "btn btn-success" %>
       <%= link_to "投稿を削除する", post_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
       <% end %>
 

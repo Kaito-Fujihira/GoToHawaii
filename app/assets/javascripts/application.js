@@ -80,8 +80,6 @@ $(function(){
 });
 
 //画像プレビュー
-
-
 $(function() {
 $('.preview_image').on('change', function (e) {
  	    var previewImage;
@@ -142,21 +140,21 @@ let geocoder
 $(function initMap(){
   geocoder = new google.maps.Geocoder() //GoogleMapsAPIジオコーディングサービスにアクセス
   if(document.getElementById('map')){ //'map'というidを取得できたら実行
-  map = new google.maps.Map(document.getElementById('map'), { //'map'というidを取得してマップを表示
-  center: {lat: 21.48980368260301, lng: -157.98798511107822}, //最初に表示する場所
-  zoom: 10 //拡大率（1〜21まで設定可能）
+    map = new google.maps.Map(document.getElementById('map'), { //'map'というidを取得してマップを表示
+      center: {lat: 21.48980368260301, lng: -157.98798511107822}, //最初に表示する場所
+      zoom: 10 //拡大率（1〜21まで設定可能）
   });
-}else if(document.getElementById('edit_map')){ //'edit_map'というidが無かった場合
-    map = new google.maps.Map(document.getElementById('edit_map'), { //'show_map'というidを取得してマップを表示
+}else if(document.getElementById('edit_map')){ //'map'というidが無かった場合
+    map = new google.maps.Map(document.getElementById('edit_map'), { //'edit_map'というidを取得してマップを表示
       center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
       zoom: 10,
   });
-}else{ //'map'というidが無かった場合
+  $('.search_button').click();
+}else{ //'map, edit_map'というidが無かった場合
     map = new google.maps.Map(document.getElementById('show_map'), { //'show_map'というidを取得してマップを表示
       center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
       zoom: 10,
   });
-
 marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
       position:  {lat: gon.lat, lng: gon.lng}, //マーカーを落とす位置を決める（値はDBに入っている）
       map: map //マーカーを落とすマップを指定

@@ -13,8 +13,14 @@ class Publics::CategorysController < ApplicationController
 
   def sns
   end
+  
+  def oahu
+  end 
 
   def youtube
+  end
+  
+  def reference_links
   end
 
 end
