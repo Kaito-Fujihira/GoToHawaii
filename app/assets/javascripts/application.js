@@ -134,8 +134,8 @@ $(function() {
  }
 
 //Google Map
-let map
-let geocoder
+let map;
+let geocoder;
 
 $(function initMap(){
   geocoder = new google.maps.Geocoder() //GoogleMapsAPIジオコーディングサービスにアクセス

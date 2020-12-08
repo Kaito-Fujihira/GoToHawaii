@@ -100,6 +100,15 @@ nav {
   text-align: center;
 }
 
+.pagination>li>a {          
+  color: #00e8ff;
+}
+
+.pagination>.active>a {     
+  background: #79ffff;
+}
+
+
 th {
   padding: 25px;
   margin: 2em 0;
