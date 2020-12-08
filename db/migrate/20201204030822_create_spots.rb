@@ -5,7 +5,7 @@ class CreateSpots < ActiveRecord::Migration[5.2]
       t.string :address, null: false
       t.float :latitude, null: false
       t.float :longitude, null: false
-      t.references :post_id, foreign_key: true, null: false
+      t.references :post, foreign_key: true, null: false
       t.timestamps
     end
   end
