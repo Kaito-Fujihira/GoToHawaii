@@ -1,4 +1,5 @@
 ja:
+# 生年月日
   date:
     formats:
       default: "%Y/%m/%d"
@@ -24,6 +25,7 @@ ja:
     am: "午前"
     pm: "午後"
 
+# エラーメッセージ日本語化
   activerecord:
     models:
       post: "投稿"
@@ -55,4 +57,13 @@ ja:
         name: "お名前"
         email: "メールアドレス"
         message: "お問い合わせ内容"
+
+# ページネーション      
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
 
