@@ -12,7 +12,6 @@ class Post < ApplicationRecord
   validates :explanation, presence: true
   validates :explanation, length: { maximum: 300 }
   validates :image, presence: true
-  validates :genre_id, presence: true
 
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?

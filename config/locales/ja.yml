@@ -39,7 +39,7 @@ ja:
         image: "投稿写真"
         title: "タイトル"
         explanation: "説明"
-        genre_id: "ジャンル名"
+        genre: "ジャンル名"
       customer:
         name: "お名前"
         email: "メールアドレス"

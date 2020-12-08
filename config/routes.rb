@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   scope module: :publics do
     root 'homes#top'
-    get 'about' => 'categorys#about', as: 'about'
-    get 'category' => 'categorys#index', as: 'category'
     get 'question' => 'categorys#question', as: 'question'
     get 'sns' => 'categorys#sns', as: 'sns'
     get 'youtube' => 'categorys#youtube', as: 'youtube'
