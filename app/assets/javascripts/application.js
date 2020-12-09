@@ -155,6 +155,7 @@ $(function initMap(){
       center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
       zoom: 10,
   });
+  $('.search_button').click();
 marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
       position:  {lat: gon.lat, lng: gon.lng}, //マーカーを落とす位置を決める（値はDBに入っている）
       map: map //マーカーを落とすマップを指定
