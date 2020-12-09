@@ -98,15 +98,20 @@
   text-align: center;
 }
 
-//posts/negoogle_map
+//posts/google_map
 #map {
-  width: 500px;
+  width: 100%;
   height: 400px;
 }
 
 #edit_map {
-  width: 500px;
+  width: 100%;
   height: 400px;
+}
+
+#show_map {
+  height: 320px;
+  width: 100%;
 }
 ////管理者側////
 

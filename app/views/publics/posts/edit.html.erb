@@ -22,7 +22,7 @@
         <dt>ジャンル</dt>
         <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: "form-control") %></dd>
         
-        <spot>
+        <div>
             <%= f.fields_for :spot do |spot| %>
             <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot__title" %>
             <%= spot.text_field :address, placeholder: "スポットを入力", id: "address", class: "spot__text" %>
@@ -30,7 +30,8 @@
             <% end %>
         </spot>
         
-        <div class="edit_address">
+        
+        <div class="edit_map">
         <div id="edit_map"></div>
         </div>
 
