@@ -96,20 +96,6 @@ $('.preview_image').on('change', function (e) {
     });
 });
 
-//ハンバーガー機能
-$(function() {
-    $('.hamburger').click(function() {
-        $(this).toggleClass('active');
-
-        if ($(this).hasClass('active')) {
-            $('.globalMenuSp').addClass('active');
-        } else {
-            $('.globalMenuSp').removeClass('active');
-        }
-    });
-});
-
-
 //ページ読み込みアニメーション
  $(function() {
  var h = $(window).height();
