@@ -286,7 +286,7 @@
 
 //about/oahu/google-map
 .waikiki-beach {
-  background-image: url(waikiki-beach.jpg);
+  background-image: image-url("waikiki-beach.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
