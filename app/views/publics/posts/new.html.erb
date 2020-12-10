@@ -25,7 +25,7 @@
           <spot>
             <%= f.fields_for :spot do |spot| %>
             <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot__title" %>
-            <%= spot.text_field :address, placeholder: "スポットを入力", id: "address", class: "spot__text" %>
+            <%= spot.text_field :address, placeholder: "スポットを入力(任意)", id: "address", class: "spot__text" %>
             <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
             <% end %>
           </spot>

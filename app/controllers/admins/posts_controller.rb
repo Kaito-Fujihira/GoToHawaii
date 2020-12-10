@@ -11,7 +11,6 @@ class Admins::PostsController < ApplicationController
       posts = Post.all
     end
     @posts = posts.page(params[:page]).per(10).reverse_order
-
   end
 
   def edit

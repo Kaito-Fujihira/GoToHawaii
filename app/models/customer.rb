@@ -5,23 +5,21 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable,
          omniauth_providers: %i[facebook google_oauth2]
 
-  validates :name, presence: true
-  validates :email, presence: true
-
-
-  attachment :profile_image
-
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
-
 
   has_many :follower_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :follower_relationships, source: :follower
 
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
+  
+  attachment :profile_image
+  
+  validates :name, {presence: true, length: { maximum: 20 }}
+  validates :email, presence: true
 
   def following?(customer_id)
     self.followings.include?(customer_id)
@@ -38,13 +36,13 @@ class Customer < ApplicationRecord
   def Customer.search(search, customer_or_post, how_search)
     if customer_or_post == "1"
       if how_search == "1"
-        Customer.where(['name LIKE ?', "%#{search}%"])
+        Customer.where(["name LIKE ?", "%#{search}%"])
       elsif how_search == "2"
-        Customer.where(['name LIKE ?', "%#{search}"])
+        Customer.where(["name LIKE ?", "%#{search}"])
       elsif how_search == "3"
-        Customer.where(['name LIKE ?', "#{search}%"])
+        Customer.where(["name LIKE ?", "#{search}%"])
       elsif how_search == "4"
-        Customer.where(['name LIKE ?', "#{search}"])
+        Customer.where(["name LIKE ?", "#{search}"])
       else
         Customers.all
       end
@@ -60,7 +58,6 @@ class Customer < ApplicationRecord
 
   def self.without_sns_data(auth)
     customer = Customer.where(email: auth.info.email).first
-
     if customer.present?
       sns = SnsCredential.create(
         uid: auth.uid,
@@ -80,7 +77,7 @@ class Customer < ApplicationRecord
     return { customer: customer ,sns: sns}
   end
 
-   def self.with_sns_data(auth, snscredential)
+  def self.with_sns_data(auth, snscredential)
     customer = Customer.where(id: snscredential.customer_id).first
     unless customer.present?
       customer = Customer.new(
@@ -89,7 +86,7 @@ class Customer < ApplicationRecord
       )
     end
     return {customer: customer}
-   end
+  end
 
   def self.find_oauth(auth)
     uid = auth.uid
@@ -106,7 +103,7 @@ class Customer < ApplicationRecord
   end
 
   def active_for_authentication?
-  super && (self.is_deleted == '有効' ) #is_deletedがfalse(有効)の場合はログイン可能
+    super && (self.is_deleted == "有効" ) #is_deletedがfalse(有効)の場合はログイン可能
   end
 
   enum country: {

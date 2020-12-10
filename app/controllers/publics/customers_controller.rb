@@ -34,10 +34,10 @@ class Publics::CustomersController < ApplicationController
   end
 
   def ensure_correct_customer
-     customer = Customer.find(params[:id])
-     if current_customer != customer
-       redirect_to customer_path(current_customer.id)
-     end
+    customer = Customer.find(params[:id])
+    if current_customer != customer
+      redirect_to customer_path(current_customer.id)
+    end
   end
 
 end

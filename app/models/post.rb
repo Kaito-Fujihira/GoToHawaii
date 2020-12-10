@@ -5,12 +5,11 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one :spot, dependent: :destroy
   accepts_nested_attributes_for :spot
+  
   attachment :image
 
-  validates :title, presence: true
-  validates :title, length: { maximum: 50 }
-  validates :explanation, presence: true
-  validates :explanation, length: { maximum: 300 }
+  validates :title, {presence: true, length: { maximum: 30 }}
+  validates :explanation, {presence: true, length: { maximum: 300 }}
   validates :image, presence: true
 
   def favorited_by?(customer)

@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+///会員側///
+
 //registrations-customer
 .registrations-customer-form {
   margin: 80px 0;
@@ -56,11 +58,13 @@
     }
   }
 }
+
 .customer-login-btn {
   margin: 20px 0 10px 0;
   padding: 10px 35px;
   font-size: 25px;
 }
+
 //customer-show
 .show-profile_image{
   text-align: center;
@@ -89,11 +93,10 @@
 }
 
 #edit-profile_image {
-    padding: 0px 40px;
+  padding: 0px 40px;
 }
 
 //edit-registrations
-
 .edit-registrations-customers {
   text-align: center;
 }
@@ -166,11 +169,11 @@ a.fab.fa-google {
   margin-top: 20px;
 }
 
-//管理者側//
+///管理者側///
 
 //admins/customers
 .admins-customer {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .admins-customer-list {

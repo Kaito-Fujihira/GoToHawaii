@@ -1,5 +1,5 @@
 class Publics::CategorysController < ApplicationController
-  before_action :authenticate_customer!, only: [:question, :sns, :youtube, :oahu]
+  before_action :authenticate_customer!, only: [:question, :sns, :youtube]
   layout 'publics/header'
 
   def question

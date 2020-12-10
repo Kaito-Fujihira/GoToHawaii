@@ -14,7 +14,7 @@ class Publics::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 
   def callback_for(provider)
-    @omniauth = request.env['omniauth.auth']
+    @omniauth = request.env["omniauth.auth"]
     info = Customer.find_oauth(@omniauth)
     @customer = info[:customer]
     if @customer.persisted?

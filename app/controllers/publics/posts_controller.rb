@@ -73,6 +73,7 @@ class Publics::PostsController < ApplicationController
        redirect_to post_path(post)
      end
   end
+  
 end
 
 

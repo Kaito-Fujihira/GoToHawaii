@@ -71,7 +71,7 @@ $(function(){
       $answer.removeClass('open');
       $answer.slideUp();
       $(this).find("span").text("＋");
-    } else {
+  } else {
       $answer.addClass('open');
       $answer.slideDown();
       $(this).find("span").text("ー");
@@ -88,8 +88,8 @@ $('.preview_image').on('change', function (e) {
  	    }else{
  	        previewImage = $(".profile_image");
  	    }
- 		var reader = new FileReader();
-		reader.onload = function (e) {
+ 		  var reader = new FileReader();
+		  reader.onload = function (e) {
 		  previewImage.attr('src', e.target.result);
 		}
   	    reader.readAsDataURL(e.target.files[0]);
@@ -166,7 +166,7 @@ function codeAddress(){ //コールバック関数
           position: results[0].geometry.location //マーカーを落とす位置を決める
       });
     } else {
-      alert('該当する結果がありませんでした');
+      alert('位置情報を検索してください(任意)');
     }
   });
 };

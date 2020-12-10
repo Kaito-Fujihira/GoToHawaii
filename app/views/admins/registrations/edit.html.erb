@@ -2,23 +2,24 @@
 <div class="container">
   <div class="edit-admin">
   <h2>管理者編集(パスワード)</h2>
-  <div class="edit-admin-form">
-  <%= form_with model: @admin, url: admin_registration_path, class: "form", local: true do |f| %>
-  <%= render "layouts/errors", obj: @admin %>
+    <div class="edit-admin-form">
+      <%= form_with model: @admin, url: admin_registration_path, class: "form", local: true do |f| %>
+        <%= render "layouts/errors", obj: @admin %>
 
-    <dt>現在のパスワード</dt>
-    <dd><%= f.password_field :current_password, autocomplete: "current-password" %></dd>
-
-    <dt>新しいパスワード(6文字以上)</dt>
-    <dd><%= f.password_field :password, autocomplete: "new-password" %></dd>
-
-    <dt>新しいパスワード(確認用)</dt>
-    <dd><%= f.password_field :password_confirmation, autocomplete: "new-password" %></dd>
-
-  <div class="actions">
-    <%= f.submit "更新する", class: "btn btn-success btn-lg" %>
+        <dt>現在のパスワード</dt>
+        <dd><%= f.password_field :current_password, autocomplete: "current-password" %></dd>
+    
+        <dt>新しいパスワード(6文字以上)</dt>
+        <dd><%= f.password_field :password, autocomplete: "new-password" %></dd>
+    
+        <dt>新しいパスワード(確認用)</dt>
+        <dd><%= f.password_field :password_confirmation, autocomplete: "new-password" %></dd>
+    
+        <div class="actions">
+          <%= f.submit "更新する", class: "btn btn-success btn-lg" %>
+        </div>
+        
+      <% end %>
+    </div>
   </div>
-<% end %>
-</div>
-</div>
 </div>

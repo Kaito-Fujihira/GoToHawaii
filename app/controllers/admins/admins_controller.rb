@@ -15,9 +15,6 @@ class Admins::AdminsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
   def admin_params
     params.require(:admin).permit(:email)

@@ -3,7 +3,6 @@
   <head>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
     <%= favicon_link_tag "logo.jpg" %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -13,48 +12,51 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
     <title><%= page_title %></title>
-    </head>
-    <body>
+  </head>
+  <body>
     <header>
-        <nav>
-          <% if customer_signed_in? %>
-              <%= link_to "About", "#about", class: "header-tab" %>
-            <%= link_to "Pick Up Category", "#pick-up-category", class: "header-tab" %>
-            <%= link_to root_path, style: "text-decoration:none" do %>
-              <%= image_tag "logo.jpg", class: "header-logo" %>
-            <% end %>
-            <%= link_to "Share Your Pic", "#share-your-pic-main", class: "header-tab" %>
-            <%= link_to "My Page", customer_path(current_customer), class: "header-tab" %>
-          <% else %>
-            <%= link_to "About", "#about", class: "header-tab" %>
-            <%= link_to "Pick Up Category", "#pick-up-category", class: "header-tab" %>
-            <%= link_to root_path, style: "text-decoration:none" do %>
-              <%= image_tag "logo.jpg", class: "header-logo" %>
-            <% end %>
-            <%= link_to "Share Your Pic", "#share-your-pic-main", class: "header-tab" %>
-            <%= link_to "Log in", new_customer_session_path, class: "header-tab" %>
+      <nav>
+        <% if customer_signed_in? %>
+          <%= link_to "About", "#about", class: "header-tab" %>
+          <%= link_to "Pick Up Category", "#pick-up-category", class: "header-tab" %>
+          <%= link_to root_path, style: "text-decoration:none" do %>
+            <%= image_tag "logo.jpg", class: "header-logo" %>
           <% end %>
-          <% if customer_signed_in? %>
+          <%= link_to "Share Your Pic", "#share-your-pic-main", class: "header-tab" %>
+          <%= link_to "My Page", customer_path(current_customer), class: "header-tab" %>
+        <% else %>
+          <%= link_to "About", "#about", class: "header-tab" %>
+          <%= link_to "Pick Up Category", "#pick-up-category", class: "header-tab" %>
+          <%= link_to root_path, style: "text-decoration:none" do %>
+            <%= image_tag "logo.jpg", class: "header-logo" %>
+          <% end %>
+          <%= link_to "Share Your Pic", "#share-your-pic-main", class: "header-tab" %>
+          <%= link_to "Log in", new_customer_session_path, class: "header-tab" %>
+        <% end %>
+        
+        <% if customer_signed_in? %>
           <div class="seach-tag">
             <%= form_with url: search_path, method: :get, local: true do |f| %>
-            <%= f.text_field :search %>
-            <%= select_tag(:option, options_for_select([["会員検索", "1"],["投稿検索","2"]]))%>
-            <%= select_tag(:choice, options_for_select([["部分一致", "1" ],["後方一致", "2" ],["前方一致", "3" ],["完全一致", "4" ]])) %>
-            <%= f.submit "検索", class: "btn btn-light btn-sm" %>
+              <%= f.text_field :search %>
+              <%= select_tag(:option, options_for_select([["会員検索", "1"],["投稿検索","2"]]))%>
+              <%= select_tag(:choice, options_for_select([["部分一致", "1" ],["後方一致", "2" ],["前方一致", "3" ],["完全一致", "4" ]])) %>
+              <%= f.submit "検索", class: "btn btn-light btn-sm" %>
             <% end %>
         <% end %>
-        </nav>
+        
+      </nav>
     </header>
     <div class="background-img">
       <div class="container-lg">
         <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "flash flash__#{key}") %><% end %>
+          <%= content_tag(:div, value, class: "flash flash__#{key}") %>
+        <% end %>
         <%= yield %>
         <div id="is-loading">
-        <div id="loading">
-        <%=image_tag "waikiki.jpg" %>
-        Loading....　MAHALO!!
-        </div>
+          <div id="loading">
+            <%=image_tag "waikiki.jpg" %>
+            Loading....　MAHALO!!
+          </div>
         </div>
       </div>
     </div>

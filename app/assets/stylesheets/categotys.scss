@@ -2,13 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//pick-up-category
+//pick-up-category/swiper
 .swiper-slide {
   cursor: pointer;
-}
-
-.swiper .swiper-button-prev,
-.swiper .swiper-button-next {
 }
 
 .swiper-container {
@@ -211,13 +207,4 @@
 
 .github:hover {
   opacity: 0.8;
-}
-
-
-
-@media (min-width: 768px) {
-  .sample03 .swiper-button-prev,
-  .sample03 .swiper-button-next {
-    display: block;
-  }
 }
