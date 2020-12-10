@@ -57,7 +57,7 @@
         <% end %>
       </div>
         
-      <% if @lat.present? %>
+      <% if @post.spot.address.present? %>
           <dt>位置情報名</dt>
           <dd><%= @post.spot.address %></dd>
         <div id="show_map"></div>

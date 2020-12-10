@@ -17,7 +17,7 @@ class Publics::PostsController < ApplicationController
     @genres= Genre.all
     @comment = Comment.new
     @customer = @post.customer
-    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は
+    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude # 値がnilの場合は左
     @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
     gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
     gon.lng = @lng
@@ -74,3 +74,5 @@ class Publics::PostsController < ApplicationController
      end
   end
 end
+
+

@@ -137,7 +137,7 @@ $(function() {
 let map;
 let geocoder;
 
-$(function initMap(){
+function initMap(){
   geocoder = new google.maps.Geocoder() //GoogleMapsAPIジオコーディングサービスにアクセス
   if(document.getElementById('map')){ //'map'というidを取得できたら実行
     map = new google.maps.Map(document.getElementById('map'), { //'map'というidを取得してマップを表示
@@ -161,7 +161,7 @@ marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
       map: map //マーカーを落とすマップを指定
     });
   }
-});
+}
 
 function codeAddress(){ //コールバック関数
   let inputAddress = document.getElementById('address').value; //'address'というidの値（value）を取得
