@@ -50,8 +50,8 @@
       <div class="show-spot">
         <%= form_with model: @post, local: true, multipart: true do |f| %>
         <%= f.fields_for :spot do |spot| %>
-        <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot__title" %>
-        <%= spot.text_field :address, placeholder: "スポットを入力", id: "address", class: "spot__text" %>
+        <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot_title" %>
+        <%= spot.text_field :address, placeholder: "スポットを入力", id: "address", class: "spot_text" %>
         <%= spot.submit "検索する", class: "search_button", onclick: "codeAddress()", type: "button" %>
         <% end %>
         <% end %>

@@ -12,10 +12,15 @@ Rails.application.routes.draw do
 
   scope module: :publics do
     root 'homes#top'
+    get 'oahu' => 'abouts#oahu', as: 'oahu'
+    get 'kauai' => 'abouts#kauai', as: 'kauai'
+    get 'molokai' => 'abouts#molokai', as: 'molokai'
+    get 'maui' => 'abouts#maui', as: 'maui'
+    get 'lanai' => 'abouts#lanai', as: 'lanai'
+    get 'hawaii' => 'abouts#hawaii', as: 'hawaii'
     get 'question' => 'categorys#question', as: 'question'
     get 'sns' => 'categorys#sns', as: 'sns'
     get 'youtube' => 'categorys#youtube', as: 'youtube'
-    get 'oahu' => 'categorys#oahu', as: 'oahu'
     get 'reference_links' => 'categorys#reference_links', as: 'reference_links' #参考資料
     patch "/customers/withdraw" => "customers#withdraw", as: 'withdraw' #退会ステータス用
     get 'inquiry' => 'inquiry#index', as: 'inquiry' #お問い合わせ

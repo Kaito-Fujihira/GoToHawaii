@@ -1,0 +1,194 @@
+// Place all the styles related to the abouts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//about
+.about {
+  width: 100%;
+  height: 1000px;
+  margin: 100px 0;
+  text-align: center;
+  position: relative;
+  img {
+    width: 87%;
+    margin-top: 50px;
+    border: 1px solid;
+    border-radius: 5%;
+  }
+}
+
+.KAUAI {
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  left: 57%;
+  top: -60%;
+}
+
+.OAHU {
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  left: 55%;
+  top: -43%;
+}
+
+.MOLOKAI {
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  left: 102%;
+  top: -37%;
+}
+
+.MAUI {
+  width: 105px;
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  left: 115%;
+  top: -24%;
+}
+
+.LANAI {
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  left: 78%;
+  top: -26%;
+}
+
+.HAWAII {
+  width: 135px;
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  left: 134%;
+  top: 0%;
+}
+
+.about-background {
+  background-color: #d5ffeda3;
+  width: 650px;
+  height: 420px;
+  position: absolute;
+  left: 0%;
+  top: 55%;
+}
+
+.about-title {
+  margin-top: 20px;
+  font-size: 50px;
+}
+
+.about-message {
+  margin-top: 20px;
+  font-size: 23px;
+  text-align: left;
+}
+
+.about-registrations {
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+//about/oahu/map
+.oahu-image {
+  background-image: image-url("waikiki-beach.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
+
+.molokai-image {
+  background-image: image-url("molokai.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
+
+.hawaii-image {
+  background-image: image-url("big-island.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
+
+.kauai-image {
+  background-image: image-url("kauai.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
+
+.lanai-image {
+  background-image: image-url("lanai.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
+
+.maui-image {
+  background-image: image-url("maui.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
+
+.island-name {
+  padding: 10px;
+  font-size: 100px;
+  font-family: 'Playball', cursive;
+  color: #fff;
+  border-top: 7px solid;
+  border-bottom: 7px solid;
+}
+
+.oahu-maps {
+  height: 800px;
+  width: 100%;
+  position: relative;
+  img {
+    position: absolute;
+    top: 80px;
+    right: 260px;
+  }
+}
+
+.island-container {
+  padding: 0 80px;
+  padding: 70px;
+}
+
+.island-info {
+  width: 100%;
+  height: 560px;
+  padding: 70px;
+  background-color: #d5ffeda3;
+  font-size: 25px;
+}
+
