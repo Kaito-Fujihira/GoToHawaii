@@ -1,21 +1,21 @@
 <div class="favorite-btn-container">
-<% if post.favorited_by?(current_customer) %>
-	<li>
-		<%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-		<%= image_tag "shaka.jpg", class: "shaka-btn" %>
-  	<% end %>
-  	<div class="favorite-count">
-  		<%= post.favorites.count %>
-  	</div>
-	</li>
-<% else %>
-	<li>
-  	<%= link_to post_favorites_path(post), method: :post, remote: true do %>
-  	<%= image_tag "shaka-black.jpg", class: "shaka-btn" %>
- 		<% end %>
- 		<div class="favorite-count">
- 		<%= post.favorites.count %>
- 		</div>
-	</li>
-<% end %>
+	<% if post.favorited_by?(current_customer) %>
+		<li>
+			<%= link_to post_favorites_path(post), method: :delete, remote: true do %>
+				<%= image_tag "shaka.jpg", class: "shaka-btn" %>
+  		<% end %>
+  		<div class="favorite-count">
+  			<%= post.favorites.count %>
+  		</div>
+		</li>
+	<% else %>
+		<li>
+  		<%= link_to post_favorites_path(post), method: :post, remote: true do %>
+  			<%= image_tag "shaka-black.jpg", class: "shaka-btn" %>
+ 			<% end %>
+ 			<div class="favorite-count">
+ 				<%= post.favorites.count %>
+ 			</div>
+		</li>
+	<% end %>
 </div>

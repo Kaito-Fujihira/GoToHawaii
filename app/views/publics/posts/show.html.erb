@@ -2,73 +2,74 @@
 <div class="container">
   <h2>投稿詳細</h2>
   <div class="row">
+    
     <div class="col-xs-7">
 		  <%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"600x500" %>
     </div>
 
     <div class="col-xs-5">
       <div class="post-show-info">
-      <dt>投稿者</dt>
-      <dd><%= link_to @customer.name, customer_path(@post.customer) %>　さん</dd>
-
-      <dt>タイトル</dt>
-      <dd><%= @post.title %></dd>
-
-      <dt>説明</dt>
-      <dd><%= Rinku.auto_link(@post.explanation, :all, 'target="_blank"').html_safe %></dd>
-
-      <dt>ジャンル</dt>
-      <dd><%= @post.genre.name %></dd>
-      
-      <dt>いいね</dt>
-      <dd>
-      <div class="favorite-btn">
-        <div class="post-show-favorite">
-        <% if @post.favorited_by?(current_customer) %>
-	        <li>
-	          <%= link_to post_favorites_path(@post), method: :delete, remote: true do %>
-	            <%= image_tag "shaka.jpg", class: "shaka-btn" %>
-            <% end %>
-  	        <div class="favorite-count">
-  		        <%= @post.favorites.count %>
-  	        </div>
-	        </li>
-        <% else %>
-	        <li>
-  	        <%= link_to post_favorites_path(@post), method: :post, remote: true do %>
-  	          <%= image_tag "shaka-black.jpg", class: "shaka-btn" %>
- 		        <% end %>
- 		        <div class="favorite-count">
- 		          <%= @post.favorites.count %>
- 		        </div>
-	        </li>
-        <% end %>
-        </div>
-      </div>
-      </dd>
-      
-      <div class="show-spot">
-        <%= form_with model: @post, local: true, multipart: true do |f| %>
-        <%= f.fields_for :spot do |spot| %>
-        <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot_title" %>
-        <%= spot.text_field :address, placeholder: "スポットを入力", id: "address", class: "spot_text" %>
-        <%= spot.submit "検索する", class: "search_button", onclick: "codeAddress()", type: "button" %>
-        <% end %>
-        <% end %>
-      </div>
         
-      <% if @post.spot.address.present? %>
+        <dt>投稿者</dt>
+        <dd><%= link_to @customer.name, customer_path(@post.customer) %>　さん</dd>
+  
+        <dt>タイトル</dt>
+        <dd><%= @post.title %></dd>
+  
+        <dt>説明</dt>
+        <dd><%= Rinku.auto_link(@post.explanation, :all, 'target="_blank"').html_safe %></dd>
+  
+        <dt>ジャンル</dt>
+        <dd><%= @post.genre.name %></dd>
+        
+        <dt>いいね</dt>
+        <dd>
+          <div class="favorite-btn">
+            <div class="post-show-favorite">
+            <% if @post.favorited_by?(current_customer) %>
+  	          <li>
+  	            <%= link_to post_favorites_path(@post), method: :delete, remote: true do %>
+  	              <%= image_tag "shaka.jpg", class: "shaka-btn" %>
+                <% end %>
+      	        <div class="favorite-count">
+      		        <%= @post.favorites.count %>
+    	          </div>
+  	          </li>
+            <% else %>
+  	          <li>
+    	          <%= link_to post_favorites_path(@post), method: :post, remote: true do %>
+    	            <%= image_tag "shaka-black.jpg", class: "shaka-btn" %>
+   		          <% end %>
+   	  	        <div class="favorite-count">
+   		            <%= @post.favorites.count %>
+   		          </div>
+  	          </li>
+            <% end %>
+            </div>
+          </div>
+        </dd>
+        
+        <div class="show-spot">
+          <%= form_with model: @post, local: true, multipart: true do |f| %>
+            <%= f.fields_for :spot do |spot| %>
+              <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot_title" %>
+              <%= spot.text_field :address, placeholder: "スポットを入力", id: "address", class: "spot_text" %>
+              <%= spot.submit "検索する", class: "search_button", onclick: "codeAddress()", type: "button" %>
+            <% end %>
+          <% end %>
+        </div>
+        <% if @post.spot.address.present? %>
           <dt>位置情報名</dt>
           <dd><%= @post.spot.address %></dd>
-        <div id="show_map"></div>
-      <% end %>
+          <div id="show_map"></div>
+        <% end %>
+  
+        <% if @customer == current_customer %>
+          <%= link_to "投稿を編集する", edit_post_path(@post), class: "btn btn-success" %>
+          <%= link_to "投稿を削除する", post_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+        <% end %>
 
-      <% if @customer == current_customer %>
-      <%= link_to "投稿を編集する", edit_post_path(@post), class: "btn btn-success" %>
-      <%= link_to "投稿を削除する", post_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
-      <% end %>
-
-    </div>
+      </div>
     </div>
   </div>
 

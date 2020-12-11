@@ -14,9 +14,11 @@
         <div class="LANAI">LANAI≻</div>
         <div class="HAWAII">≺HAWAII</div>
         <div class="about-title">Welcome to <strong>Go To Hawaii</strong></div>
-        <div class="about-message">このサイトは、会員登録したユーザー様同士でハワイの情報や魅力を投稿、共有するためのサイトです。<br>
-                                   まだハワイに行ったことない人や、もうハワイへ何度も行った人にもこのサイトを通じて情報や魅力を共有し合いハワイをより知ることができます！<br>
-                                   また、現地で役立つ基礎知識などのコンテンツもあり、ユーザー様にとって便利なサイトとなっております！</div>
+        <div class="about-message">
+          このサイトは、会員登録したユーザー様同士でハワイの情報や魅力を投稿、共有するためのサイトです。<br>
+          まだハワイに行ったことない人や、もうハワイへ何度も行った人にもこのサイトを通じて情報や魅力を共有し合いハワイをより知ることができます！<br>
+          また、現地で役立つ基礎知識などのコンテンツもあり、ユーザー様にとって便利なサイトとなっております！
+        </div>
         <% unless customer_signed_in? %>
           <div class="about-registrations">新規登録してみる＝＞　<%= link_to "新規登録", new_customer_registration_path%></div>
         <% end %>
@@ -34,40 +36,47 @@
 </div>
 
 <div class="container">
-    <div class="pick-up-category">
-        <h1 id="pick-up-category">Pick Up Category</h1>
-        <div class="swiper">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <%= link_to question_path do %>
-                        <%= image_tag "frangipani.jpg", class: "swiper-images", size:"250x250" %><p>Q & A</p>
-                        <% end %>
-                    </div>
-                    <div class="swiper-slide">
-                        <%= link_to sns_path do %>
-                        <%= image_tag "pineapples.jpg", size:"250x250" %><p>SNS</p>
-                        <% end %>
-                    </div>
-                    <div class="swiper-slide">
-                        <%= link_to youtube_path do %>
-                        <%= image_tag "waikiki.jpg", class: "swiper-images", size:"250x250" %><p>Youtube</p>
-                        <% end %>
-                        </div>
-                    <div class="swiper-slide">
-                        <%= link_to "https://www.hawaiianairlines.co.jp/" do %>
-                        <%= image_tag "airplane.jpg", class: "swiper-images", size:"250x250" %><p>Book</p>
-                        <% end %>
-                    </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
-            </div>
+  <div class="pick-up-category">
+    <h1 id="pick-up-category">Pick Up Category</h1>
+    <div class="swiper">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          
+          <div class="swiper-slide">
+            <%= link_to question_path do %>
+              <%= image_tag "frangipani.jpg", class: "swiper-images", size:"250x250" %><p>Q & A</p>
+            <% end %>
+          </div>
+          
+          <div class="swiper-slide">
+            <%= link_to sns_path do %>
+              <%= image_tag "pineapples.jpg", size:"250x250" %><p>SNS</p>
+            <% end %>
+          </div>
+          
+          <div class="swiper-slide">
+            <%= link_to youtube_path do %>
+              <%= image_tag "waikiki.jpg", class: "swiper-images", size:"250x250" %><p>Youtube</p>
+            <% end %>
+          </div>
+          
+          <div class="swiper-slide">
+            <%= link_to "https://www.hawaiianairlines.co.jp/" do %>
+              <%= image_tag "airplane.jpg", class: "swiper-images", size:"250x250" %><p>Book</p>
+            <% end %>
+          </div>
+          
         </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
-    
-<%= render 'publics/posts/index', posts: @posts, post: @post%>
-<% if customer_signed_in? %>
-<%= link_to "投稿をもっと見る⇒", posts_path, class: "to_posts-btn" %>
-<% end %>
+  </div>
+</div>
+<div class="container">
+  <%= render 'publics/posts/index', posts: @posts, post: @post%>
+  <% if customer_signed_in? %>
+    <%= link_to "投稿をもっと見る⇒", posts_path, class: "to_posts-btn" %>
+  <% end %>
+</div>

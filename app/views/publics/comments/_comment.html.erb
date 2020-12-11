@@ -1,6 +1,6 @@
 <h2>コメント一覧<span>(コメント数　<%= post.comments.count %>件)</span></h2>
-    <% if post.comments.exists? %>
-    <div class="comment-index">
+  <% if post.comments.exists? %>
+  <div class="comment-index">
     <table class="table">
       <thead>
         <tr>
@@ -13,9 +13,7 @@
         <% post.comments.each do |comment| %>
         <tr>
           <td>
-            <%= link_to customer_path(customer) do %>
-              <%= comment.customer.name %>
-  	        <% end %>
+            <%= link_to comment.customer.name, customer_path(customer) %>
   	      </td>
   		    <td id="comment_comment">
   		      <%= Rinku.auto_link(comment.comment, :all, 'target="_blank"').html_safe %>
@@ -29,7 +27,7 @@
         <% end %>
       </tbody>
     </table>
-    </div>
-    <% else %>
-      <p>コメントはまだありません...</p>
-    <% end %>
+  </div>
+  <% else %>
+    <p>コメントはまだありません...</p>
+  <% end %>

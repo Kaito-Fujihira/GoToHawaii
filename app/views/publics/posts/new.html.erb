@@ -2,8 +2,8 @@
 <div class="container">
   <div class="new-posts">
     <h2>ハワイの魅力を投稿しよう！</h2>
-    <%= form_with model: @post, local: true, multipart: true do |f| %>
-      <div class="row">
+    <div class="row">
+      <%= form_with model: @post, local: true, multipart: true do |f| %>
         <div class="col-xs-5">
           <div class="preview_image">
     		    <%= attachment_image_tag @post, :image, class: "image", fallback: "no-image.png", size:"400x300" %>
@@ -13,6 +13,7 @@
   
         <div class="col-xs-7">
           <%= render "layouts/errors", obj: @post %>
+          
           <dt>タイトル</dt>
           <dd><%= f.text_field :title, class: "form-control", placeholder: "50文字以内" %></dd>
   
@@ -24,8 +25,8 @@
   
           <spot>
             <%= f.fields_for :spot do |spot| %>
-            <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot__title" %>
-            <%= spot.text_field :address, placeholder: "スポットを入力(任意)", id: "address", class: "spot__text" %>
+            <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot_title" %>
+            <%= spot.text_field :address, placeholder: "スポットを入力(任意)", id: "address", class: "spot_text" %>
             <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
             <% end %>
           </spot>
@@ -33,7 +34,8 @@
   
           <div class="new-posts-btn"><%= f.submit "新規投稿する", class: "btn btn-success btn-lg" %></div>
         </div>
-      </div>
-    <% end %>
+        
+      <% end %>
+    </div>
   </div>
 </div>

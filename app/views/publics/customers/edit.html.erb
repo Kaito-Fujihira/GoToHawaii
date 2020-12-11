@@ -4,7 +4,7 @@
     <h2>マイページ編集</h2>
     <div class="edit-customer-form">
       <%= form_with model: @customer, class: "form", local: true do |f| %>
-      <%= render "layouts/errors", obj: @customer %>
+        <%= render "layouts/errors", obj: @customer %>
 
         <dt>プロフィール写真</dt>
         <div class="preview_image">

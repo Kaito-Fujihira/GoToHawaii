@@ -4,7 +4,7 @@
     <h2>パスワード再設定</h2>
     <div class="password-new-form">
       <%= form_with model: @customer, url: password_path(resource_name), class: "form", local: true do |f| %>
-      <%= render "publics/shared/error_messages", resource: resource %>
+        <%= render "layouts/errors", obj: @customer %>
       
         <div class="mandatory">*は必須項目です</div>
         

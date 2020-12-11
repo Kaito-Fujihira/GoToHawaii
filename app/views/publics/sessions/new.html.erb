@@ -1,37 +1,37 @@
 <% @page_title = "ログイン" %>
 <div class="container">
-<div class="sessions-customer">
-<h2>ログイン</h2>
-<div class="sessions-customer-form">
-<%= form_with model: @customer, url: new_customer_session_path, class: "form", local: true do |f| %>
+  <div class="sessions-customer">
+    <h2>ログイン</h2>
+    <div class="sessions-customer-form">
+      <%= form_with model: @customer, url: new_customer_session_path, class: "form", local: true do |f| %>
 
-  <div class="mandatory">*は必須項目です</div>
-  
-  <dt>メールアドレス<span class="text-danger">*</span></dt>
-  <dd>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %>
-  </dd>
-
-  <dt>パスワード(6文字以上)<span class="text-danger">*</span></dt>
-  <dd>
-    <%= f.password_field :password, autocomplete: "new-password", class: "registations-under" %>
-  </dd>
-
-  <div class="login-btn">
-    <%= f.submit "ログイン", class: "btn btn-success btn-lg" %>
+        <div class="mandatory">*は必須項目です</div>
+        
+        <dt>メールアドレス<span class="text-danger">*</span></dt>
+        <dd>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %>
+        </dd>
+      
+        <dt>パスワード(6文字以上)<span class="text-danger">*</span></dt>
+        <dd>
+          <%= f.password_field :password, autocomplete: "new-password", class: "registations-under" %>
+        </dd>
+      
+        <div class="login-btn">
+          <%= f.submit "ログイン", class: "btn btn-success btn-lg" %>
+        </div>
+      
+        <div class="sns-login">
+          <%= link_to "", customer_facebook_omniauth_authorize_path, class: "fab fa-facebook-square" %>
+          <%= link_to "", customer_google_oauth2_omniauth_authorize_path, class: "fab fa-google" %><br>
+        </div>
+      
+        <%= render "publics/shared/links" %>
+        <div class="guest-btn">
+        <%= link_to "企業様ログイン(閲覧用)", customers_guest_sign_in_path, method: :post, class: "btn btn-warning btn-lg" %>
+        </div>
+        
+      <% end %>
+    </div>
   </div>
-
-  <div class="sns-login">
-    <%= link_to "", customer_facebook_omniauth_authorize_path, class: "fab fa-facebook-square" %>
-    <%= link_to "", customer_google_oauth2_omniauth_authorize_path, class: "fab fa-google" %><br>
-  </div>
-
-  <%= render "publics/shared/links" %>
-  <div class="guest-btn">
-  <%= link_to "企業様ログイン(閲覧用)", customers_guest_sign_in_path, method: :post, class: "btn btn-warning btn-lg" %>
-  </div>
-<% end %>
-
-</div>
-</div>
 </div>

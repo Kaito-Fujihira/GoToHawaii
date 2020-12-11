@@ -2,42 +2,42 @@
 <div class="container">
   <div class="edit-posts">
     <h2>投稿の編集</h2>
-    <%= form_with model: @post, local: true do |f| %>
     <div class="row">
-      <div class="col-xs-5">
-        <div class="preview_image">
-  		    <%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"400x300" %>
-  				<%= f.attachment_field :image %>
-    		</div>
-      </div>
-
-      <div class="col-xs-7">
-        <%= render "layouts/errors", obj: @post %>
-        <dt>タイトル</dt>
-        <dd><%= f.text_field :title, class: "form-control" %></dd>
-
-        <dt>説明</dt>
-        <dd><%= f.text_area :explanation, class: "form-control" %></dd>
-
-        <dt>ジャンル</dt>
-        <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: "form-control") %></dd>
-        
-        <div>
-            <%= f.fields_for :spot do |spot| %>
-            <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot__title" %>
-            <%= spot.text_field :address, placeholder: "スポットを入力(任意)", id: "address", class: "spot__text" %>
-            <%= spot.submit "検索する", class: "search_button", onclick: "codeAddress()", type: "button" %>
-            <% end %>
-        </spot>
-        
-        
-        <div class="edit_map">
-        <div id="edit_map"></div>
+      <%= form_with model: @post, local: true do |f| %>
+        <div class="col-xs-5">
+          <div class="preview_image">
+    		    <%= attachment_image_tag @post, :image, class: "img", fallback: "no-image.png", size:"400x300" %>
+    				<%= f.attachment_field :image %>
+      		</div>
         </div>
-
-        <div class="edit-posts-btn"><%= f.submit "変更を保存", class: "btn btn-success btn-lg" %></div>
-      </div>
-    <% end %>
+  
+        <div class="col-xs-7">
+          <%= render "layouts/errors", obj: @post %>
+          
+          <dt>タイトル</dt>
+          <dd><%= f.text_field :title, class: "form-control" %></dd>
+  
+          <dt>説明</dt>
+          <dd><%= f.text_area :explanation, class: "form-control" %></dd>
+  
+          <dt>ジャンル</dt>
+          <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: "form-control") %></dd>
+          
+          <spot>
+              <%= f.fields_for :spot do |spot| %>
+              <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot_title" %>
+              <%= spot.text_field :address, placeholder: "スポットを入力(任意)", id: "address", class: "spot_text" %>
+              <%= spot.submit "検索する", class: "search_button", onclick: "codeAddress()", type: "button" %>
+              <% end %>
+          </spot>
+          <div class="edit_map">
+            <div id="edit_map"></div>
+          </div>
+  
+          <div class="edit-posts-btn"><%= f.submit "変更を保存", class: "btn btn-success btn-lg" %></div>
+        </div>
+        
+      <% end %>
     </div>
   </div>
 </div>

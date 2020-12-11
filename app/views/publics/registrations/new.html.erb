@@ -4,7 +4,7 @@
     <h2>新規会員登録</h2>
     <div class="registrations-customer-form">
       <%= form_with model: @customer, url: customer_registration_path, class: 'form', local: true do |f| %>
-      <%= render "layouts/errors", obj: @customer %>
+        <%= render "layouts/errors", obj: @customer %>
         
         <div class="mandatory">*は必須項目です</div>
         
@@ -45,9 +45,7 @@
         </div>
 
         <div class="registrations-info">既に登録済みの方</div>
-    <div>
-      <%= link_to "こちら", new_customer_session_path, class: "btn btn-info" %>からログインしてください。
-    </div>
+        <div><%= link_to "こちら", new_customer_session_path, class: "btn btn-info" %>からログインしてください。</div>
       <% end %>
     </div>
   </div>
