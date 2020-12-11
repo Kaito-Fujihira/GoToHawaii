@@ -1,4 +1,4 @@
-class Publics::FavoritesController < ApplicationController
+class Publics::FavoritesController < ApplicationController # いいね機能
   before_action :authenticate_customer!
 
   def create

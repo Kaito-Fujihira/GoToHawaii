@@ -2,7 +2,7 @@ class Publics::CategorysController < ApplicationController
   before_action :authenticate_customer!, only: [:question, :sns, :youtube]
   layout 'publics/header'
 
-  def question
+  def question # Q&A
   end
 
   def sns
@@ -11,7 +11,7 @@ class Publics::CategorysController < ApplicationController
   def youtube
   end
   
-  def reference_links
+  def reference_links # 参考資料
   end
 
 end

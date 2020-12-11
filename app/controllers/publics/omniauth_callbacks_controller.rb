@@ -4,6 +4,7 @@ class Publics::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
+  # SNS認証
   def facebook
     callback_for(:facebook)
   end
@@ -11,7 +12,6 @@ class Publics::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     callback_for(:google)
   end
-
 
   def callback_for(provider)
     @omniauth = request.env["omniauth.auth"]

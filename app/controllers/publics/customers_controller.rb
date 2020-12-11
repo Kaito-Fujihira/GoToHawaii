@@ -23,7 +23,7 @@ class Publics::CustomersController < ApplicationController
 
   def withdraw #退会用アクション
     @customer = current_customer
-    @customer.update(is_deleted: '退会済み')
+    @customer.update(is_deleted: "退会済み")
     reset_session
     redirect_to root_path, alert: "退会しました。"
   end
@@ -33,7 +33,7 @@ class Publics::CustomersController < ApplicationController
     params.require(:customer).permit(:name, :email, :profile_image, :birthday, :country, :visit_time)
   end
 
-  def ensure_correct_customer
+  def ensure_correct_customer # 会員権限
     customer = Customer.find(params[:id])
     if current_customer != customer
       redirect_to customer_path(current_customer.id)

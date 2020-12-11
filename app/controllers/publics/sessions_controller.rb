@@ -5,7 +5,7 @@ class Publics::SessionsController < Devise::SessionsController
   layout 'publics/header'
   # before_action :configure_sign_in_params, only: [:create]
 
-  def new_guest
+  def new_guest # ゲストログイン機能
     customer = Customer.guest
     sign_in customer
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'

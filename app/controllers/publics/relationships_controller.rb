@@ -11,12 +11,12 @@ class Publics::RelationshipsController < ApplicationController
     current_customer.unfollow!(@customer)
   end
 
-  def followings
+  def followings # フォロー一覧
     @customer = Customer.find(params[:customer_id])
     @customers = @customer.followings
   end
 
-  def followers
+  def followers # フォロワー一覧
     @customer = Customer.find(params[:customer_id])
     @customers = @customer.followers
   end

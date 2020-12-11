@@ -4,7 +4,7 @@ class Admins::SessionsController < Devise::SessionsController
   layout 'admins/header'
   # before_action :configure_sign_in_params, only: [:create]
 
-  def new_guest
+  def new_guest # ゲストログイン機能
     admin = Admin.guest
     sign_in admin
     redirect_to admins_top_path, notice: 'ゲストユーザーとしてログインしました。'

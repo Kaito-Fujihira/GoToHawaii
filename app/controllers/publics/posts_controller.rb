@@ -17,7 +17,7 @@ class Publics::PostsController < ApplicationController
     @genres= Genre.all
     @comment = Comment.new
     @customer = @post.customer
-    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude # 値がnilの場合は左
+    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude # 値がnilの場合は左側
     @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
     gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
     gon.lng = @lng
@@ -37,7 +37,7 @@ class Publics::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @genres = Genre.all
-    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は左
+    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は左側
     @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
     gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
     gon.lng = @lng
@@ -67,7 +67,7 @@ class Publics::PostsController < ApplicationController
     params.require(:post).permit(:title, :explanation, :image, :genre_id, :customer_id, spot_attributes: [:address])
   end
 
-  def ensure_correct_customer
+  def ensure_correct_customer # 会員権限
      post = Post.find(params[:id])
      if current_customer != post.customer
        redirect_to post_path(post)

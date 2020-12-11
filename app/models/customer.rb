@@ -9,17 +9,17 @@ class Customer < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
-
-  has_many :follower_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  has_many :followers, through: :follower_relationships, source: :follower
-
-  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :followings, through: :relationships, source: :followed
   
   attachment :profile_image
   
   validates :name, {presence: true, length: { maximum: 20 }}
   validates :email, presence: true
+
+  # マッチング機能
+  has_many :follower_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :follower_relationships, source: :follower
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followings, through: :relationships, source: :followed
 
   def following?(customer_id)
     self.followings.include?(customer_id)
@@ -33,6 +33,7 @@ class Customer < ApplicationRecord
     relationships.find_by(followed_id: customer_id).destroy #find_byによって1レコードを特定し、destroyメソッドで削除している。
   end
 
+  # 検索機能
   def Customer.search(search, customer_or_post, how_search)
     if customer_or_post == "1"
       if how_search == "1"
@@ -49,6 +50,7 @@ class Customer < ApplicationRecord
     end
   end
 
+  # ゲストログイン機能
   def self.guest
     find_or_create_by!(name: "ゲストユーザー", email: "guest@guest.com") do |customer|
       customer.password = SecureRandom.urlsafe_base64
@@ -56,6 +58,7 @@ class Customer < ApplicationRecord
     end
   end
 
+  # SNS認証
   def self.without_sns_data(auth)
     customer = Customer.where(email: auth.info.email).first
     if customer.present?
@@ -101,7 +104,8 @@ class Customer < ApplicationRecord
     end
     return { customer: customer,sns: sns}
   end
-
+  
+  # 退会機能
   def active_for_authentication?
     super && (self.is_deleted == "有効" ) #is_deletedがfalse(有効)の場合はログイン可能
   end

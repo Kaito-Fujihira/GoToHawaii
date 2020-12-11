@@ -5,7 +5,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   before_action :check_guest, only: :destroy
   layout 'admins/header'
 
-  def check_guest
+  def check_guest # ゲストログイン機能
     if resource.email == 'admin@example.com'
       redirect_to admins_top_path, alert: 'ゲストユーザーは削除できません。'
     end

@@ -96,7 +96,7 @@ $('.preview_image').on('change', function (e) {
     });
 });
 
-//ページ読み込みアニメーション
+//top画面のページ読み込み中アニメーション
  $(function() {
  var h = $(window).height();
   $('#loading__wrapper').css('display','none');
