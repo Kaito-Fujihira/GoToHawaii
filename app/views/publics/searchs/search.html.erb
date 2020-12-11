@@ -17,7 +17,7 @@
           <% @customers.each do |customer| %>
           <tbody>
             <tr>
-              <td><%= attachment_image_tag(@customer, :profile_image, :fill, 100, 100, size:"50x50", fallback: "no-image.png") %></td>
+              <td><%= attachment_image_tag customer, :profile_image, size:"50x50", fallback: "no-image.png" %></td>
               <td><%= customer.name %></td>
               <td><%= customer.country %></td>
               <td><%= customer.visit_time %></td>
