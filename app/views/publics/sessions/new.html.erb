@@ -22,14 +22,17 @@
         </div>
       
         <div class="sns-login">
+          <p>SNSでログインする</p>
           <%= link_to "", customer_facebook_omniauth_authorize_path, class: "fab fa-facebook-square" %>
           <%= link_to "", customer_google_oauth2_omniauth_authorize_path, class: "fab fa-google" %><br>
         </div>
-      
-        <%= render "publics/shared/links" %>
+        
         <div class="guest-btn">
-        <%= link_to "企業様ログイン(閲覧用)", customers_guest_sign_in_path, method: :post, class: "btn btn-warning btn-lg" %>
+          <%= link_to "ゲストログイン(閲覧用)", customers_guest_sign_in_path, method: :post, class: "btn btn-warning btn-lg" %>
         </div>
+        
+        <div class="login-info">新規登録がまだの方</div>
+        <div><%= link_to "こちら", new_customer_registration_path, class: "btn btn-info" %> から新規登録してください。</div>
         
       <% end %>
     </div>

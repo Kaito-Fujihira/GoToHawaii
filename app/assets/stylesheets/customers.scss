@@ -27,7 +27,7 @@
   margin-bottom: 50px;
 }
 
-.registrations-info {
+.login-info {
   margin-bottom: 12px;
   padding: 15px 0 0px 0;
   font-size: 20px;
@@ -36,6 +36,10 @@
 
 .sns-login {
   font-size: 40px;
+  p {
+    font-size: 15px;
+    margin: 0;
+  }
 }
 
 //sessions-customer
@@ -166,7 +170,7 @@ a.fab.fa-google {
 
 //ゲストログインボタン
 .guest-btn {
-  margin-top: 20px;
+  margin: 20px 0 10px 0;
 }
 
 ///管理者側///

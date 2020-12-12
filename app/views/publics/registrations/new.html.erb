@@ -40,12 +40,17 @@
         </div>
 
         <div class="sns-login">
+          <p>SNSで新規登録する</p>
           <%= link_to "", customer_facebook_omniauth_authorize_path, class: "fab fa-facebook-square" %>
           <%= link_to "", customer_google_oauth2_omniauth_authorize_path, class: "fab fa-google" %><br>
         </div>
+        
+        <div class="guest-btn">
+          <%= link_to "ゲストログイン(閲覧用)", customers_guest_sign_in_path, method: :post, class: "btn btn-warning btn-lg" %>
+        </div>
 
-        <div class="registrations-info">既に登録済みの方</div>
-        <div><%= link_to "こちら", new_customer_session_path, class: "btn btn-info" %>からログインしてください。</div>
+        <div class="login-info">既に登録済みの方</div>
+        <div><%= link_to "こちら", new_customer_session_path, class: "btn btn-info" %> からログインしてください。</div>
       <% end %>
     </div>
   </div>
