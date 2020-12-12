@@ -3,7 +3,7 @@
 class Admins::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_admin!
   before_action :check_guest, only: :destroy
-  layout 'admins/header'
+  layout "admins/header"
 
   def check_guest # ゲストログイン機能
     if resource.email == 'admin@example.com'

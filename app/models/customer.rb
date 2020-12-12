@@ -92,7 +92,6 @@ class Customer < ApplicationRecord
   end
 
   def self.find_oauth(auth)
-    pp auth
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
@@ -105,7 +104,7 @@ class Customer < ApplicationRecord
     end
     { customer: customer, sns: sns }
   end
-
+  
   # 退会機能
   def active_for_authentication?
     super && (is_deleted == "有効") # is_deletedがfalse(有効)の場合はログイン可能

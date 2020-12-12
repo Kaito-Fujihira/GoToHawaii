@@ -1,6 +1,6 @@
 class Publics::SearchsController < ApplicationController
   before_action :authenticate_customer!
-  layout 'publics/header'
+  layout "publics/header"
 
   def search # 検索機能
     @customer_or_post = params[:option]

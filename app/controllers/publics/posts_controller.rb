@@ -1,7 +1,7 @@
 class Publics::PostsController < ApplicationController
   before_action :authenticate_customer!
   before_action :ensure_correct_customer, only: [:edit, :update, :destroy]
-  layout 'publics/header'
+  layout "publics/header"
 
   def new
     @post = Post.new

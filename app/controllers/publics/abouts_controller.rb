@@ -1,6 +1,6 @@
 class Publics::AboutsController < ApplicationController
   before_action :authenticate_customer!
-  layout 'publics/header'
+  layout "publics/header"
 
   def oahu
   end

@@ -2,13 +2,13 @@
 
 class Publics::SessionsController < Devise::SessionsController
   before_action :reject_customer, only: [:create]
-  layout 'publics/header'
+  layout "publics/header"
   # before_action :configure_sign_in_params, only: [:create]
 
   def new_guest # ゲストログイン機能
     customer = Customer.guest
     sign_in customer
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path, notice: "ゲストユーザーとしてログインしました。"
   end
 
   # GET /resource/sign_in
@@ -38,7 +38,7 @@ class Publics::SessionsController < Devise::SessionsController
   def reject_customer
     @customer = Customer.find_by(email: params[:customer][:email].downcase)
     if @customer
-      if @customer.valid_password?(params[:customer][:encrypted_password]) && (@customer.active_for_authentication? == '退会済み')
+      if @customer.valid_password?(params[:customer][:encrypted_password]) && (@customer.active_for_authentication? == "退会済み")
         flash[:error] = "退会済みです。"
         redirect_to new_customer_session_path
       end

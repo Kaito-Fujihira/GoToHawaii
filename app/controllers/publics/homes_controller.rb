@@ -1,5 +1,5 @@
 class Publics::HomesController < ApplicationController
-  layout 'publics/homes-header'
+  layout "publics/homes-header"
 
   def top
     @posts = Post.all.page(params[:page]).per(9).reverse_order

@@ -22,7 +22,7 @@ class Publics::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
       @sns = info[:sns]
-      render template: "publics/registrations/new"
+      render template: "publics/registrations/new", alert: "SNSでEmailが登録されていないので新しく新規登録してください"
     end
   end
 

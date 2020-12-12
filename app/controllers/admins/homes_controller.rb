@@ -1,6 +1,6 @@
 class Admins::HomesController < ApplicationController
   before_action :authenticate_admin!
-  layout 'admins/header'
+  layout "admins/header"
 
   def top
     today_posts = Date.today.beginning_of_day..Date.today.end_of_day

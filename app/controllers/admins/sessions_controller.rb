@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Admins::SessionsController < Devise::SessionsController
-  layout 'admins/header'
+  layout "admins/header"
   # before_action :configure_sign_in_params, only: [:create]
 
   def new_guest # ゲストログイン機能

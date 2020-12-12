@@ -1,6 +1,6 @@
 class Publics::InquiryController < ApplicationController # お問い合わせ用
   before_action :authenticate_customer!
-  layout 'publics/header'
+  layout "publics/header"
 
   def index # フォーム入力画面
     @inquiry = Inquiry.new

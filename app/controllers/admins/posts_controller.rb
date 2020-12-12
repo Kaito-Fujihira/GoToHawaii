@@ -1,6 +1,6 @@
 class Admins::PostsController < ApplicationController
   before_action :authenticate_admin!
-  layout 'admins/header'
+  layout "admins/header"
 
   def index
     if @posts = params[:created_at]

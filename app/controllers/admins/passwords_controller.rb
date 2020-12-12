@@ -2,7 +2,7 @@
 
 class Admins::PasswordsController < Devise::PasswordsController
   before_action :authenticate_admin!
-  layout 'admins/header'
+  layout "admins/header"
   # GET /resource/password/new
   # def new
   #   super

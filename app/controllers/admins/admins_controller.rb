@@ -1,6 +1,6 @@
 class Admins::AdminsController < ApplicationController
   before_action :authenticate_admin!
-  layout 'admins/header'
+  layout "admins/header"
 
   def edit
     @admin = Admin.find(params[:id])
