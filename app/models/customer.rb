@@ -92,6 +92,7 @@ class Customer < ApplicationRecord
   end
 
   def self.find_oauth(auth)
+    pp auth
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
