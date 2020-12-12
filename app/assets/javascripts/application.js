@@ -166,7 +166,6 @@ function codeAddress(){ //コールバック関数
           position: results[0].geometry.location //マーカーを落とす位置を決める
       });
     } else {
-      alert('位置情報を検索してください(任意)');
     }
   });
 };

@@ -21,7 +21,7 @@ class Publics::CustomersController < ApplicationController
     end
   end
 
-  def withdraw #退会用アクション
+  def withdraw # 退会用アクション
     @customer = current_customer
     @customer.update(is_deleted: "退会済み")
     reset_session
@@ -29,6 +29,7 @@ class Publics::CustomersController < ApplicationController
   end
 
   private
+
   def customer_params
     params.require(:customer).permit(:name, :email, :profile_image, :birthday, :country, :visit_time)
   end
@@ -39,5 +40,4 @@ class Publics::CustomersController < ApplicationController
       redirect_to customer_path(current_customer.id)
     end
   end
-
 end

@@ -14,11 +14,11 @@ class Publics::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @genres= Genre.all
+    @genres = Genre.all
     @comment = Comment.new
     @customer = @post.customer
-    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude # 値がnilの場合は左側
-    @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
+    @lat = @post.spot.nil?  ? nil :  @post.spot.latitude # 値がnilの場合は左側
+    @lng = @post.spot.nil?  ? nil :  @post.spot.longitude
     gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
     gon.lng = @lng
   end
@@ -37,16 +37,16 @@ class Publics::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @genres = Genre.all
-    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は左側
-    @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
+    @lat = @post.spot.nil?  ? nil :  @post.spot.latitude # nilの場合は左側
+    @lng = @post.spot.nil?  ? nil :  @post.spot.longitude
     gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
     gon.lng = @lng
   end
 
   def update
     @post = Post.find(params[:id])
-    @lat = (@post.spot.nil?)? nil :  @post.spot.latitude #nilの場合は左
-    @lng = (@post.spot.nil?)? nil :  @post.spot.longitude
+    @lat = @post.spot.nil?  ? nil :  @post.spot.latitude # nilの場合は左
+    @lng = @post.spot.nil?  ? nil :  @post.spot.longitude
     gon.lat = @lat # @latと@lngの変数をJavaScriptでも扱えるように、それぞれgon.latとgon.lngに代入
     gon.lng = @lng
     if @post.update(post_params)
@@ -63,17 +63,15 @@ class Publics::PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :explanation, :image, :genre_id, :customer_id, spot_attributes: [:address])
   end
 
   def ensure_correct_customer # 会員権限
-     post = Post.find(params[:id])
-     if current_customer != post.customer
-       redirect_to post_path(post)
-     end
+    post = Post.find(params[:id])
+    if current_customer != post.customer
+      redirect_to post_path(post)
+    end
   end
-  
 end
-
-

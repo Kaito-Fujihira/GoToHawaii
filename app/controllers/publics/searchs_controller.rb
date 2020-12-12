@@ -11,5 +11,4 @@ class Publics::SearchsController < ApplicationController
       @posts = Post.search(params[:search], @customer_or_post, @how_search).page(params[:page]).per(12).reverse_order
     end
   end
-
 end

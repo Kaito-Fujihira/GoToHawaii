@@ -27,7 +27,7 @@ class Publics::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
-    redirect_to root_path and return
+    redirect_to(root_path) && return
   end
 
   # You should also create an action method in this controller like this:

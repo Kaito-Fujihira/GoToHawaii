@@ -28,8 +28,8 @@ class Admins::CustomersController < ApplicationController
   end
 
   private
+
   def customer_params
     params.require(:customer).permit(:name, :emali, :profile_image, :birthday, :country, :visit_time, :is_deleted)
   end
-
 end

@@ -11,14 +11,15 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     case resource
-      when Admin
-        admins_top_path # admin側
-      when Customer
-        root_path  # customer側
+    when Admin
+      admins_top_path # admin側
+    when Customer
+      root_path # customer側
     end
   end
 
   protected
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :birthday, :visit_time])
   end

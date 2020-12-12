@@ -6,5 +6,4 @@ class Publics::HomesController < ApplicationController
     @customer = current_customer
     @genres = Genre.all
   end
-
 end

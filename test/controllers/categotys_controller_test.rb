@@ -10,5 +10,4 @@ class CategotysControllerTest < ActionDispatch::IntegrationTest
     get categotys_sns_url
     assert_response :success
   end
-
 end

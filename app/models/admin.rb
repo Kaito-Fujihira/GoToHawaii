@@ -10,5 +10,4 @@ class Admin < ApplicationRecord
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
-
 end

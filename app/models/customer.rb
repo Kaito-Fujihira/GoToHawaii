@@ -3,16 +3,16 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable,
-         omniauth_providers: %i[facebook google_oauth2]
+         omniauth_providers: %i(facebook google_oauth2)
 
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
-  
+
   attachment :profile_image
-  
-  validates :name, {presence: true, length: { maximum: 20 }}
+
+  validates :name, { presence: true, length: { maximum: 20 } }
   validates :email, presence: true
 
   # マッチング機能
@@ -22,7 +22,7 @@ class Customer < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
   def following?(customer_id)
-    self.followings.include?(customer_id)
+    followings.include?(customer_id)
   end
 
   def follow(customer_id)
@@ -30,7 +30,7 @@ class Customer < ApplicationRecord
   end
 
   def unfollow!(customer_id)
-    relationships.find_by(followed_id: customer_id).destroy #find_byによって1レコードを特定し、destroyメソッドで削除している。
+    relationships.find_by(followed_id: customer_id).destroy # find_byによって1レコードを特定し、destroyメソッドで削除している。
   end
 
   # 検索機能
@@ -77,18 +77,18 @@ class Customer < ApplicationRecord
         provider: auth.provider
       )
     end
-    return { customer: customer ,sns: sns}
+    { customer: customer, sns: sns }
   end
 
   def self.with_sns_data(auth, snscredential)
     customer = Customer.where(id: snscredential.customer_id).first
-    unless customer.present?
+    if customer.blank?
       customer = Customer.new(
         name: auth.info.name,
         email: auth.info.email,
       )
     end
-    return {customer: customer}
+    { customer: customer }
   end
 
   def self.find_oauth(auth)
@@ -102,31 +102,30 @@ class Customer < ApplicationRecord
       customer = without_sns_data(auth)[:customer]
       sns = without_sns_data(auth)[:sns]
     end
-    return { customer: customer,sns: sns}
+    { customer: customer, sns: sns }
   end
-  
+
   # 退会機能
   def active_for_authentication?
-    super && (self.is_deleted == "有効" ) #is_deletedがfalse(有効)の場合はログイン可能
+    super && (is_deleted == "有効") # is_deletedがfalse(有効)の場合はログイン可能
   end
 
   enum country: {
     日本: 0,
-    ハワイ:1,
+    ハワイ: 1,
     アメリカ本土: 2,
-    その他の国:3
+    その他の国: 3,
   }
 
   enum visit_time: {
     なし: 0,
     １～３回: 1,
     ４～６回: 2,
-    ６回以上: 3
+    ６回以上: 3,
   }
 
   enum is_deleted: {
     有効: false,
-    退会済み: true
+    退会済み: true,
   }
-
 end

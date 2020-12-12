@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'publics/registrations',
     sessions: 'publics/sessions',
     omniauth_callbacks: 'publics/omniauth_callbacks',
-    passwords: 'publics/passwords'
+    passwords: 'publics/passwords',
   }
 
   devise_scope :customer do
@@ -21,15 +21,15 @@ Rails.application.routes.draw do
     get 'question' => 'categorys#question', as: 'question'
     get 'sns' => 'categorys#sns', as: 'sns'
     get 'youtube' => 'categorys#youtube', as: 'youtube'
-    get 'reference_links' => 'categorys#reference_links', as: 'reference_links' #参考資料
-    patch "/customers/withdraw" => "customers#withdraw", as: 'withdraw' #退会ステータス用
-    get 'inquiry' => 'inquiry#index', as: 'inquiry' #お問い合わせ
+    get 'reference_links' => 'categorys#reference_links', as: 'reference_links' # 参考資料
+    patch "/customers/withdraw" => "customers#withdraw", as: 'withdraw' # 退会ステータス用
+    get 'inquiry' => 'inquiry#index', as: 'inquiry' # お問い合わせ
     post 'confirm' => 'inquiry#confirm', as: 'confirm'
     post 'thanks'  => 'inquiry#thanks', as: 'thanks'
     resources :customers, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
-  	  get 'followers' => 'relationships#followers', as: 'followers'
+      get 'followers' => 'relationships#followers', as: 'followers'
     end
     resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
@@ -38,11 +38,10 @@ Rails.application.routes.draw do
     get 'search' => 'searchs#search'
   end
 
-
   devise_for :admins, controllers: {
     registrations: 'admins/registrations',
     sessions: 'admins/sessions',
-    passwords: 'admins/passwords'
+    passwords: 'admins/passwords',
   }
 
   devise_scope :admin do

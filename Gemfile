@@ -56,7 +56,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  #gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
   gem 'webdriver'
   gem 'rspec-rails'
   # gem "factory_bot_rails"
@@ -76,7 +76,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-gem "kaminari","~>1.2.1"
+gem "kaminari", "~>1.2.1"
 gem 'pry-byebug'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'

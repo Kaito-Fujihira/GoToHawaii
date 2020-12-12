@@ -10,8 +10,7 @@ class Publics::CategorysController < ApplicationController
 
   def youtube
   end
-  
+
   def reference_links # 参考資料
   end
-
 end

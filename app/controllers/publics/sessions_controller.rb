@@ -34,10 +34,11 @@ class Publics::SessionsController < Devise::SessionsController
   # end
 
   protected
+
   def reject_customer
     @customer = Customer.find_by(email: params[:customer][:email].downcase)
     if @customer
-      if (@customer.valid_password?(params[:customer][:encrypted_password]) && (@customer.active_for_authentication? == '退会済み'))
+      if @customer.valid_password?(params[:customer][:encrypted_password]) && (@customer.active_for_authentication? == '退会済み')
         flash[:error] = "退会済みです。"
         redirect_to new_customer_session_path
       end

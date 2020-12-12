@@ -5,8 +5,8 @@ class Admins::PostsController < ApplicationController
   def index
     if @posts = params[:created_at]
       today_posts = Date.today.beginning_of_day..Date.today.end_of_day
-		  post = Post.where(created_at: today_posts)
-		  posts = post.all
+      post = Post.where(created_at: today_posts)
+      posts = post.all
     else
       posts = Post.all
     end
@@ -35,8 +35,8 @@ class Admins::PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :explanation, :image, :genre_id, :customer_id)
   end
-
 end

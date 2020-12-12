@@ -1,23 +1,22 @@
 class Publics::AboutsController < ApplicationController
   before_action :authenticate_customer!
   layout 'publics/header'
-  
+
   def oahu
   end
-  
+
   def kauai
   end
-  
+
   def molokai
-  end 
-  
+  end
+
   def maui
-  end 
-  
+  end
+
   def lanai
-  end 
-  
+  end
+
   def hawaii
-  end 
-  
+  end
 end

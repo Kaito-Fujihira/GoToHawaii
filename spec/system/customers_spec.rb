@@ -5,6 +5,7 @@ describe 'カスタマー認証のテスト' do
     before do
       visit new_customer_registration_path
     end
+
     context '新規登録画面に遷移' do
       it '新規登録に成功する' do
         fill_in 'customer[name]', with: Faker::Internet.customername(specifier: 6)
@@ -29,11 +30,14 @@ describe 'カスタマー認証のテスト' do
 
   describe 'カスタマーログイン' do
     let(:customer) { create(:customer) }
+
     before do
       visit new_customer_session_path
     end
+
     context 'ログイン画面に遷移' do
       let(:test_customer) { customer }
+
       it 'ログインに成功する' do
         fill_in 'customer[mail]', with: test_customer.name
         fill_in 'customer[password]', with: test_customer.password
@@ -52,4 +56,3 @@ describe 'カスタマー認証のテスト' do
     end
   end
 end
-
