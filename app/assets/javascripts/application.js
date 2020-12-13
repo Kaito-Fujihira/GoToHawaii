@@ -19,12 +19,12 @@
 //= require_tree .
 
 //画像スライダー
-window.addEventListener('DOMContentLoaded', function() {
-  var swiper03 = new Swiper('.swiper .swiper-container', {
-    pagination: '.swiper-pagination',
+window.addEventListener("DOMContentLoaded", function() {
+  var swiper03 = new Swiper(".swiper .swiper-container", {
+    pagination: ".swiper-pagination",
     paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
+    nextButton: ".swiper-button-next",
+    prevButton: ".swiper-button-prev",
     loop: true,
     slidesPerView: 3,
     speed: 1000,
@@ -41,13 +41,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
 //クリッカブルマップ
 $(function(){
-  $('img[usemap]').rwdImageMaps();
+  $("img[usemap]").rwdImageMaps();
 });
 
 $(function(){
-  $('area').hover(
-   function() { $(this).focus().css('outline','1px solid #fff'); },
-   function() { $(this).blur().css('outline','none'); }
+  $("area").hover(
+   function() { $(this).focus().css("outline","1px solid #fff"); },
+   function() { $(this).blur().css("outline","none"); }
   )
 });
 
@@ -56,23 +56,23 @@ $(function(){
   $('a[href^="#"]').click(function() {
     var speed = 950;
     var href= $(this).attr("href");
-    var target = $(href == "#" || href == "" ? 'html' : href);
+    var target = $(href == "#" || href == "" ? "html" : href);
     var position = target.offset().top;
-    $('body,html').animate({scrollTop:position}, speed, 'swing');
+    $("body,html").animate({scrollTop:position}, speed, "swing");
     return false;
   });
 });
 
 //Q&Aアコーディオン機能
 $(function(){
-  $('.question-list-item').click(function() {
-    var $answer = $(this).find('.answer');
-    if($answer.hasClass('open')) {
-      $answer.removeClass('open');
+  $(".question-list-item").click(function() {
+    var $answer = $(this).find(".answer");
+    if($answer.hasClass("open")) {
+      $answer.removeClass("open");
       $answer.slideUp();
       $(this).find("span").text("＋");
   } else {
-      $answer.addClass('open');
+      $answer.addClass("open");
       $answer.slideDown();
       $(this).find("span").text("ー");
     };
@@ -81,7 +81,7 @@ $(function(){
 
 //画像プレビュー
 $(function() {
-$('.preview_image').on('change', function (e) {
+$(".preview_image").on("change", function (e) {
  	    var previewImage;
  	    if ($(".image")){
  	        previewImage = $(".image");
@@ -90,7 +90,7 @@ $('.preview_image').on('change', function (e) {
  	    }
  		  var reader = new FileReader();
 		  reader.onload = function (e) {
-		  previewImage.attr('src', e.target.result);
+		  previewImage.attr("src", e.target.result);
 		}
   	    reader.readAsDataURL(e.target.files[0]);
     });
@@ -99,24 +99,24 @@ $('.preview_image').on('change', function (e) {
 //top画面のページ読み込み中アニメーション
  $(function() {
  var h = $(window).height();
-  $('#loading__wrapper').css('display','none');
-  $('#is-loading ,#loading').height(h).css('display','block');
+  $("#loading__wrapper").css("display","none");
+  $("#is-loading ,#loading").height(h).css("display","block");
  });
 
  $(window).load(function () {
-  $('#is-loading').delay(1200).fadeOut(1100);
-  $('#loading').delay(900).fadeOut(900);
-  $('#loading__wrapper').css('display', 'block');
+  $("#is-loading").delay(1200).fadeOut(1100);
+  $("#loading").delay(900).fadeOut(900);
+  $("#loading__wrapper").css("display", "block");
  });
 
  $(function(){
-  setTimeout('stopload()',10000);
+  setTimeout("stopload()",10000);
   });
 
   function stopload(){
-   $('#loading__wrapper').css('display','block');
-   $('#is-loading').delay(1200).fadeOut(1100);
-   $('#loading').delay(900).fadeOut(900);
+   $("#loading__wrapper").css("display","block");
+   $("#is-loading").delay(1200).fadeOut(1100);
+   $("#loading").delay(900).fadeOut(900);
  }
 
 //Google Map
@@ -125,23 +125,26 @@ let geocoder;
 
 function initMap(){
   geocoder = new google.maps.Geocoder() //GoogleMapsAPIジオコーディングサービスにアクセス
-  if(document.getElementById('map')){ //'map'というidを取得できたら実行
-    map = new google.maps.Map(document.getElementById('map'), { //'map'というidを取得してマップを表示
+  if(document.getElementById("map")){ //"map"というidを取得できたら実行
+    map = new google.maps.Map(document.getElementById("map"), { //"map"というidを取得してマップを表示
       center: {lat: 21.48980368260301, lng: -157.98798511107822}, //最初に表示する場所
       zoom: 10 //拡大率（1〜21まで設定可能）
   });
-}else if(document.getElementById('edit_map')){ //'map'というidが無かった場合
-    map = new google.maps.Map(document.getElementById('edit_map'), { //'edit_map'というidを取得してマップを表示
+  
+}else if(document.getElementById("edit_map")){ //"map"というidが無かった場合
+    map = new google.maps.Map(document.getElementById("edit_map"), { //"edit_map"というidを取得してマップを表示
       center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
       zoom: 10,
   });
-  $('.search_button').click();
-}else{ //'map, edit_map'というidが無かった場合
-    map = new google.maps.Map(document.getElementById('show_map'), { //'show_map'というidを取得してマップを表示
+  $(".search_button").click();
+  
+}else{ //"map, edit_map"というidが無かった場合
+    map = new google.maps.Map(document.getElementById("show_map"), { //"show_map"というidを取得してマップを表示
       center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
       zoom: 10,
   });
-  $('.search_button').click();
+  $(".search_button").click();
+  
 marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
       position:  {lat: gon.lat, lng: gon.lng}, //マーカーを落とす位置を決める（値はDBに入っている）
       map: map //マーカーを落とすマップを指定
@@ -150,10 +153,10 @@ marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
 }
 
 function codeAddress(){ //コールバック関数
-  let inputAddress = document.getElementById('address').value; //'address'というidの値（value）を取得
+  let inputAddress = document.getElementById("address").value; //"address"というidの値（value）を取得
 
-  geocoder.geocode( { 'address': inputAddress}, function(results, status) { //ジオコードしたい住所を引数として渡す
-    if (status == 'OK') {
+  geocoder.geocode( { "address": inputAddress}, function(results, status) { //ジオコードしたい住所を引数として渡す
+    if (status == "OK") {
       let lat = results[0].geometry.location.lat(); //ジオコードした結果の緯度
       let lng = results[0].geometry.location.lng(); //ジオコードした結果の経度
       let mark = {

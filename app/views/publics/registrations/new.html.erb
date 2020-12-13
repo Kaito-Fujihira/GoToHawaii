@@ -12,7 +12,7 @@
         <dd><%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ハワイ太郎" %></dd>
 
         <dt>メールアドレス<span class="text-danger">*</span></dt>
-        <dd><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under", placeholder: "hawaii@gmail.com" %></dd>
+        <dd><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "hawaii@gmail.com" %></dd>
 
         <dt>お住いの地域<span class="text-danger">*</span></dt>
         <dd>
@@ -30,10 +30,10 @@
         </dd>
 
         <dt>パスワード(6文字以上)<span class="text-danger">*</span></dt>
-        <dd><%= f.password_field :password, autocomplete: "new-password", class: "registations-under" %></dd>
+        <dd><%= f.password_field :password, autocomplete: "new-password" %></dd>
 
         <dt>パスワード(確認用)<span class="text-danger">*</span></dt>
-        <dd><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "registations-under" %></dd>
+        <dd><%= f.password_field :password_confirmation, autocomplete: "new-password" %></dd>
 
         <div class="customer-signup-btn">
           <%= f.submit "新規登録する", class: "btn btn-success btn-lg" %>
