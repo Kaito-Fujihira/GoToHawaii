@@ -16,7 +16,11 @@
         <dd><%= f.text_field :name, autofocus: true, autocomplete: "name" %></dd>
 
         <dt>メールアドレス</dt>
-        <dd><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %></dd>
+        <% if @customer.email == "guest@guest.com" %>
+          <%= @customer.email %>
+        <% else %>
+          <dd><%= f.email_field :email, autofocus: true, autocomplete: "email" %></dd>
+        <% end %>
 
         <dt>お住いの地域</dt>
         <dd>

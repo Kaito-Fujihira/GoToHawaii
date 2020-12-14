@@ -8,6 +8,9 @@ class Admins::CustomersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
+    if @customer == Customer.find_by(email: "guest@guest.com") # ゲストユーザーは編集ページへ遷移させない
+      redirect_to admins_customers_path, alert: "ゲストユーザーのため変更はお控えください。"
+    end 
   end
 
   def update
@@ -32,4 +35,5 @@ class Admins::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:name, :emali, :profile_image, :birthday, :country, :visit_time, :is_deleted)
   end
+  
 end

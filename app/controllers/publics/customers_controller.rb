@@ -14,7 +14,9 @@ class Publics::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(current_customer.id)
-    if @customer.update(customer_params)
+    if @customer == Customer.find_by(email: "guest@guest.com") # ゲストユーザーの場合
+      redirect_to customer_path(@customer), alert: "ゲストユーザーのため退会や変更はお控えください。"
+    elsif @customer.update(customer_params)
       redirect_to customer_path(@customer), notice: "ユーザー情報を更新しました。"
     else
       render :edit
@@ -23,9 +25,13 @@ class Publics::CustomersController < ApplicationController
 
   def withdraw # 退会用アクション
     @customer = current_customer
-    @customer.update(is_deleted: "退会済み")
-    reset_session
-    redirect_to root_path, alert: "退会しました。"
+    if @customer == Customer.find_by(email: "guest@guest.com") # ゲストユーザーの場合
+      redirect_to edit_customer_path(@customer), alert: "ゲストユーザーのため退会や変更はお控えください。"
+    else
+      @customer.update(is_deleted: "退会済み")
+      reset_session
+      redirect_to root_path, alert: "退会しました。"
+    end 
   end
 
   private
