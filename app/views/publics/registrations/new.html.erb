@@ -30,7 +30,8 @@
         </dd>
 
         <dt>パスワード(6文字以上)<span class="text-danger">*</span></dt>
-        <dd><%= f.password_field :password, autocomplete: "new-password" %></dd>
+        <dd>
+          <%= f.password_field :password, autocomplete: "new-password" %></dd>
 
         <dt>パスワード(確認用)<span class="text-danger">*</span></dt>
         <dd><%= f.password_field :password_confirmation, autocomplete: "new-password" %></dd>

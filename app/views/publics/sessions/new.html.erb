@@ -8,13 +8,12 @@
         <div class="mandatory">*は必須項目です</div>
         
         <dt>メールアドレス<span class="text-danger">*</span></dt>
-        <dd>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registations-under" %>
-        </dd>
+        <dd><%= f.email_field :email, autofocus: true, autocomplete: "email" %></dd>
       
         <dt>パスワード(6文字以上)<span class="text-danger">*</span></dt>
         <dd>
-          <%= f.password_field :password, autocomplete: "new-password", class: "registations-under" %>
+          <%= f.password_field :password, autocomplete: "new-password", id: "password" %><br>
+          <%= f.check_box :check, id: "password-check" %> パスワードを表示する
         </dd>
       
         <div class="login-btn">
