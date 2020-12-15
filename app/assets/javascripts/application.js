@@ -81,19 +81,19 @@ $(function(){
 
 //画像プレビュー
 $(function() {
-$(".preview_image").on("change", function (e) {
- 	    var previewImage;
- 	    if ($(".image")){
- 	        previewImage = $(".image");
- 	    }else{
- 	        previewImage = $(".profile_image");
- 	    }
- 		  var reader = new FileReader();
-		  reader.onload = function (e) {
+  $(".preview_image").on("change", function (e) {
+ 	  var previewImage;
+ 	  if ($(".image")){
+ 	      previewImage = $(".image");
+ 	  }else{
+ 	    previewImage = $(".profile_image");
+ 	  }
+ 		var reader = new FileReader();
+		reader.onload = function (e) {
 		  previewImage.attr("src", e.target.result);
 		}
-  	    reader.readAsDataURL(e.target.files[0]);
-    });
+  	reader.readAsDataURL(e.target.files[0]);
+  });
 });
 
 //top画面のページ読み込み中アニメーション
@@ -175,13 +175,13 @@ function codeAddress(){ //コールバック関数
 
 //パスワード可視化
 $(function() {
-const pwd = document.getElementById("password");
- const pwdCheck = document.getElementById("password-check");
- pwdCheck.addEventListener("change", function() {
-     if(pwdCheck.checked) {
-         pwd.setAttribute("type", "text");
-     } else {
-         pwd.setAttribute("type", "password");
-     }
- }, false);
+  const pwd = document.getElementById("password");
+  const pwdCheck = document.getElementById("password-check");
+  pwdCheck.addEventListener("change", function() {
+    if(pwdCheck.checked) {
+      pwd.setAttribute("type", "text");
+    }else{
+      pwd.setAttribute("type", "password");
+    }
+  }, false);
 });

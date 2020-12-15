@@ -3,6 +3,8 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  validates :email, presence: true
 
   def self.guest
     find_or_create_by!(email: "admin@guest.com") do |admin|
