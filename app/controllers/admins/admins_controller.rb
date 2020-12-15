@@ -8,7 +8,9 @@ class Admins::AdminsController < ApplicationController
 
   def update
     @admin = Admin.find(params[:id])
-    if @admin.update(admin_params)
+    if @admin == Admin.find_by(email: "admin@guest.com") # ゲストユーザーの場合
+      redirect_to edit_admins_admin_path(@admin), alert: "ゲストユーザーのため変更はお控えください。"
+    elsif @admin.update(admin_params)
       redirect_to edit_admins_admin_path(@admin), notice: "管理者情報を編集しました。"
     else
       render :edit
