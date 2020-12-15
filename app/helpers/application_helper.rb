@@ -1,6 +1,6 @@
 module ApplicationHelper
   def page_title
-    title = "Go To Hawaii"
+    title = "Go to Hawaii"
     title = @page_title + " - " + title if @page_title
     title
   end
