@@ -53,7 +53,7 @@ Rails.application.routes.draw do
     resources :admins, only: [:edit, :update, :destroy]
     resources :customers, only: [:index, :edit, :update, :destroy]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
-    resources :posts, only: [:index, :edit, :update, :destroy]
+    resources :posts, only: [:index, :show, :edit, :update, :destroy]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

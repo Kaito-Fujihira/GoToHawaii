@@ -12,6 +12,15 @@ class Admins::PostsController < ApplicationController
     end
     @posts = posts.page(params[:page]).per(10).reverse_order
   end
+  
+  def show
+    @post = Post.find(params[:id])
+    # @customer = Customer.find(params[:id])
+    @genres = Genre.all
+    @customer = @post.customer
+    @lat = @post.spot.nil?  ? nil :  @post.spot.latitude # 値がnilの場合は左側
+    @lng = @post.spot.nil?  ? nil :  @post.spot.longitude
+  end 
 
   def edit
     @post = Post.find(params[:id])

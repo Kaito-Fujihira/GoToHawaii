@@ -28,6 +28,10 @@ class Publics::PostsController < ApplicationController
     @post.customer_id = current_customer.id
     @customer = @post.customer
     if @post.save
+      tags = Vision.get_image_data(@post.image)    
+      tags.each do |tag|
+        @post.tags.create(name: tag)
+      end
       redirect_to post_path(@post), notice: "投稿しました！！"
     else
       render :new
