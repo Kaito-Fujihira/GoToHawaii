@@ -25,13 +25,20 @@
         <dt>いいね数</dt>
         <dd><%= @post.favorites.count %> 件</dd>
         
-        <dt>不適切なコンテンツを検出する<span style="color:red;">＊</span></dt>
+        <dt>不適切なコンテンツを検出する<span style="color:red;">*</span></dt>
         <dd>
           <div class="tag-box">
             <% @post.tags.each do |tag| %>
               <span class="label"><%= tag.name %></span>
             <% end %>
           </div>
+        </dd>
+        <dd>
+          <span style="color:red;">*</span>VERY_UNLIKELY = とても可能性が低い
+          <span style="color:red;">*</span>UNLIKELY = 可能性が低い
+          <span style="color:red;">*</span>POSSIBLE = 可能性がありえるかも
+          <span style="color:red;">*</span>LIKELY = 可能性が高い
+          <span style="color:red;">*</span>VERY_LIKELY = とても可能性が高い
         </dd>
     
         <% if @post.spot.address.present? %>
