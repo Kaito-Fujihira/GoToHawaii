@@ -38,9 +38,10 @@ class Admins::PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    @posts = Post.all.page(params[:page]).per(10).reverse_order
-    render :index, notice: "投稿を削除しました。"
+    if @post.destroy
+      @posts = Post.all.page(params[:page]).per(10).reverse_order
+      redirect_to admins_posts_path, notice: "投稿を削除しました。"
+    end
   end
 
   private
