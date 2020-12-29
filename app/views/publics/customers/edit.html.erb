@@ -8,7 +8,7 @@
 
         <dt>プロフィール写真</dt>
         <div class="preview_image">
-          <%= attachment_image_tag(@customer, :profile_image, size:"150x150", fallback: "no-image.png", class: "image") %>
+          <%= attachment_image_tag @customer, :profile_image, size:"150x150", fallback: "no-image.png", class: "image" %>
           <%= f.attachment_field :profile_image, class: "add-img-btn"%>
         </div>
 

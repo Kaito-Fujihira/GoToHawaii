@@ -18,7 +18,7 @@
         <tbody>
           <% @posts.each do |post| %>
           <tr>
-            <td><%= attachment_image_tag(post, :image, size:"100x100", fallback: "no-image.png") %></td>
+            <td><%= attachment_image_tag post, :image, size:"100x100", fallback: "no-image.png"  %></td>
             <td><%= post.title %></td>
             <td><%= post.explanation %></td>
             <td><%= post.genre.name %></td>
