@@ -22,15 +22,10 @@ class Post < ApplicationRecord
     if customer_or_post == "2"
       if how_search == "1"
         Post.where(["title LIKE ?", "%#{search}%"])
-      elsif how_search == "2"
-        Post.where(["title LIKE ?", "%#{search}"])
-      elsif how_search == "3"
-        Post.where(["title LIKE ?", "#{search}%"])
-      elsif how_search == "4"
-        Post.where(["title LIKE ?", "#{search}"])
       else
-        Posts.all
+        Post.all
       end
     end
   end
+  
 end

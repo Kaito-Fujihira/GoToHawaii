@@ -38,14 +38,8 @@ class Customer < ApplicationRecord
     if customer_or_post == "1"
       if how_search == "1"
         Customer.where(["name LIKE ?", "%#{search}%"])
-      elsif how_search == "2"
-        Customer.where(["name LIKE ?", "%#{search}"])
-      elsif how_search == "3"
-        Customer.where(["name LIKE ?", "#{search}%"])
-      elsif how_search == "4"
-        Customer.where(["name LIKE ?", "#{search}"])
       else
-        Customers.all
+        Customer.all
       end
     end
   end
