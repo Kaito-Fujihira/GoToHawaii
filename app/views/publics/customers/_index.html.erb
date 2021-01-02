@@ -1,6 +1,6 @@
 <% if customers.exists? %>
 <div class="follow-index">
-<table class='table'>
+<table class="table">
   <thead>
     <tr>
       <th>プロフィール写真</th>
@@ -19,16 +19,16 @@
         <td id="followings_<%= customer.id %>"><%= customer.followings.count %></td>
         <td id="followers_<%= customer.id %>"><%= customer.followers.count %></td>
         <td id="follow_<%= customer.id %>">
-          <%= render 'publics/relationships/follow_form', customer: customer %>
+          <%= render "publics/relationships/follow_form", customer: customer %>
         </td>
-        <td><%= link_to '詳細をみる', customer_path(customer), class: "btn btn-success" %></td>
+        <td><%= link_to "詳細をみる", customer_path(customer), class: "btn btn-success" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
 <% else %>
-<table class='table'>
+<table class="table">
   <thead>
     <tr>
       <th>プロフィール写真</th>
