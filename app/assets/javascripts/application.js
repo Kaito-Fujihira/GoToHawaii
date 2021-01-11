@@ -174,9 +174,10 @@ function codeAddress(){ //コールバック関数
 };
 
 //パスワード可視化
-$(function() {
+document.addEventListener("DOMContentLoaded", function(){
   const pwd = document.getElementById("password");
   const pwdCheck = document.getElementById("password-check");
+  if (!pwdCheck){ return false;}
   pwdCheck.addEventListener("change", function() {
     if(pwdCheck.checked) {
       pwd.setAttribute("type", "text");
