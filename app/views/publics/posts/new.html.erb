@@ -23,13 +23,13 @@
           <dt>ジャンル</dt>
           <dd><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: "form-control") %></dd>
   
-          <spot>
+          <dd>
             <%= f.fields_for :spot do |spot| %>
-            <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot_title" %>
-            <%= spot.text_field :address, placeholder: "スポットを入力(任意)", id: "address", class: "spot_text" %>
-            <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
+              <%= spot.label :address, "レビュー場所(Google Mapで検索)", class: "spot_title" %>
+              <%= spot.text_field :address, placeholder: "スポットを入力(任意)", id: "address", class: "spot_text" %>
+              <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
             <% end %>
-          </spot>
+          </dd>
           <div id="map"></div>
   
           <div class="new-posts-btn"><%= f.submit "新規投稿する", class: "btn btn-success btn-lg" %></div>
