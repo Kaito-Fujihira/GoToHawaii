@@ -39,7 +39,7 @@
           <div class="seach-tag">
             <%= form_with url: search_path, method: :get, local: true do |f| %>
               <%= f.text_field :search, placeholder: "フリーワード検索" %>
-              <%= select_tag(:option, options_for_select([["会員検索", "1"],["投稿検索","2"]]))%>
+              <%= select_tag(:option, options_for_select([["会員検索", "1"],["投稿検索","2"]])) %>
               <%= f.hidden_field :choice, value: "1" %>
               <%= f.submit "検索", class: "btn btn-light btn-sm" %>
             <% end %>
