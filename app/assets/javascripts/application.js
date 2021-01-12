@@ -84,7 +84,7 @@ $(function() {
   $(".preview_image").on("change", function (e) {
  	  var previewImage;
  	  if ($(".image")){
- 	      previewImage = $(".image");
+ 	    previewImage = $(".image");
  	  }else{
  	    previewImage = $(".profile_image");
  	  }
@@ -97,27 +97,27 @@ $(function() {
 });
 
 //top画面のページ読み込み中アニメーション
- $(function() {
- var h = $(window).height();
+$(function() {
+  var h = $(window).height();
   $("#loading__wrapper").css("display","none");
   $("#is-loading ,#loading").height(h).css("display","block");
- });
+});
 
- $(window).load(function () {
+$(window).load(function () {
   $("#is-loading").delay(1200).fadeOut(1100);
   $("#loading").delay(900).fadeOut(900);
   $("#loading__wrapper").css("display", "block");
- });
+});
 
- $(function(){
+$(function(){
   setTimeout("stopload()",10000);
-  });
+});
 
-  function stopload(){
-   $("#loading__wrapper").css("display","block");
-   $("#is-loading").delay(1200).fadeOut(1100);
-   $("#loading").delay(900).fadeOut(900);
- }
+function stopload(){
+  $("#loading__wrapper").css("display","block");
+  $("#is-loading").delay(1200).fadeOut(1100);
+  $("#loading").delay(900).fadeOut(900);
+}
 
 //Google Map
 let map;
@@ -131,21 +131,21 @@ function initMap(){
       zoom: 10 //拡大率（1〜21まで設定可能）
   });
   
-}else if(document.getElementById("edit_map")){ //"map"というidが無かった場合
+  }else if(document.getElementById("edit_map")){ //"map"というidが無かった場合
     map = new google.maps.Map(document.getElementById("edit_map"), { //"edit_map"というidを取得してマップを表示
       center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
       zoom: 10,
   });
   $(".search_button").click();
   
-}else{ //"map, edit_map"というidが無かった場合
+  }else{ //"map, edit_map"というidが無かった場合
     map = new google.maps.Map(document.getElementById("show_map"), { //"show_map"というidを取得してマップを表示
       center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
       zoom: 10,
   });
   $(".search_button").click();
   
-marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
+  marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
       position:  {lat: gon.lat, lng: gon.lng}, //マーカーを落とす位置を決める（値はDBに入っている）
       map: map //マーカーを落とすマップを指定
     });
@@ -160,18 +160,18 @@ function codeAddress(){ //コールバック関数
       let lat = results[0].geometry.location.lat(); //ジオコードした結果の緯度
       let lng = results[0].geometry.location.lng(); //ジオコードした結果の経度
       let mark = {
-          lat: lat, //緯度
-          lng: lng  //経度
+        lat: lat, //緯度
+        lng: lng  //経度
       };
       map.setCenter(results[0].geometry.location); //最も近い、判読可能な住所を取得したい場所の緯度・経度
       let marker = new google.maps.Marker({
-          map: map, //マーカーを落とすマップを指定
-          position: results[0].geometry.location //マーカーを落とす位置を決める
+        map: map, //マーカーを落とすマップを指定
+        position: results[0].geometry.location //マーカーを落とす位置を決める
       });
-    } else {
+    }else{
     }
   });
-};
+}
 
 //パスワード可視化
 document.addEventListener("DOMContentLoaded", function(){
