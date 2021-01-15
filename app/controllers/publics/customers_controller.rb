@@ -14,11 +14,10 @@ class Publics::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(current_customer.id)
-    if #@customer == Customer.find_by(email: "guest@guest.com") # ゲストユーザーの場合
-      #redirect_to customer_path(@customer), alert: "ゲストユーザーのため退会や変更はお控えください。"
-    #elsif
-    @customer.update(customer_params)
-    redirect_to customer_path(@customer), notice: "ユーザー情報を更新しました。"
+    if @customer == Customer.find_by(email: "guest@guest.com") # ゲストユーザーの場合
+      redirect_to customer_path(@customer), alert: "ゲストユーザーのため退会や変更はお控えください。"
+    elsif @customer.update(customer_params)
+      redirect_to customer_path(@customer), notice: "ユーザー情報を更新しました。"
     else
       render :edit
     end
