@@ -1,5 +1,7 @@
 # Go to Hawaii
 
+![gif](https://user-images.githubusercontent.com/69977425/105278302-7f3a4e80-5be8-11eb-93a7-3bfa4ea8c151.gif)
+
 ## サイト概要
 _ハワイ情報共有サイト_
 
